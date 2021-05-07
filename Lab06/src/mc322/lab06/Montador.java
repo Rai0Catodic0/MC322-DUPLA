@@ -24,22 +24,25 @@ public class Montador {
         System.out.println(commands[0][1]+"aaaaaaaa");
         if(commands[0][1].equals("P")) {
             for (int i = 0; i < 16; i++) {
-                switch (commands[i][1]) {
-                    case "P":
+                    if(commands[i][1].equals("P")){
                         countHeroi++;
-                        break;
-                    case "O":
+                    }
+                    else if(commands[i][1].equals("O")){
+                        System.out.println("hehehehehh");
                         countOuro++;
-                        break;
-                    case "W":
+                    }
+                    else if(commands[i][1].equals("W")){
                         countMonstro++;
-                        break;
-                    case "k":
+                    }
+                    else if(commands[i][1].equals("B")){
                         countBuraco++;
-                        break;
-                }
-                if (countMonstro != 1 || countHeroi != 1 || countOuro != 1 || (countBuraco < 2 && countBuraco > 3)) {
+                    }
+                if (countMonstro > 1 || countHeroi > 1 || countOuro > 1 || countBuraco > 3) {
                     System.out.println("Construção de jogo inválida");
+                    System.out.println(countHeroi);
+                    System.out.println(countMonstro);
+                    System.out.println(countOuro);
+                    System.out.println(countBuraco);
                     break;
                 }
             }
