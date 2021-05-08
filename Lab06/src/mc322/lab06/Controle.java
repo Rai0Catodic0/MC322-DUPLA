@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Controle {
 
-    Heroi heroi;       //ponteiro do heroi que será controlado
+    Heroi heroi = null;      //ponteiro do heroi que será controlado
     int pontuacao = 0;
     String jogador;
 

@@ -6,6 +6,6 @@ public class AppMundoWumpus {
         Montador versao1 = new Montador();
         Heroi heroi = versao1.MontaJogo();
         Controle controle1 = new Controle(heroi);
-        Controle.IniciaJogo();
+        controle1.IniciarJogo();
     }
 }

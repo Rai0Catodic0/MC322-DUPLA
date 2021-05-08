@@ -8,6 +8,7 @@ public class Montador {
     CSVHandling csv;
     String caminho;
     int countBuraco = 0;
+    Caverna caverna = null;
 
     Montador(){
         //Scanner Keyboard = new Scanner(System.in);
@@ -82,28 +83,24 @@ public class Montador {
         }
     }
 
-    private void CriarCaverna(Heroi heroi, Ouro ouro, Monstro wunpus, Buraco buraco1, Buraco buraco2, Buraco buraco3){
-        caverna = new Caverna(heroi, ouro, wunpus,buraco1, buraco2, buraco3);
-    }
-
     public Heroi MontaJogo(){
         int posicoes[] =  ValidaEntradaCSV();
         if(posicoes[0]!=-1){
             System.out.println("Entrada válida, vamos montar o jogo!");
-            Heroi heroi = new Heroi(0,0);
-            Ouro ouro = new Ouro(posicoes[0], posicoes[1]);
-            Monstro wunpus = new Monstro(posicoes[2], posicoes[3]);
+            caverna = new Caverna();
+            Heroi heroi = new Heroi(caverna);
+            Ouro ouro = new Ouro(posicoes[0], posicoes[1],caverna);
+            Wunpus wunpus = new Wunpus(posicoes[2], posicoes[3],caverna);
             Buraco buraco1 = null;
             Buraco buraco2 = null;
             Buraco buraco3 = null;
             if(countBuraco<3){
-                buraco1 = new Buraco(posicoes[4], posicoes[5]);
-                buraco2 = new Buraco(posicoes[6], posicoes[7]);
+                buraco1 = new Buraco(posicoes[4], posicoes[5],caverna);
+                buraco2 = new Buraco(posicoes[6], posicoes[7],caverna);
             }
             if(countBuraco == 3){
-                buraco3 = new Buraco(posicoes[8], posicoes[9]);
+                buraco3 = new Buraco(posicoes[8], posicoes[9],caverna);
             }
-            CriarCaverna(heroi, ouro, wunpus,buraco1, buraco2, buraco3);
             return heroi; //para mandar esse ponteiro para controlador
         } else {
             System.out.println("Montagem inicial de jogo inválida");
