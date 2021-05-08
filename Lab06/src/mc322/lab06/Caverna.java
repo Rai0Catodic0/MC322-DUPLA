@@ -10,11 +10,17 @@ public class Caverna {
     Buraco buraco3 = null;
 
     public String apresenta(){
+        char saida[] = new char[20];
+        int k = 0;
         for(int i = 0; i<4; i++){
             for(int j = 0; j<4; j++){
-                if(salas[i][j].representacao == 'p')
+                saida[k]= salas[i][j].representacao;
+                k++;
             }
+            saida[k] = '\n';
+            k++;
         }
+        return  new String(saida);
     }
 
     public void setHeroi(Heroi heroi){
