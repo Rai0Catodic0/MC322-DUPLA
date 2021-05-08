@@ -8,36 +8,38 @@ public class Controle {
     int pontuacao = 0;
     String jogador;
 
-    Controle( Heroi heroi){
-        this.heroi = heroi;                                //recebe ponteiro para herói no construtor
-        Scanner Keyboard = new Scanner(System.in);
-        jogador = Keyboard.nextLine();
+    Controle(Heroi heroi){
+        this.heroi = heroi;
+    }
+
+    public void setJogador(String jogador){
+        this.jogador = jogador;
     }
 
     public void IniciarJogo(){
+        String movimento = null;
         if(heroi != null){       //exige heroi instanciado
-            String movimento;
             while(heroi.noJogo){
                 Scanner Keyboard = new Scanner(System.in);
                 movimento = Keyboard.nextLine();
                 switch (movimento){
                     case "w":
-                        Heroi.MoverParaCima();
+                        //Heroi.MoverParaCima();
                         break;
                     case "s":
-                        Heroi.MoverParaBaixo();
+                        //Heroi.MoverParaBaixo();
                         break;
                     case "d":
-                        Heroi.MoverParaDireita();
+                        //Heroi.MoverParaDireita();
                         break;
                     case "k":
-                        Heroi.AtivarFlecha();
+                        //Heroi.AtivarFlecha();
                         break;
                     case "c":
-                        Heroi.CapturarOuro();
+                        //Heroi.CapturarOuro();
                         break;
                     case "q":
-                        Heroi.Sair();
+                        //Heroi.Sair();
                         break;
                 }
                 heroi.caverna.apresenta();

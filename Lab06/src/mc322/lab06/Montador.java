@@ -83,7 +83,7 @@ public class Montador {
         }
     }
 
-    public Heroi MontaJogo(){
+    public Heroi MontarJogo(){
         int posicoes[] =  ValidaEntradaCSV();
         if(posicoes[0]!=-1){
             System.out.println("Entrada válida, vamos montar o jogo!");
@@ -103,6 +103,10 @@ public class Montador {
                 buraco3 = new Buraco(posicoes[8], posicoes[9],caverna);
                 caverna.setBuraco(buraco1, buraco2, buraco3);
             }
+            caverna.setHeroi(heroi);
+            caverna.setOuro(ouro);
+            caverna.setWunpus(wunpus);
+
             return heroi; //para mandar esse ponteiro para controlador
         } else {
             System.out.println("Montagem inicial de jogo inválida");
