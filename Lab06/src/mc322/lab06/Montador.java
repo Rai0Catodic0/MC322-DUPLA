@@ -97,9 +97,11 @@ public class Montador {
             if(countBuraco<3){
                 buraco1 = new Buraco(posicoes[4], posicoes[5],caverna);
                 buraco2 = new Buraco(posicoes[6], posicoes[7],caverna);
+                caverna.setBuraco(buraco1, buraco2);
             }
             if(countBuraco == 3){
                 buraco3 = new Buraco(posicoes[8], posicoes[9],caverna);
+                caverna.setBuraco(buraco1, buraco2, buraco3);
             }
             return heroi; //para mandar esse ponteiro para controlador
         } else {
