@@ -15,5 +15,6 @@ public class Heroi extends Componente{
         this.noJogo = true;
         this.armado = false;
         this.vitoria = false;
+        this.caverna.Inserir(x,y,this);
     }
 }

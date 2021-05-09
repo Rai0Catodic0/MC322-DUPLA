@@ -4,6 +4,7 @@ public class Buraco  extends  Componente{
     Buraco(int x, int y, Caverna caverna){
         super(x, y, caverna);
         criaBriza();
+        this.caverna.Inserir(x,y,this);
     }
     public void criaBriza(){
         if(x==0){

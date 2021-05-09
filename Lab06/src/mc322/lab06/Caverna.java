@@ -9,6 +9,14 @@ public class Caverna {
     Buraco buraco2 = null;
     Buraco buraco3 = null;
 
+    Caverna(){
+        for(int i = 0; i<4; i++){
+            for(int j = 0; j<4; j++){
+                salas[i][j] = new Salas(null, null, null, null);
+            }
+        }
+    }
+
     public String apresenta(){
         char saida[] = new char[20];
         int k = 0;
@@ -23,27 +31,28 @@ public class Caverna {
         return  new String(saida);
     }
 
-    public void setHeroi(Heroi heroi){
-        this.heroi = heroi;
+    public void Inserir(int x, int y, Buraco buraco){
+        salas[x][y].Inserir(buraco);
     }
 
-    public void setWunpus(Wunpus wupus){
-        this.wunpus = wunpus;
+    public void Inserir(int x, int y, Heroi heroi){
+        salas[x][y].Inserir(heroi);
     }
 
-    public void setOuro(Ouro ouro){
-        this.ouro = ouro;
+    public void Inserir(int x, int y, Wunpus wunpus){
+        salas[x][y].Inserir(wunpus);
     }
 
-    public void setBuraco(Buraco buraco1, Buraco buraco2){
-        this.buraco1 = buraco1;
-        this.buraco2 = buraco2;
+    public void Inserir(int x, int y, Ouro ouro){
+        salas[x][y].Inserir(ouro);
     }
 
-    public void setBuraco(Buraco buraco1, Buraco buraco2, Buraco buraco3){
-        this.buraco1 = buraco1;
-        this.buraco1 = buraco1;
-        this.buraco1 = buraco1;
+    public void Inserir(int x, int y, Brisa brisa){
+        salas[x][y].Inserir(brisa);
+    }
+
+    public void Inserir(int x, int y, Fedor fedor){
+        salas[x][y].Inserir(fedor);
     }
 
 }
