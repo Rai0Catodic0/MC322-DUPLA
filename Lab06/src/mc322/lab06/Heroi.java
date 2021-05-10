@@ -14,6 +14,10 @@ public class Heroi extends Componente{
         this.ouro = false;
         this.noJogo = true;
         this.armado = false;
+<<<<<<< HEAD
         this.vitoria = false;
+=======
+        caverna.salas[x][y].heroi = this;
+>>>>>>> caverna
     }
 }
