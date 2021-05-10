@@ -11,9 +11,7 @@ public class Buraco  extends  Componente{
             if(y==0){
                 Brisa b1 = new Brisa(0,1, caverna);
                 Brisa b2 = new Brisa(1,0,caverna);
-                caverna.salas[b1.x][b1.y].brisa = b1;
-                caverna.salas[b2.x][b2.y].brisa = b2;
-
+                //aqui ou na brisa ???????
             }
             else if(y==3){
                 Brisa b1 = new Brisa(0,2, caverna);

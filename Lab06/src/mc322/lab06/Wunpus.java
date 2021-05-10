@@ -5,5 +5,6 @@ public class Wunpus extends Componente{
     Wunpus(int x, int y, Caverna caverna) {
         super(x, y, caverna);
         vivo = true;
+        caverna.salas[x][y].wunpus = this;
     }
 }
