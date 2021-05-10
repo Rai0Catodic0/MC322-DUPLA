@@ -8,5 +8,6 @@ public class Ouro {
         this.x = x;
         this.y = y;
         this.caverna = caverna;
+        this.caverna.Inserir(x,y,this);
     }
 }
