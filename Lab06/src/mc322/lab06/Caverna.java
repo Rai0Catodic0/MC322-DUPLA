@@ -32,27 +32,27 @@ public class Caverna {
     }
 
     public void Inserir(int x, int y, Buraco buraco){
-        salas[x][y].Inserir(buraco);
+        salas[y][x].Inserir(buraco);
     }
 
     public void Inserir(int x, int y, Heroi heroi){
-        salas[x][y].Inserir(heroi);
+        salas[y][x].Inserir(heroi);
     }
 
     public void Inserir(int x, int y, Wunpus wunpus){
-        salas[x][y].Inserir(wunpus);
+        salas[y][x].Inserir(wunpus);
     }
 
     public void Inserir(int x, int y, Ouro ouro){
-        salas[x][y].Inserir(ouro);
+        salas[y][x].Inserir(ouro);
     }
 
     public void Inserir(int x, int y, Brisa brisa){
-        salas[x][y].Inserir(brisa);
+        salas[y][x].Inserir(brisa);
     }
 
     public void Inserir(int x, int y, Fedor fedor){
-        salas[x][y].Inserir(fedor);
+        salas[y][x].Inserir(fedor);
     }
 
 }
