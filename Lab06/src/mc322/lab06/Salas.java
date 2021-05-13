@@ -18,15 +18,22 @@ public class Salas {
 
     private void setEstado(){
         if(this.wunpus!=null){
-            representacao = 'P';
+            representacao = 'W';
         } else if(this.ouro!=null){
             representacao = 'O';
         } else if(this.buraco != null){
             representacao='B';
-        } else if(this.fedor != null) {
-            representacao = 'f';
-        } else if(this.brisa != null){
-            representacao = 'b';
+        } else {
+            if (this.heroi != null) {
+                representacao = 'P';
+            }
+            else {
+                if (this.fedor != null) {
+                    representacao = 'f';
+                } else{
+                    representacao = 'b';
+                }
+            }
         }
     }
 
