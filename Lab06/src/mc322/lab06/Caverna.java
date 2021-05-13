@@ -22,7 +22,11 @@ public class Caverna {
         int k = 0;
         for(int i = 0; i<4; i++){
             for(int j = 0; j<4; j++){
-                saida[k]= salas[i][j].representacao;
+                if(salas[i][j].visitada) {
+                    saida[k] = salas[i][j].representacao;
+                } else {
+                    saida[k] = '-';
+                }
                 k++;
             }
             saida[k] = '\n';

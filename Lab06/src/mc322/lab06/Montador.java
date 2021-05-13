@@ -13,7 +13,7 @@ public class Montador {
     Montador(){
         //Scanner Keyboard = new Scanner(System.in);
         //caminho = Keyboard.nextLine();
-        caminho = "/home/gabriel/IdeaProjects/MC322-DUPLA/Lab06/src/mc322/db/teste01.csv";
+        caminho = "/home/jessica/MC322-DUPLA/Lab06/src/mc322/db/teste01.csv";
         csv = new CSVHandling();
         csv.setDataSource(caminho);
         commands = csv.requestCommands();
@@ -38,7 +38,6 @@ public class Montador {
                     countHeroi++;
                 }
                 else if(commands[i][1].equals("O")){
-                    System.out.println("hehehehehh");
                     countOuro++;
                     posicoes[0] = StringParaNumero(commands[i][0].charAt(0));
                     posicoes[1] = StringParaNumero(commands[i][0].charAt(2));
@@ -50,23 +49,23 @@ public class Montador {
                 }
                 else if(commands[i][1].equals("B")){
                     countBuraco++;
-                    if(countBuraco<4){
-                        posicoes[3+countBuraco] = StringParaNumero(commands[i][0].charAt(0));
-                        posicoes[4+countBuraco] = StringParaNumero(commands[i][0].charAt(2));
+                    if(countBuraco==1){
+                        posicoes[4] = StringParaNumero(commands[i][0].charAt(0));
+                        posicoes[5] = StringParaNumero(commands[i][0].charAt(2));
+                    } else if (countBuraco==2){
+                        posicoes[6] = StringParaNumero(commands[i][0].charAt(0));
+                        posicoes[7] = StringParaNumero(commands[i][0].charAt(2));
+                    } else if (countBuraco==3){
+                        posicoes[8] = StringParaNumero(commands[i][0].charAt(0));
+                        posicoes[9] = StringParaNumero(commands[i][0].charAt(2));
                     }
 
                 }
                 if (countMonstro > 1 || countHeroi > 1 || countOuro > 1 || countBuraco > 3) { //valida se estoura o numero maximo
-                    //System.out.println("Construção de jogo inválida");
-                    //System.out.println(countHeroi);
-                    //System.out.println(countMonstro);
-                    //System.out.println(countOuro);
-                    //System.out.println(countBuraco);
                     ehValido = false;
                 }
             }
         } else {
-            //System.out.println("Herói não inicia na sala correta!"+commands[0][1]);
             ehValido = false;
         }
 
@@ -86,7 +85,6 @@ public class Montador {
     public Heroi MontarJogo(){
         int posicoes[] =  ValidaEntradaCSV();
         if(posicoes[0]!=-1){
-            System.out.println("Entrada válida, vamos montar o jogo!");
             caverna = new Caverna();
             Heroi heroi = new Heroi(caverna);
             Ouro ouro = new Ouro(posicoes[0], posicoes[1],caverna);
@@ -103,7 +101,6 @@ public class Montador {
             }
             return heroi; //para mandar esse ponteiro para controlador
         } else {
-            System.out.println("Montagem inicial de jogo inválida");
             return null;
         }
     }

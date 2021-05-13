@@ -7,6 +7,8 @@ public class Salas {
     Fedor fedor;
     Buraco buraco;
     Ouro ouro;
+    boolean visitada;
+
     char representacao;
     public Salas(Wunpus wunpus, Heroi heroi, Brisa brisa, Buraco buraco){ // adicionar odor e ouro
         this.wunpus = wunpus;
@@ -14,6 +16,7 @@ public class Salas {
         this.brisa = brisa;
         this.buraco = buraco;
         this.representacao = '-';
+        visitada = false;
     }
 
     private void setEstado(){
@@ -49,6 +52,7 @@ public class Salas {
     public boolean Inserir(Heroi heroi){
        this.heroi = heroi;
        setEstado();
+       this.visitada = true;
        return true;
     }
 
