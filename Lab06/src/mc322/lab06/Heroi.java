@@ -16,6 +16,17 @@ public class Heroi extends Componente{
         this.noJogo = true;
         this.armado = false;
         caverna.Inserir(x,y,this);
-
+    }
+    public Salas mover(int x,int y){
+        if(x<0 || x>3 || y<0 || y>3) {
+            return null;
+        }
+        int xAnterior = this.x;
+        int yAnterior = this.y;
+        this.x = x;
+        this.y = y;
+        caverna.Inserir(x,y, this);
+        caverna.salas[yAnterior][xAnterior].Remover(this);
+        return  caverna.salas[this.y][this.x];
     }
 }
