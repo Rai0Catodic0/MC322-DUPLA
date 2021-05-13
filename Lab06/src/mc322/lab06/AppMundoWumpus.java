@@ -7,6 +7,7 @@ public class AppMundoWumpus {
         Heroi heroi = versao1.MontarJogo();
         Controle controle = new Controle(heroi);
         System.out.print(heroi.caverna.apresenta());
+
         System.out.println("heroi "+heroi.caverna.salas[0][0].heroi);
         System.out.println("heroi "+heroi.caverna.salas[0][0].representacao);
     }
