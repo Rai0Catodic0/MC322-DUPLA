@@ -22,11 +22,12 @@ public class Caverna {
         int k = 0;
         for(int i = 0; i<4; i++){
             for(int j = 0; j<4; j++){
-                if(salas[i][j].visitada) {
-                    saida[k] = salas[i][j].representacao;
-                } else {
-                    saida[k] = '-';
-                }
+               // if(salas[i][j].visitada) {
+                 //   saida[k] = salas[i][j].representacao;
+               // } else {
+                //    saida[k] = '-';
+              //  }
+                saida[k] = salas[i][j].representacao;
                 k++;
             }
             saida[k] = '\n';
@@ -36,27 +37,27 @@ public class Caverna {
     }
 
     public void Inserir(int x, int y, Buraco buraco){
-        salas[y][x].Inserir(buraco);
+        salas[x][y].Inserir(buraco);
     }
 
     public void Inserir(int x, int y, Heroi heroi){
-        salas[y][x].Inserir(heroi);
+        salas[x][y].Inserir(heroi);
     }
 
     public void Inserir(int x, int y, Wunpus wunpus){
-        salas[y][x].Inserir(wunpus);
+        salas[x][y].Inserir(wunpus);
     }
 
     public void Inserir(int x, int y, Ouro ouro){
-        salas[y][x].Inserir(ouro);
+        salas[x][y].Inserir(ouro);
     }
 
     public void Inserir(int x, int y, Brisa brisa){
-        salas[y][x].Inserir(brisa);
+        salas[x][y].Inserir(brisa);
     }
 
     public void Inserir(int x, int y, Fedor fedor){
-        salas[y][x].Inserir(fedor);
+        salas[x][y].Inserir(fedor);
     }
 
 }

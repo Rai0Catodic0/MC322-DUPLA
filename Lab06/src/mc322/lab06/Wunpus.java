@@ -10,59 +10,21 @@ public class Wunpus extends Componente {
         caverna.Inserir(this.x, this.y , this);
     }
     public void criarFedor(){
-        if(x==0){
-            if(y==0){
-                Fedor f1 = new Fedor(this.x+1,this.y,caverna);
-                Fedor f2 = new Fedor(this.x,this.y+1,caverna);
-                caverna.Inserir(f1.x, f1.y, f1);
-                caverna.Inserir(f2.x, f2.y, f2);
-            }
-            else if(y==3){
-                Fedor f1 = new Fedor(this.x,this.y-1,caverna);
-                Fedor f2 = new Fedor(this.x+1,this.y,caverna);
-                caverna.Inserir(f1.x, f1.y,  f1);
-                caverna.Inserir(f2.x, f2.y, f2);
-
-            }
+        int esq = x-1;
+        int dir = x+1;
+        int cima = y-1;
+        int baixo = y+1;
+        if(esq>-1 && esq < 4){
+            Fedor f1 = new Fedor(esq,y, caverna);
         }
-        else if(x==3){
-            if(y==0){
-                Fedor f1 = new Fedor(this.x-1,this.y,caverna);
-                Fedor f2 = new Fedor(this.x,this.y+1,caverna);
-                caverna.Inserir(f1.x, f1.y,  f1);
-                caverna.Inserir(f2.x, f2.y, f2);
-            }
-            else if(y==3){
-                Fedor f1 = new Fedor(this.x,this.y-1, caverna);
-                Fedor f2 = new Fedor(this.x-1, this.y, caverna);
-                caverna.Inserir(f1.x,f1.y,f1);
-                caverna.Inserir(f2.x, f2.y, f2);
-            }
-        }        else if(y==0){
-            Fedor f1 = new Fedor(this.x-1, this.y, caverna);
-            Fedor f2 = new Fedor(this.x, this.y+1, caverna);
-            Fedor f3 = new Fedor(this.x+1, this.y, caverna);
-            caverna.Inserir(f1.x, f1.y, f1);
-            caverna.Inserir(f2.x, f2.y, f2);
-            caverna.Inserir(f3.x, f3.y, f3);
+        if(dir>-1 && dir < 4){
+            Fedor f2 = new Fedor(dir,y,caverna);
         }
-        else if(y==3){
-            Fedor f1 = new Fedor(this.x-1, this.y, caverna);
-            Fedor f2 = new Fedor(this.x, this.y-1, caverna);
-            Fedor f3 = new Fedor(this.x+1, this.y, caverna);
-            caverna.Inserir(f1.x, f1.y, f1);
-            caverna.Inserir(f2.x, f2.y, f2);
-            caverna.Inserir(f3.x, f3.y, f3);
+        if(cima>-1 && cima < 4){
+            Fedor f3 = new Fedor(x,cima,caverna);
         }
-        else{
-            Fedor f1 = new Fedor(this.x-1, this.y, caverna);
-            Fedor f2 = new Fedor(this.x, this.y-1, caverna);
-            Fedor f3 = new Fedor(this.x+1, this.y, caverna);
-            Fedor f4 = new Fedor(this.x, this.y+1, caverna);
-            caverna.Inserir(f1.x, f1.y, f1);
-            caverna.Inserir(f2.x, f2.y, f2);
-            caverna.Inserir(f3.x, f3.y, f3);
-            caverna.Inserir(f4.x, f4.y, f4);
+        if(baixo>-1 && baixo<4){
+            Fedor f4 = new Fedor(x,baixo,caverna);
         }
     }
 }

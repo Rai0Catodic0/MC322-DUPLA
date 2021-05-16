@@ -18,15 +18,19 @@ public class Heroi extends Componente{
         caverna.Inserir(x,y,this);
     }
     public Salas mover(int x,int y){
+        System.out.println(x+" "+y);
         if(x<0 || x>3 || y<0 || y>3) {
+            System.out.println("fora da borda");
+            System.out.println("x"+x);
+            System.out.println("y"+y);
             return null;
         }
         int xAnterior = this.x;
         int yAnterior = this.y;
         this.x = x;
         this.y = y;
-        caverna.Inserir(x,y, this);
+        caverna.Inserir(y,x, this);
         caverna.salas[yAnterior][xAnterior].Remover(this);
-        return  caverna.salas[this.y][this.x];
+        return  caverna.salas[this.x][this.y];
     }
 }

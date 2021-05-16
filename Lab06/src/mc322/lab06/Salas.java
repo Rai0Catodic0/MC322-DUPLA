@@ -8,8 +8,8 @@ public class Salas {
     Buraco buraco;
     Ouro ouro;
     boolean visitada;
-
     char representacao;
+
     public Salas(Wunpus wunpus, Heroi heroi, Brisa brisa, Buraco buraco){ // adicionar odor e ouro
         this.wunpus = wunpus;
         this.heroi = heroi;
@@ -33,8 +33,10 @@ public class Salas {
             else {
                 if (this.fedor != null) {
                     representacao = 'f';
-                } else{
+                } else if(this.brisa!=null){
                     representacao = 'b';
+                } else {
+                    representacao = '-';
                 }
             }
         }
@@ -87,5 +89,6 @@ public class Salas {
     }
     public void Remover(Heroi heroi){
         this.heroi = null;
+        setEstado();
     }
 }
