@@ -12,15 +12,17 @@ public class Controle {
         this.heroi = heroi;
     }
 
-    public void setJogador(String jogador){
-        this.jogador = jogador;
-    }
+    //public void setJogador(String jogador){
+    // this.jogador = jogador;
+    //}
 
     public void IniciarJogo(){
         String movimento = null;
+        Scanner Keyboard = new Scanner(System.in);
+        jogador = Keyboard.nextLine();
+        System.out.print(heroi.caverna.apresenta());
         if(heroi != null){       //exige heroi instanciado
             while(heroi.noJogo){
-                Scanner Keyboard = new Scanner(System.in);
                 movimento = Keyboard.nextLine();
                 switch (movimento){
                     case "w":
@@ -34,16 +36,17 @@ public class Controle {
                         break;
                     case "a":
                         heroi.mover(heroi.x-1, heroi.y);
+                        break;
                     case "k":
-                        heroi.AtivarFlecha();
+                        //Heroi.AtivarFlecha();
                         break;
                     case "c":
-                        heroi.CapturarOuro();
+                        //heroi.CapturarOuro();
                         break;
                     case "q":
                         break;
                 }
-                heroi.caverna.apresenta();
+                System.out.print(heroi.caverna.apresenta());
                 System.out.println("Player: "+jogador);
                 System.out.println("Score: "+pontuacao);
             }
