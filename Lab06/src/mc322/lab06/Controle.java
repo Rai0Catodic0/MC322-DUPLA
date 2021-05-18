@@ -24,22 +24,23 @@ public class Controle {
                 movimento = Keyboard.nextLine();
                 switch (movimento){
                     case "w":
-                        //Heroi.MoverParaCima();
+                        heroi.mover(heroi.x, heroi.y-1);
                         break;
                     case "s":
-                        //Heroi.MoverParaBaixo();
+                        heroi.mover(heroi.x, heroi.y+1);
                         break;
                     case "d":
-                        //Heroi.MoverParaDireita();
+                        heroi.mover(heroi.x+1, heroi.y);
                         break;
+                    case "a":
+                        heroi.mover(heroi.x-1, heroi.y);
                     case "k":
-                        //Heroi.AtivarFlecha();
+                        heroi.AtivarFlecha();
                         break;
                     case "c":
-                        //Heroi.CapturarOuro();
+                        heroi.CapturarOuro();
                         break;
                     case "q":
-                        //Heroi.Sair();
                         break;
                 }
                 heroi.caverna.apresenta();

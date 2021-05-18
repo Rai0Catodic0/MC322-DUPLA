@@ -1,5 +1,7 @@
 package mc322.lab06;
 
+import java.security.cert.TrustAnchor;
+
 public class Heroi extends Componente{
     int pontos;
     int flechas;
@@ -27,6 +29,25 @@ public class Heroi extends Componente{
         this.y = y;
         caverna.Inserir(x,y, this);
         caverna.salas[yAnterior][xAnterior].Remover(this);
+        this.pontos -= 15;
         return  caverna.salas[this.y][this.x];
+    }
+    public void AtivarFlecha(){
+        if(flechas<0){
+            System.out.println("não há flechas ");
+        }
+        else {
+            this.flechas -= 1;
+            this.armado = true;
+        }
+    }
+    public void CapturarOuro(){
+        if(caverna.salas[y][x].ouro!=null){
+            System.out.println("não tem ouro nessa sala");
+        }
+        else{
+            this.ouro = true;
+            caverna.Remover(x,y);
+        }
     }
 }

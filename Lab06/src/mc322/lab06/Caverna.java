@@ -59,4 +59,8 @@ public class Caverna {
         salas[y][x].Inserir(fedor);
     }
 
+    public void Remover(int x, int y){
+        this.salas[y][x].Remover(salas[y][x].ouro);
+    }
+
 }

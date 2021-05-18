@@ -87,5 +87,10 @@ public class Salas {
     }
     public void Remover(Heroi heroi){
         this.heroi = null;
+        setEstado();
+    }
+    public void Remover(Ouro ouro){
+        this.ouro = null;
+        setEstado();
     }
 }
