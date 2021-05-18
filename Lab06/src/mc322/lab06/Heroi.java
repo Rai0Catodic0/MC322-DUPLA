@@ -33,6 +33,7 @@ public class Heroi extends Componente{
         this.y = y;
         caverna.Inserir(y,x, this);
         caverna.salas[yAnterior][xAnterior].Remover(this);
+        this.pontos -= 15;
         return  caverna.salas[this.x][this.y];
     }
     public void AtivarFlecha(){
@@ -41,6 +42,7 @@ public class Heroi extends Componente{
         }
         else {
             this.flechas -= 1;
+            this.pontos -= 100;
             this.armado = true;
         }
     }

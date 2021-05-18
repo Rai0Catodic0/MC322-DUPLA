@@ -38,7 +38,7 @@ public class Controle {
                         heroi.mover(heroi.x-1, heroi.y);
                         break;
                     case "k":
-                        //Heroi.AtivarFlecha();
+                        heroi.AtivarFlecha();
                         break;
                     case "c":
                         heroi.CapturarOuro();
@@ -48,7 +48,7 @@ public class Controle {
                 }
                 System.out.print(heroi.caverna.apresenta());
                 System.out.println("Player: "+jogador);
-                System.out.println("Score: "+pontuacao);
+                System.out.println("Score: "+heroi.pontos);
             }
             if(heroi.vitoria){
                 System.out.println("Parabéns, você venceu!!!");
