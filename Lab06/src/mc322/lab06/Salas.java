@@ -91,4 +91,8 @@ public class Salas {
         this.heroi = null;
         setEstado();
     }
+    public void Remover(Ouro ouro){
+        this.ouro = null;
+        setEstado();
+    }
 }

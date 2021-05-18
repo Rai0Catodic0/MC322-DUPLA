@@ -41,7 +41,7 @@ public class Controle {
                         //Heroi.AtivarFlecha();
                         break;
                     case "c":
-                        //heroi.CapturarOuro();
+                        heroi.CapturarOuro();
                         break;
                     case "q":
                         break;
