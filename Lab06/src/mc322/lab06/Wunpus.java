@@ -1,5 +1,6 @@
 package mc322.lab06;
 
+import java.util.Random;
 public class Wunpus extends Componente {
     boolean vivo;
 
@@ -8,6 +9,15 @@ public class Wunpus extends Componente {
         vivo = true;
         criarFedor();
         caverna.Inserir(this.x, this.y , this);
+    }
+    public int lutarComHeroi(boolean flecha){
+        if(flecha){
+            Random random = new Random();
+            if(50<=random.nextInt(100)){
+                return 0;
+            }
+        }
+        return 1;
     }
     public void criarFedor(){
         int esq = x-1;

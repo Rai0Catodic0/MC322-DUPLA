@@ -44,6 +44,11 @@ public class Controle {
                         heroi.CapturarOuro();
                         break;
                     case "q":
+                        if(heroi.ouro && heroi.x==0 && heroi.y==0){
+                            heroi.pontos+=1000;
+                            heroi.vitoria=true;
+                        }
+                        heroi.noJogo = false;
                         break;
                 }
                 System.out.print(heroi.caverna.apresenta());

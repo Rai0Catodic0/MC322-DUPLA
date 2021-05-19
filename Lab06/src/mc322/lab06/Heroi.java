@@ -34,6 +34,21 @@ public class Heroi extends Componente{
         caverna.Inserir(y,x, this);
         caverna.salas[yAnterior][xAnterior].Remover(this);
         this.pontos -= 15;
+        if(caverna.salas[y][x].buraco!=null){
+            this.noJogo = false;
+            this.pontos -= 1000;
+        }
+        else if(caverna.salas[y][x].wunpus != null){
+            int resultado = caverna.salas[y][x].wunpus.lutarComHeroi(this.armado);
+            if(resultado == 1){
+                this.pontos -= 1000;
+                this.noJogo = false;
+            }else{
+                this.armado = false;
+                caverna.salas[y][x].Remover(caverna.salas[y][x].wunpus);
+                this.pontos +=500;
+            }
+        }
         return  caverna.salas[this.x][this.y];
     }
     public void AtivarFlecha(){
@@ -48,11 +63,11 @@ public class Heroi extends Componente{
     }
     public void CapturarOuro(){
         if(caverna.salas[y][x].ouro!=null){
-            System.out.println("não tem ouro nessa sala");
-        }
-        else{
             this.ouro = true;
             caverna.Remover(x,y);
+        }
+        else{
+            System.out.println("não tem ouro nessa sala");
         }
     }
 }

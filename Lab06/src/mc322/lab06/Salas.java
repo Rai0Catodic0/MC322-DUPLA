@@ -95,4 +95,8 @@ public class Salas {
         this.ouro = null;
         setEstado();
     }
+    public  void  Remover(Wunpus wunpus){
+        this.wunpus = null;
+        setEstado();
+    }
 }
