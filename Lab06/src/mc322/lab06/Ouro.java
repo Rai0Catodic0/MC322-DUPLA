@@ -1,13 +1,9 @@
 package mc322.lab06;
 
-public class Ouro {
-    int x, y;
-    Caverna caverna;
+public class Ouro extends Componente{
 
     Ouro(int x, int y, Caverna caverna){
-        this.x = x;
-        this.y = y;
-        this.caverna = caverna;
+        super(x, y, caverna);
         this.caverna.Inserir(x,y,this);
     }
 }
