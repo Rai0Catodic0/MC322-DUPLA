@@ -3,6 +3,7 @@ package mc322.lab06;
 import java.util.Random;
 public class Wunpus extends Componente {
     boolean vivo;
+    Fedor f1 = null, f2 = null, f3 = null, f4 = null;
 
     Wunpus(int x, int y, Caverna caverna) {
         super(x, y, caverna);
@@ -25,16 +26,17 @@ public class Wunpus extends Componente {
         int cima = y-1;
         int baixo = y+1;
         if(esq>-1 && esq < 4){
-            Fedor f1 = new Fedor(esq,y, caverna);
+            f1 = new Fedor(esq,y, caverna);
         }
         if(dir>-1 && dir < 4){
-            Fedor f2 = new Fedor(dir,y,caverna);
+            f2 = new Fedor(dir,y,caverna);
         }
         if(cima>-1 && cima < 4){
-            Fedor f3 = new Fedor(x,cima,caverna);
+            f3 = new Fedor(x,cima,caverna);
         }
         if(baixo>-1 && baixo<4){
-            Fedor f4 = new Fedor(x,baixo,caverna);
+            f4 = new Fedor(x,baixo,caverna);
         }
     }
+
 }

@@ -13,7 +13,7 @@ public class Montador {
     Montador(){
         //Scanner Keyboard = new Scanner(System.in);
         //caminho = Keyboard.nextLine();
-        caminho = "/home/gabriel/IdeaProjects/MC322-DUPLA/Lab06/src/mc322/db/teste01.csv";
+        caminho = "/home/jessica/MC322-DUPLA/Lab06/src/mc322/db/teste01.csv";
         csv = new CSVHandling();
         csv.setDataSource(caminho);
         commands = csv.requestCommands();
