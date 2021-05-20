@@ -18,9 +18,12 @@ public class Caverna {
     }
 
     public String apresenta(){
-        char saida[] = new char[20];
+        char saida[] = new char[30];
         int k = 0;
+        char indices[] = {'1','2','3','4'};
         for(int i = 0; i<4; i++){
+            saida[k] = indices[i];
+            k++;
             for(int j = 0; j<4; j++){
                 if(salas[i][j].visitada) {
                     saida[k] = salas[i][j].representacao;
@@ -32,6 +35,13 @@ public class Caverna {
             saida[k] = '\n';
             k++;
         }
+        saida[k]=' ';
+        k++;
+        for(int i=0; i<4; i++){
+            saida[k]= indices[i];
+            k++;
+        }
+        saida[k]='\n';
         return  new String(saida);
     }
     public int lutarComWunpus(int x, int y, boolean armado){
