@@ -5,8 +5,8 @@ public class Fedor extends Componente {
         super(x,y,caverna);
         this.caverna.Inserir(x,y,this);
     }
-    public void Remover(){
-        caverna.salas[this.y][this.x].Remover(this);
-        System.out.println("vou remover o fedor da sala "+this.y+" "+this.x);
-    }
+//    public void Remover(){
+//        caverna.salas[this.y][this.x].Remover(this);
+//        System.out.println("vou remover o fedor da sala "+this.y+" "+this.x);
+//    }
 }

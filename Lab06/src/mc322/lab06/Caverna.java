@@ -1,7 +1,7 @@
 package mc322.lab06;
 
 public class Caverna {
-    Salas salas[][] = new Salas[4][4];
+    private Salas salas[][] = new Salas[4][4];
     Heroi heroi = null;
     Wunpus wunpus = null;
     Ouro ouro = null;
@@ -35,12 +35,48 @@ public class Caverna {
         return  new String(saida);
     }
 
+    public Salas VerSala(int x, int y){
+        return this.salas[y][x];
+    }
+
     public void Inserir(int x, int y, Buraco buraco){
         salas[x][y].Inserir(buraco);
     }
 
     public void Inserir(int x, int y, Heroi heroi){
         salas[x][y].Inserir(heroi);
+    }
+
+    public boolean ExisteBuraco(int x, int y){
+        if(this.salas[x][y].buraco!=null){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean ExisteWunpus(int x, int y){
+        if(this.salas[x][y].wunpus!=null){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean ExisteOuro(int x, int y){
+        if(this.salas[x][y].ouro!=null){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public int lutarComHeroi(int x, int y, boolean armado){
+        int resultado = this.salas[x][y].wunpus.lutarComHeroi(armado);
+        if(resultado==0){
+            this.salas[y][x].Remover(salas[y][x].wunpus);
+        }
+        return resultado;
     }
 
     public void Inserir(int x, int y, Wunpus wunpus){
@@ -59,8 +95,14 @@ public class Caverna {
         salas[x][y].Inserir(fedor);
     }
 
-    public void Remover(int x, int y){
+    public void Remover(int x, int y, Heroi heroi){
+        this.salas[y][x].Remover(salas[y][x].heroi);
+    }
+    public void Remover(int x, int y, Ouro ouro){
         this.salas[y][x].Remover(salas[y][x].ouro);
+    }
+    public void Remover(int x, int y, Wunpus wunpus){
+        this.salas[y][x].Remover(salas[y][x].wunpus);
     }
 
 }
