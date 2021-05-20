@@ -11,9 +11,8 @@ public class Montador {
     Caverna caverna = null;
 
     Montador(){
-        //Scanner Keyboard = new Scanner(System.in);
-        //caminho = Keyboard.nextLine();
-        caminho = "/home/jessica/MC322-DUPLA/Lab06/src/mc322/db/teste01.csv";
+        Scanner Keyboard = new Scanner(System.in);
+        caminho = Keyboard.nextLine();
         csv = new CSVHandling();
         csv.setDataSource(caminho);
         commands = csv.requestCommands();
@@ -106,5 +105,3 @@ public class Montador {
     }
 
 }
-
-///home/jessica/MC322-DUPLA/Lab06/src/mc322/db/teste01.csv
