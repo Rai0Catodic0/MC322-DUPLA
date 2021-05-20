@@ -1,6 +1,6 @@
 package mc322.lab06;
 
-public class Ouro {
+public class Ouro extends Componente{
     int x, y;
     Caverna caverna;
 
