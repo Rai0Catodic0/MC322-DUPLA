@@ -14,7 +14,7 @@
 
 ## Destaques de Arquitetura
 
-### `Uso de um objeto sala pra armazenar componentes`
+### `Encapsulamento no herói`
 
 ~~~java
     public void mover(int x,int y){
