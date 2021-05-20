@@ -22,12 +22,11 @@ public class Caverna {
         int k = 0;
         for(int i = 0; i<4; i++){
             for(int j = 0; j<4; j++){
-//                if(salas[i][j].visitada) {
-//                    saida[k] = salas[i][j].representacao;
-//                } else {
-//                    saida[k] = '-';
-//                }
-                saida[k] = salas[i][j].representacao;
+                if(salas[i][j].visitada) {
+                    saida[k] = salas[i][j].representacao;
+                } else {
+                    saida[k] = '-';
+                }
                 k++;
             }
             saida[k] = '\n';
@@ -35,9 +34,12 @@ public class Caverna {
         }
         return  new String(saida);
     }
-
-    public Salas VerSala(int x, int y){
-        return this.salas[x][y];
+    public int lutarComWunpus(int x, int y, boolean armado){
+        int resultado = this.salas[x][y].wunpus.lutarComHeroi(armado);
+        if(resultado==0){
+            this.salas[x][y].Remover(salas[x][y].wunpus);
+        }
+        return resultado;
     }
 
     public void Inserir(int x, int y, Buraco buraco){

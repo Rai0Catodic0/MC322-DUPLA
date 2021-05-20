@@ -11,13 +11,8 @@ public class Wunpus extends Componente {
         criarFedor();
         caverna.Inserir(this.x, this.y , this);
     }
-    public int lutarComHeroi(boolean flecha){
-//        if(flecha){
-//            Random random = new Random();
-//            if(50<=random.nextInt(100)){
-//                return 0;
-//            }
-//        }
+
+    private void RetirarBrisas(){
         if(f1!=null) {
             this.caverna.Remover(this.f1.x, this.f1.y, this.f1);
         }
@@ -30,8 +25,19 @@ public class Wunpus extends Componente {
         if(f4!=null) {
             this.caverna.Remover(this.f4.x, this.f4.y, this.f4);
         }
-        return 0;
     }
+
+    public int lutarComHeroi(boolean flecha){
+        if(flecha){
+            Random random = new Random();
+            if(50<=random.nextInt(100)){
+                RetirarBrisas();
+                return 0;
+            }
+        }
+        return 1;
+    }
+
     public void criarFedor(){
         int esq = x-1;
         int dir = x+1;

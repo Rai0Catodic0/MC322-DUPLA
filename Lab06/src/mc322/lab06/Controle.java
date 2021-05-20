@@ -17,11 +17,9 @@ public class Controle {
         String movimento = null;
         Scanner Keyboard = new Scanner(System.in);
         jogador = Keyboard.nextLine();
-        System.out.print(heroi.caverna.apresenta());
         if(heroi != null){       //exige heroi instanciado
             while(heroi.noJogo){
                 movimento = Keyboard.nextLine();
-                System.out.println(heroi.x+" "+heroi.y);
                 switch (movimento){
                     case "w":
                         heroi.mover(heroi.x-1, heroi.y);

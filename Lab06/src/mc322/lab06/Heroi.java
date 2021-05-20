@@ -11,7 +11,6 @@ public class Heroi extends Componente{
     boolean vitoria;
     Heroi( Caverna caverna){
         super(0, 0, caverna);
-        System.out.println(x+" "+y);
         this.pontos = 0;
         this.flechas = 1;
         this.ouro = false;
@@ -21,7 +20,6 @@ public class Heroi extends Componente{
     }
 
     public void mover(int x,int y){
-        System.out.println(x+" "+y);
         if(this.armado){
             this.armado = false;
             this.flechas = 0;
@@ -30,7 +28,6 @@ public class Heroi extends Componente{
         if(x<0 || x>3 || y<0 || y>3) {
             System.out.println("Movimento inválido, você está fora dos limites da caverna!");
         } else {
-
             int xAnterior = this.x;
             int yAnterior = this.y;
             this.x = x;
@@ -38,19 +35,18 @@ public class Heroi extends Componente{
             caverna.Inserir(x, y, this);
             caverna.Remover(xAnterior, yAnterior, this);
             this.pontos -= 15;
-            Salas sala = caverna.VerSala(x, y);
-            if (sala.buraco != null) {
+
+            if (this.caverna.ExisteBuraco(x,y)) {
                 this.noJogo = false;
                 this.pontos -= 1000;
-            } else if (sala.wunpus != null) {
-                int resultado = sala.wunpus.lutarComHeroi(this.armado);
+            } else if (this.caverna.ExisteWunpus(x,y)) {
+                int resultado = caverna.lutarComWunpus(x,y, this.armado);
                 if (resultado == 1) {
                     this.pontos -= 1000;
                     System.out.println("Você não conseguiu matar o monstro!");
                     this.noJogo = false;
                 } else {
                     this.armado = false;
-                    caverna.Remover(x, y, sala.wunpus);
                     this.pontos += 500;
                     System.out.println("O monstro foi morto!");
                 }
@@ -75,7 +71,6 @@ public class Heroi extends Componente{
         }
     }
     public void CapturarOuro(){
-        Salas sala = caverna.VerSala(x,y);
         if(this.caverna.ExisteOuro(x,y)){
             this.ouro = true;
             caverna.Remover(x,y);
