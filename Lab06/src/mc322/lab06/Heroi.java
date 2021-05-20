@@ -29,38 +29,38 @@ public class Heroi extends Componente{
         }
         if(x<0 || x>3 || y<0 || y>3) {
             System.out.println("Movimento inválido, você está fora dos limites da caverna!");
-        }
-        System.out.println();
-        int xAnterior = this.x;
-        int yAnterior = this.y;
-        this.x = x;
-        this.y = y;
-        caverna.Inserir(x,y, this);
-        caverna.Remover(xAnterior,yAnterior,this);
-        this.pontos -= 15;
-        Salas sala = caverna.VerSala(x,y);
-        if(sala.buraco!=null){
-            this.noJogo = false;
-            this.pontos -= 1000;
-        }
-        else if(sala.wunpus != null){
-            int resultado = sala.wunpus.lutarComHeroi(this.armado);
-            if(resultado == 1){
-                this.pontos -= 1000;
-                System.out.println("Você não conseguiu matar o monstro!");
+        } else {
+
+            int xAnterior = this.x;
+            int yAnterior = this.y;
+            this.x = x;
+            this.y = y;
+            caverna.Inserir(x, y, this);
+            caverna.Remover(xAnterior, yAnterior, this);
+            this.pontos -= 15;
+            Salas sala = caverna.VerSala(x, y);
+            if (sala.buraco != null) {
                 this.noJogo = false;
-            }else{
-                this.armado = false;
-                caverna.Remover(x,y,sala.wunpus);
-                this.pontos +=500;
-                System.out.println("O monstro foi morto!");
+                this.pontos -= 1000;
+            } else if (sala.wunpus != null) {
+                int resultado = sala.wunpus.lutarComHeroi(this.armado);
+                if (resultado == 1) {
+                    this.pontos -= 1000;
+                    System.out.println("Você não conseguiu matar o monstro!");
+                    this.noJogo = false;
+                } else {
+                    this.armado = false;
+                    caverna.Remover(x, y, sala.wunpus);
+                    this.pontos += 500;
+                    System.out.println("O monstro foi morto!");
+                }
             }
-        }
-        if(this.x == 0 && this.y == 0 && this.ouro == true){
-            this.noJogo = false;
-            this.vitoria = true;
-            this.pontos += 1000;
-            System.out.println("Saiu da caverna com o Ouro!");
+            if (this.x == 0 && this.y == 0 && this.ouro == true) {
+                this.noJogo = false;
+                this.vitoria = true;
+                this.pontos += 1000;
+                System.out.println("Saiu da caverna com o Ouro!");
+            }
         }
     }
     public void AtivarFlecha(){
@@ -76,12 +76,11 @@ public class Heroi extends Componente{
     }
     public void CapturarOuro(){
         Salas sala = caverna.VerSala(x,y);
-        if(sala.ouro!=null){
+        if(this.caverna.ExisteOuro(x,y)){
             this.ouro = true;
-            caverna.Remover(x,y,sala.ouro);
+            caverna.Remover(x,y);
             System.out.println("Você capturou o ouro! Agora, saia da caverna com segurança!");
-        }
-        else{
+        } else{
             System.out.println("Não há our para ser capturado nessa sala =(");
         }
     }

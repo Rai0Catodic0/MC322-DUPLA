@@ -102,5 +102,9 @@ public class Caverna {
     public void Remover(int x, int y, Wunpus wunpus){
         this.salas[x][y].Remover(salas[x][y].wunpus);
     }
+    public void Remover(int x, int y){
+        this.salas[x][y].Remover(salas[x][y].ouro);
+    }
 
 }
+
