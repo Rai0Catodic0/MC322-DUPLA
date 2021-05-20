@@ -1,7 +1,7 @@
 package mc322.lab06;
 
 public class Salas {
-    Wunpus wunpus;
+    Wumpus wunpus;
     Heroi heroi;
     Brisa brisa;
     Fedor fedor;
@@ -11,7 +11,7 @@ public class Salas {
     boolean visitada;
     char representacao;
 
-    public Salas(Wunpus wunpus, Heroi heroi, Brisa brisa, Buraco buraco, int x, int y){ // adicionar odor e ouro
+    public Salas(Wumpus wunpus, Heroi heroi, Brisa brisa, Buraco buraco, int x, int y){ // adicionar odor e ouro
         this.wunpus = wunpus;
         this.heroi = heroi;
         this.brisa = brisa;
@@ -61,7 +61,7 @@ public class Salas {
        return true;
     }
 
-    public boolean Inserir(Wunpus wunpus){
+    public boolean Inserir(Wumpus wunpus){
         if(this.buraco == null && this.ouro == null){
             this.wunpus = wunpus;
             setEstado();
@@ -99,7 +99,7 @@ public class Salas {
         setEstado();
     }
 
-    public  void  Remover(Wunpus wunpus){
+    public  void  Remover(Wumpus wunpus){
         this.wunpus = null;
         setEstado();
     }
