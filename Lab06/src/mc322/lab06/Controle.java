@@ -18,6 +18,9 @@ public class Controle {
         Scanner Keyboard = new Scanner(System.in);
         jogador = Keyboard.nextLine();
         if(heroi != null){       //exige heroi instanciado
+            System.out.print(heroi.caverna.apresenta());
+            System.out.println("Player: "+jogador);
+            System.out.println("Score: "+heroi.pontos);
             while(heroi.noJogo){
                 movimento = Keyboard.nextLine();
                 switch (movimento){
