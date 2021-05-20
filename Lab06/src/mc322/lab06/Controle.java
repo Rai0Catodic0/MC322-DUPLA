@@ -12,9 +12,6 @@ public class Controle {
         this.heroi = heroi;
     }
 
-    //public void setJogador(String jogador){
-    // this.jogador = jogador;
-    //}
 
     public void IniciarJogo(){
         String movimento = null;
@@ -44,12 +41,19 @@ public class Controle {
                         heroi.CapturarOuro();
                         break;
                     case "q":
-                        if(heroi.ouro && heroi.x==0 && heroi.y==0){
-                            heroi.pontos+=1000;
-                            heroi.vitoria=true;
-                        }
                         heroi.noJogo = false;
                         break;
+                    default:
+                        System.out.println("Movimento Inválido! Veja as opções:");
+                        System.out.println(
+                                "● w -> Ir para a sala acima;\n" +
+                                "● s -> Ir para a sala abaixo;\n" +
+                                "● d -> Ir para a sala a direita;\n" +
+                                "● a -> Ir para a sala a esquerda;\n" +
+                                "● k -> Equipar a flecha;\n" +
+                                "● c -> Capturar o ouro;\n" +
+                                "● q -> Sair do jogo;"
+                        );
                 }
                 System.out.print(heroi.caverna.apresenta());
                 System.out.println("Player: "+jogador);

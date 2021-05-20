@@ -39,7 +39,7 @@ public class Salas {
                 } else if(this.brisa!=null){
                     representacao = 'b';
                 } else {
-                    representacao = '-';
+                    representacao = '#';
                 }
             }
         }

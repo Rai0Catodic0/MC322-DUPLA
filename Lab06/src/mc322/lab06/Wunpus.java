@@ -12,13 +12,13 @@ public class Wunpus extends Componente {
         caverna.Inserir(this.x, this.y , this);
     }
     public int lutarComHeroi(boolean flecha){
-        if(flecha){
-            Random random = new Random();
-            if(50<=random.nextInt(100)){
-                return 0;
-            }
-        }
-        return 1;
+//        if(flecha){
+//            Random random = new Random();
+//            if(50<=random.nextInt(100)){
+//                return 0;
+//            }
+//        }
+        return 0;
     }
     public void criarFedor(){
         int esq = x-1;
