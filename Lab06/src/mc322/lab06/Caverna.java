@@ -22,11 +22,12 @@ public class Caverna {
         int k = 0;
         for(int i = 0; i<4; i++){
             for(int j = 0; j<4; j++){
-                if(salas[i][j].visitada) {
-                    saida[k] = salas[i][j].representacao;
-                } else {
-                    saida[k] = '-';
-                }
+//                if(salas[i][j].visitada) {
+//                    saida[k] = salas[i][j].representacao;
+//                } else {
+//                    saida[k] = '-';
+//                }
+                saida[k] = salas[i][j].representacao;
                 k++;
             }
             saida[k] = '\n';
@@ -36,7 +37,7 @@ public class Caverna {
     }
 
     public Salas VerSala(int x, int y){
-        return this.salas[y][x];
+        return this.salas[x][y];
     }
 
     public void Inserir(int x, int y, Buraco buraco){
@@ -71,14 +72,6 @@ public class Caverna {
         }
     }
 
-    public int lutarComHeroi(int x, int y, boolean armado){
-        int resultado = this.salas[x][y].wunpus.lutarComHeroi(armado);
-        if(resultado==0){
-            this.salas[y][x].Remover(salas[y][x].wunpus);
-        }
-        return resultado;
-    }
-
     public void Inserir(int x, int y, Wunpus wunpus){
         salas[x][y].Inserir(wunpus);
     }
@@ -96,13 +89,18 @@ public class Caverna {
     }
 
     public void Remover(int x, int y, Heroi heroi){
-        this.salas[y][x].Remover(salas[y][x].heroi);
+        this.salas[x][y].Remover(salas[x][y].heroi);
     }
+
+    public void Remover(int x, int y, Fedor fedor){
+        this.salas[x][y].Remover(salas[x][y].fedor);
+    }
+
     public void Remover(int x, int y, Ouro ouro){
-        this.salas[y][x].Remover(salas[y][x].ouro);
+        this.salas[x][y].Remover(salas[x][y].ouro);
     }
     public void Remover(int x, int y, Wunpus wunpus){
-        this.salas[y][x].Remover(salas[y][x].wunpus);
+        this.salas[x][y].Remover(salas[x][y].wunpus);
     }
 
 }

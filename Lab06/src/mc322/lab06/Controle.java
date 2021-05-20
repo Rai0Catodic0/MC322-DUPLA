@@ -21,18 +21,19 @@ public class Controle {
         if(heroi != null){       //exige heroi instanciado
             while(heroi.noJogo){
                 movimento = Keyboard.nextLine();
+                System.out.println(heroi.x+" "+heroi.y);
                 switch (movimento){
                     case "w":
-                        heroi.mover(heroi.x, heroi.y-1);
+                        heroi.mover(heroi.x-1, heroi.y);
                         break;
                     case "s":
-                        heroi.mover(heroi.x, heroi.y+1);
-                        break;
-                    case "d":
                         heroi.mover(heroi.x+1, heroi.y);
                         break;
+                    case "d":
+                        heroi.mover(heroi.x, heroi.y+1);
+                        break;
                     case "a":
-                        heroi.mover(heroi.x-1, heroi.y);
+                        heroi.mover(heroi.x, heroi.y-1);
                         break;
                     case "k":
                         heroi.AtivarFlecha();

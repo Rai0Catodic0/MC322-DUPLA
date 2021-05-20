@@ -18,6 +18,18 @@ public class Wunpus extends Componente {
 //                return 0;
 //            }
 //        }
+        if(f1!=null) {
+            this.caverna.Remover(this.f1.x, this.f1.y, this.f1);
+        }
+        if(f2!=null) {
+            this.caverna.Remover(this.f2.x, this.f2.y, this.f2);
+        }
+        if(f3!=null) {
+            this.caverna.Remover(this.f3.x, this.f3.y, this.f3);
+        }
+        if(f4!=null) {
+            this.caverna.Remover(this.f4.x, this.f4.y, this.f4);
+        }
         return 0;
     }
     public void criarFedor(){
