@@ -9,6 +9,7 @@ public class Heroi extends Componente{
     boolean noJogo;
     boolean armado;
     boolean vitoria;
+
     Heroi( Caverna caverna){
         super(0, 0, caverna);
         this.pontos = 0;
@@ -59,6 +60,7 @@ public class Heroi extends Componente{
             }
         }
     }
+
     public void AtivarFlecha(){
         if(flechas<0){
             System.out.println("Você não tem mais flechas para ativar =(");
@@ -70,6 +72,7 @@ public class Heroi extends Componente{
             System.out.println("Flecha ativada!");
         }
     }
+
     public void CapturarOuro(){
         if(this.caverna.ExisteOuro(x,y)){
             this.ouro = true;
@@ -79,4 +82,5 @@ public class Heroi extends Componente{
             System.out.println("Não há our para ser capturado nessa sala =(");
         }
     }
+
 }
