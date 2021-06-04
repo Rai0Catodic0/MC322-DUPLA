@@ -5,10 +5,9 @@ import java.util.ArrayList;
 import Recursos.Recursos;
 import Tabuleiro.Tabuleiro;
 
-public class Item implements IItem{
+public class Item implements IItem {
     int i;
     int j;
-    List<Recursos> coletados = new ArrayList<Recursos>();
     char representacao;
     Tabuleiro tabuleiro;
 
@@ -19,15 +18,10 @@ public class Item implements IItem{
         this.representacao = repre;
         // inserir item no tabuleiro ???
     }
-
     @Override
     public int lutar() {
         Random gerador = new Random();
         return gerador.nextInt(6);
     }
 
-    @Override
-    public void recolherRecurso(Recursos coletado) {
-        coletados.add(coletado);
-    }
 }

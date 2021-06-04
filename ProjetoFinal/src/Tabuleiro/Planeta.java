@@ -1,12 +1,13 @@
 package Tabuleiro;
 
-import Itens.Item;;
+import Itens.Item;
 import Recursos.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
-public class Planeta implements IPlaneta{
+public class Planeta extends Observable implements IPlaneta{
 
     int i;
     int j;
@@ -24,6 +25,13 @@ public class Planeta implements IPlaneta{
     @Override
     public void Remover() {
 
+    }
+
+    @Override
+    public void Inserir(Item item) {
+        itens.add(item);
+        setChanged();
+        notifyObservers(item);
     }
 
     @Override
