@@ -1,6 +1,6 @@
 package Itens;
 
-import jdk.jshell.spi.ExecutionControl;
+import Tabuleiro.Tabuleiro;
 
 public class Satelite extends Item implements ISatelite {
 

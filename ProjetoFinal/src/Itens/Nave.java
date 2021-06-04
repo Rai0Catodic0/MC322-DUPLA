@@ -1,5 +1,7 @@
 package Itens;
 
+import Tabuleiro.Tabuleiro;
+
 public class Nave extends Item implements INave{
 
     public Nave(int i, int j, char repre, Tabuleiro tab){
