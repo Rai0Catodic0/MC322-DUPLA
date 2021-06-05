@@ -87,7 +87,7 @@ public class Montador {
             caverna = new Caverna();
             Heroi heroi = new Heroi(caverna);
             Ouro ouro = new Ouro(posicoes[0], posicoes[1],caverna);
-            Wunpus wunpus = new Wunpus(posicoes[2], posicoes[3],caverna);
+            Wumpus wunpus = new Wumpus(posicoes[2], posicoes[3],caverna);
             Buraco buraco1 = null;
             Buraco buraco2 = null;
             Buraco buraco3 = null;

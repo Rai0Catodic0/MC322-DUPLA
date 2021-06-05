@@ -40,8 +40,8 @@ public class Heroi extends Componente{
             if (this.caverna.ExisteBuraco(x,y)) {
                 this.noJogo = false;
                 this.pontos -= 1000;
-            } else if (this.caverna.ExisteWunpus(x,y)) {
-                int resultado = caverna.lutarComWunpus(x,y, this.armado);
+            } else if (this.caverna.ExisteWumpus(x,y)) {
+                int resultado = caverna.lutarComWumpus(x,y, this.armado);
                 if (resultado == 1) {
                     this.pontos -= 1000;
                     System.out.println("Você não conseguiu matar o monstro!");

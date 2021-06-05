@@ -8,13 +8,13 @@
 > Aparecerá o estado inicial da caverna e a pontuação inicial
 > Digitar as instrunções para o herói e jogar
 
-> [Arquivos Java do jogo](https://github.com/Rai0Catodic0/MC322-DUPLA/blob/64bf3a0dafd10f84ddf0f9915e9a656d2094b4d5/Lab05/src/mc322/lab05)
+> [Arquivos Java do jogo](https://github.com/Rai0Catodic0/MC322-DUPLA/tree/main/Lab06/src/mc322/lab06)
 
-> [Arquivos teste](https://github.com/Rai0Catodic0/MC322-DUPLA/blob/64bf3a0dafd10f84ddf0f9915e9a656d2094b4d5/Lab05/src/db)
+> [Arquivos teste](https://github.com/Rai0Catodic0/MC322-DUPLA/tree/main/Lab06/src/mc322/db)
 
 ## Destaques de Arquitetura
 
-### `Uso de um objeto sala pra armazenar componentes`
+### `Encapsulamento no herói`
 
 ~~~java
     public void mover(int x,int y){

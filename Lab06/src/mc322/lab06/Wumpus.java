@@ -1,11 +1,11 @@
 package mc322.lab06;
 
 import java.util.Random;
-public class Wunpus extends Componente {
+public class Wumpus extends Componente {
     boolean vivo;
     Fedor f1 = null, f2 = null, f3 = null, f4 = null;
 
-    Wunpus(int x, int y, Caverna caverna) {
+    Wumpus(int x, int y, Caverna caverna) {
         super(x, y, caverna);
         vivo = true;
         criarFedor();
