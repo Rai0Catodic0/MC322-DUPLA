@@ -58,9 +58,11 @@ public class Montador {
         int sorteadoLinha = sortear.nextInt(5);
         int sorteadoColuna;
         if(sorteadoLinha==2){
-            sorteadoColuna = sortear.nextInt(4);
+            sorteadoColuna = colunas3[sortear.nextInt(4)];
+        } else if(sorteadoLinha==0 || sorteadoLinha==4) {
+            sorteadoColuna = colunas1[sortear.nextInt(3)];
         } else {
-            sorteadoColuna = sortear.nextInt(3);
+            sorteadoColuna = colunas2[sortear.nextInt(3)];
         }
         return new int[] {sorteadoLinha, sorteadoColuna};
     }
