@@ -18,15 +18,17 @@ public class Jogador implements Observer {
         items = new ArrayList<>();
     }
     public boolean Mover(){
+        //TODO implementar mover
         return true;
     }
 
     public boolean Construir(){
+        //TODO implementar Construir
         return false;
     }
 
     public void Destruir(){
-
+        //TODO implementar destruir
     }
 
     @Override

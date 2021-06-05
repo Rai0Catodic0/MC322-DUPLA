@@ -18,6 +18,7 @@ public class Item implements IItem {
         this.representacao = repre;
         // inserir item no tabuleiro ???
     }
+
     @Override
     public int lutar() {
         Random gerador = new Random();

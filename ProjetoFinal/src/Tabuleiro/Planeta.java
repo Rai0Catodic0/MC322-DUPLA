@@ -25,7 +25,7 @@ public class Planeta extends Observable implements IPlaneta{
 
     @Override
     public void Remover() {
-
+        //TODO implement remover()
     }
 
     @Override
