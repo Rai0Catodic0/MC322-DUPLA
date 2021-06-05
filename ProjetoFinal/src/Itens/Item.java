@@ -26,8 +26,4 @@ public class Item implements IItem{
         return gerador.nextInt(6);
     }
 
-    @Override
-    public void recolherRecurso(Recursos coletado) {
-        coletados.add(coletado);
-    }
 }

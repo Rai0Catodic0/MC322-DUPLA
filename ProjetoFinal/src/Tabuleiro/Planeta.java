@@ -1,17 +1,19 @@
 package Tabuleiro;
 
-import Itens.Item;;
+import Itens.Item;
+import Outros.Jogador;
 import Recursos.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
-public class Planeta implements IPlaneta{
+public class Planeta extends Observable implements IPlaneta{
 
     int i;
     int j;
     int id;
-    List<Item> itens = new ArrayList<>();
+    public List<Item> itens = new ArrayList<>();
     String type;
 
     public Planeta(int i, int j, int id, String  type) {
@@ -23,7 +25,14 @@ public class Planeta implements IPlaneta{
 
     @Override
     public void Remover() {
+        //TODO implement remover()
+    }
 
+    @Override
+    public void Inserir(Item item) {
+        itens.add(item);
+        setChanged();
+        notifyObservers(item);
     }
 
     @Override
@@ -43,8 +52,9 @@ public class Planeta implements IPlaneta{
         return result;
     }
 
-    public void Inserir(Item item){
-        System.out.println("coloquei item!");
-        itens.add(item);
+
+    @Override
+    public void addObserver(Jogador j) {
+        super.addObserver(j);
     }
 }
