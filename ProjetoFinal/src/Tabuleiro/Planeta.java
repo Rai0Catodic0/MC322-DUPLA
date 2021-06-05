@@ -13,7 +13,7 @@ public class Planeta extends Observable implements IPlaneta{
     int i;
     int j;
     int id;
-    List<Item> itens = new ArrayList<>();
+    public List<Item> itens = new ArrayList<>();
     String type;
 
     public Planeta(int i, int j, int id, String  type) {

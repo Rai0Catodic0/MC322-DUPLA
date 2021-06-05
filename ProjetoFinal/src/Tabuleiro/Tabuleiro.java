@@ -1,9 +1,9 @@
 package Tabuleiro;
 
 public class Tabuleiro implements ITabuleiro {
-    Planeta[][] matrix;
+    public Planeta[][] planetas;
     public Tabuleiro(Planeta[][] matrix) {
-        this.matrix = matrix;
+        this.planetas = matrix;
     }
 
     @Override
