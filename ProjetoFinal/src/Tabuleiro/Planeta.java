@@ -1,6 +1,7 @@
 package Tabuleiro;
 
 import Itens.Item;
+import Outros.Jogador;
 import Recursos.*;
 
 import java.util.ArrayList;
@@ -49,5 +50,10 @@ public class Planeta extends Observable implements IPlaneta{
                 break;
         }
         return result;
+    }
+
+    @Override
+    public void addObserver(Jogador j) {
+        super.addObserver(j);
     }
 }
