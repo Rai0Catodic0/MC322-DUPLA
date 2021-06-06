@@ -70,7 +70,6 @@ public class Montador {
     public Controle MontarJogo(){
         Planeta planetas[][] = InstanciarPlanetas();
 
-        Tabuleiro tabuleiro = new Tabuleiro(planetas);
 
         int posicaoJogador1[] = SortearPosicaoJogador();
         int posicaoJogador2[] = {-1,-1};
@@ -78,25 +77,18 @@ public class Montador {
             posicaoJogador2 = SortearPosicaoJogador();
         } while (posicaoJogador1[0]==posicaoJogador2[0] && posicaoJogador1[1]==posicaoJogador2[1]);
 
-        Item nave1 = new NaveColonizadora(posicaoJogador1[0], posicaoJogador1[1], 'C',tabuleiro);
-        Item satelite1 = new Satelite(posicaoJogador1[0], posicaoJogador1[1], 'C',tabuleiro);
-        Item nave2 = new NaveColonizadora(posicaoJogador2[0], posicaoJogador2[1], 'C',tabuleiro);
-        Item satelite2 = new Satelite(posicaoJogador2[0], posicaoJogador2[1], 'C',tabuleiro);
+
 
         System.out.println("ESSA É A POSIÇÃO DOS JOGADORES"+posicaoJogador1[0]+posicaoJogador1[1]+posicaoJogador2[0]+posicaoJogador2[1]);
 
-        tabuleiro.Inserir(nave1);
-        tabuleiro.Inserir(nave2);
-        tabuleiro.Inserir(satelite1);
-        tabuleiro.Inserir(satelite2);
+
 
         Jogador jogador1 = new Jogador(posicaoJogador1[0], posicaoJogador1[1]);
         Jogador jogador2 = new Jogador(posicaoJogador2[0], posicaoJogador2[1]);
 
-        jogador1.setItens(nave1, satelite1);
-        jogador2.setItens(nave2, satelite2);
 
-        tabuleiro.Apresentar();
+
+
 
         Controle controle = new Controle(jogador1, jogador2);
         return controle;
