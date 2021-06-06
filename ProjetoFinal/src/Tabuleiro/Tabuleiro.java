@@ -1,5 +1,6 @@
 package Tabuleiro;
 
+import App.Spritesheet;
 import Itens.Item;
 import Itens.NaveColonizadora;
 import Itens.Satelite;
@@ -13,15 +14,17 @@ import java.util.Random;
 public class Tabuleiro {
 
     private Planeta[][] planetas;
-    public static int DC = 16;		// dimensões de cada célula (16 x 16)
-    public int larguraMapa;
-    public int alturaMapa;
+    private BufferedImage fundoImagem;
+    private Spritesheet spritesheet;
 
 
     public Tabuleiro(String imagemTabuleiro) {
 
         //Instanciar Planetas
         planetas = InstanciarPlanetas();
+
+        spritesheet = new Spritesheet(imagemTabuleiro);
+        fundoImagem = spritesheet.getSpritesheet(0,0,600,400);
 
         //Definir Posição dos Jogadores
         int posicaoJogador1[] = SortearPosicaoJogador();
@@ -54,6 +57,9 @@ public class Tabuleiro {
     /**Funções auxiliares do Construtor**/
 
     private String SortearPlaneta(){
+        int metal=0;
+        int municao = 0;
+        int combustivel=0;
         Random sortear = new Random();
         int sorteado = sortear.nextInt(3);
         System.out.println(sorteado);
@@ -113,22 +119,12 @@ public class Tabuleiro {
         return new int[] {sorteadoLinha, sorteadoColuna};
     }
 
-    public void InicializarTabuleiro(String caminhoImagemTabuleiro){
-        BufferedImage espacoSideral = null;
-        try {
-            espacoSideral = ImageIO.read(getClass().getResource(caminhoImagemTabuleiro));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        larguraMapa = espacoSideral.getWidth();
-        alturaMapa = espacoSideral.getHeight();
-    }
-
     public void Renderizar(Graphics g){
+        g.drawImage(fundoImagem, 0,0, null);
         for(int i = 0; i<5;i++){
-            for(int j=0; j<5;j++){
+            for(int j=0;j<5;j++){
                 if(planetas[i][j]!=null){
+                    //System.out.println("AQUI");
                     planetas[i][j].Renderizar(g);
                 }
             }
