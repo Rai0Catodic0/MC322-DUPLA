@@ -5,7 +5,7 @@ import Outros.Jogador;
 import Recursos.Recursos;
 
 import java.util.List;
-import java.util.Observable;
+
 
 public interface IPlaneta {
     void Remover(Item item);
