@@ -1,18 +1,12 @@
 package testefx;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCombination;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -27,7 +21,7 @@ public class Main extends Application {
         ImageView backgroundView = new ImageView(background);
         backgroundView.setX(0);
         backgroundView.setY(0);
-        Image nave = new Image("nave.png");
+        Image nave = new Image("testefx/nave.png");
         ImageView naveView = new ImageView(nave);
         naveView.setY(260);
         naveView.setX(15);
@@ -39,19 +33,22 @@ public class Main extends Application {
         interfaceRecursos.setY(250);
         interfaceRecursos.setFill(Color.GRAY);
 
-
+        BarraLateral jogador1 = new BarraLateral(root);
         BotaoPlaneta p = new BotaoPlaneta("planeta.png");
+        BarraSelecao teste1 = new BarraSelecao(root);
 
         root.getChildren().add(backgroundView);
-        root.getChildren().add(interfaceRecursos);
-        root.getChildren().add(naveView);
+        //root.getChildren().add(interfaceRecursos);
+        //root.getChildren().add(naveView);
         root.getChildren().add(p);
+        jogador1.Desenhar(0,5,4,1,1,3);
+        teste1.Desenhar();
         stage.setScene(scene);
         stage.show();
     }
 
 
-    public static void main(String[] args) {
+    public static void Main(String[] args) {
         launch(args);
     }
 }
