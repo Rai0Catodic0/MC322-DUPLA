@@ -1,8 +1,11 @@
 package Tabuleiro;
 
+import Itens.Item;
+
 public interface ITabuleiro {
     String Apresentar();
-    void Remover();
+    boolean Inserir(Item item);
+    void Remover(Item item);
     void Movimentar();
-    void Lutar();
+    void Lutar(); // TODO isso fica ?
 }
