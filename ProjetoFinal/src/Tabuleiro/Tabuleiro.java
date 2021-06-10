@@ -1,14 +1,15 @@
 package Tabuleiro;
 
-import App.Spritesheet;
 import Itens.Item;
+import java.util.List;
+
+
+import App.Spritesheet;
 import Itens.NaveColonizadora;
 import Itens.Satelite;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.Random;
 
 public class Tabuleiro {
@@ -74,6 +75,12 @@ public class Tabuleiro {
         }
     }
 
+
+    public void Remover(Item item) {
+        List<Integer> position = item.getPosition();
+        this.planetas[position.get(0)][position.get(0)].Remover(item);
+
+    }
     private Planeta[][] InstanciarPlanetas(){
 
         Planeta planetas[][] = new Planeta[5][5];
@@ -100,6 +107,7 @@ public class Tabuleiro {
         planetas[4][2] = new Planeta(4,2,14,SortearPlaneta());
         planetas[4][3] = new Planeta(4,3,15,SortearPlaneta());
         return planetas;
+
     }
 
     private int[] SortearPosicaoJogador(){

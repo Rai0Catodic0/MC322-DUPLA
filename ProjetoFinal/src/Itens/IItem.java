@@ -11,4 +11,5 @@ public interface IItem {
     public  static void recolherRecurso(Recursos coletado) {
         coletados.add(coletado);
     }
+    List<Integer> getPosition();
 }

@@ -10,7 +10,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
-
+//teste
 public class App extends Canvas implements Runnable {
 
     public static JFrame frame;
