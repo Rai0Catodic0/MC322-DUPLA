@@ -2,6 +2,7 @@ package testefx;
 
 import javafx.application.Application;
 import javafx.scene.Group;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -9,7 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception{
@@ -17,7 +18,7 @@ public class Main extends Application {
         Group root = new Group();
         Scene scene = new Scene(root);
         stage.setTitle("Conquistadores do Espaço");
-        Image background = new Image("background.jpeg");
+        Image background = new Image("background.png");
         ImageView backgroundView = new ImageView(background);
         backgroundView.setX(0);
         backgroundView.setY(0);
@@ -48,7 +49,7 @@ public class Main extends Application {
     }
 
 
-    public static void Main(String[] args) {
+    public static void main(String[] args) {
         launch(args);
     }
 }
