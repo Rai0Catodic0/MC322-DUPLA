@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <output url="file://$MODULE_DIR$/bin/production/Lab06/mc322/lab06" />
+    <output url="file://$MODULE_DIR$/bin/Lab06/mc322/lab06" />
     <output-test url="file://$MODULE_DIR$/bin/test/Lab06" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
