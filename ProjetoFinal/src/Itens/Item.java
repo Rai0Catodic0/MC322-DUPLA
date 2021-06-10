@@ -25,4 +25,12 @@ public class Item implements IItem {
         return gerador.nextInt(6);
     }
 
+    @Override
+    public List<Integer> getPosition() {
+        List<Integer> position = new ArrayList<>();
+        position.add(this.i);
+        position.add(this.j);
+        return  position;
+    }
+
 }

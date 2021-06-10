@@ -16,6 +16,10 @@ public class Planeta extends Observable implements IPlaneta{
     public List<Item> itens = new ArrayList<>();
     String type;
 
+    public List<Item> getItens() {
+        return itens;
+    }
+
     public Planeta(int i, int j, int id, String  type) {
         this.i = i;
         this.j = j;
@@ -24,8 +28,8 @@ public class Planeta extends Observable implements IPlaneta{
     }
 
     @Override
-    public void Remover() {
-        //TODO implement remover()
+    public void Remover(Item item) {
+        this.itens.remove(item);
     }
 
     @Override
