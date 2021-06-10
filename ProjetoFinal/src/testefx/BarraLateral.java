@@ -1,4 +1,4 @@
-package View;
+package testefx;
 
 import javafx.scene.Group;
 import javafx.scene.image.Image;
@@ -68,32 +68,32 @@ public class BarraLateral {
         satelite.setFill(Color.BLACK);
 
         //Imagens dos itens
-        Image warStarshipImage = new Image("nave.png");
+        Image warStarshipImage = new Image("testefx/nave.png");
         ImageView imageViewWarStarship = new ImageView(warStarshipImage);
         imageViewWarStarship.setX(5);
         imageViewWarStarship.setY(139.5);
 
-        Image colonizationStarshipImage = new Image("nave.png");
+        Image colonizationStarshipImage = new Image("testefx/nave.png");
         ImageView imageViewColonizationStarship = new ImageView(colonizationStarshipImage);
         imageViewColonizationStarship.setX(5);
         imageViewColonizationStarship.setY(200.5);
 
-        Image sateliteImage = new Image("nave.png");
+        Image sateliteImage = new Image("testefx/nave.png");
         ImageView imageViewSatelite = new ImageView(sateliteImage);
         imageViewSatelite.setX(5);
         imageViewSatelite.setY(261.5);
 
-        Image fuelImage = new Image("nave.png");
+        Image fuelImage = new Image("testefx/nave.png");
         ImageView imageViewFuel = new ImageView(fuelImage);
         imageViewFuel.setX(5);
         imageViewFuel.setY(322.5);
 
-        Image bulletImage = new Image("nave.png");
+        Image bulletImage = new Image("testefx/nave.png");
         ImageView imageViewBullet = new ImageView(bulletImage);
         imageViewBullet.setX(5);
         imageViewBullet.setY(383.5);
 
-        Image metalImage = new Image("nave.png");
+        Image metalImage = new Image("testefx/nave.png");
         ImageView imageViewMetal = new ImageView(metalImage);
         imageViewMetal.setX(5);
         imageViewMetal.setY(444.5);
