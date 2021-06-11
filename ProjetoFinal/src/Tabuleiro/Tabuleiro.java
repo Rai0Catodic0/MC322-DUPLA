@@ -75,13 +75,13 @@ public class Tabuleiro {
                 planetas[i][j]=null;
             }
         }
-        planetas[0][1] = new Planeta(0,1,0,0,1,SortearPlaneta());
-        planetas[0][2] = new Planeta(0,2,0,100,2,SortearPlaneta());
-        planetas[0][3] = new Planeta(0,3,0,200,3,SortearPlaneta());
-        planetas[1][0] = new Planeta(1,0,0,300,4,SortearPlaneta());
-        planetas[1][2] = new Planeta(1,2,0,400,5,SortearPlaneta());
-        planetas[1][4] = new Planeta(1,4,0,500,6,SortearPlaneta());
-        planetas[2][0] = new Planeta(2,0,0,600,7,SortearPlaneta());
+        planetas[0][1] = new Planeta(0,1,550,620,1,SortearPlaneta());
+        planetas[0][2] = new Planeta(0,2,300,800,2,SortearPlaneta());
+        planetas[0][3] = new Planeta(0,3,140,1224,3,SortearPlaneta());
+        planetas[1][0] = new Planeta(1,0,320,1224,4,SortearPlaneta());
+        planetas[1][2] = new Planeta(1,2,590,1234,5,SortearPlaneta());
+        planetas[1][4] = new Planeta(1,4,720,810,6,SortearPlaneta());
+        planetas[2][0] = new Planeta(2,0,820,1150,7,SortearPlaneta());
         planetas[2][1] = new Planeta(2,1,0,700,8,SortearPlaneta());
         planetas[2][3] = new Planeta(2,3,0,800,9,SortearPlaneta());
         planetas[2][4] = new Planeta(2,4,0,900,10,SortearPlaneta());

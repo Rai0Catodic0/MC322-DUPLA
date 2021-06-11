@@ -16,10 +16,11 @@ public class App extends Application {
         Group root = new Group();
         Scene scene = new Scene(root);
         stage.setTitle("Conquistadores do Espaço");
+        //Image background = new Image("images/exemplo_interface.png");
         Image background = new Image("images/background.png");
         ImageView backgroundView = new ImageView(background);
-        backgroundView.setX(0);
-        backgroundView.setY(0);
+        //backgroundView.setX(0);
+        //backgroundView.setY(0);
 
         Tabuleiro tab = new Tabuleiro();
         BarraLateral jogador1 = new BarraLateral(root);

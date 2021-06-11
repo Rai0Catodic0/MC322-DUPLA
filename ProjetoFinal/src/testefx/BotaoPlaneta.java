@@ -6,8 +6,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class BotaoPlaneta extends Button {
+    Planeta planeta;
     public BotaoPlaneta(Planeta planeta){
         super();
+        this.planeta = planeta;
         ImageView planetaImg = new ImageView(new Image(planeta.getImgpath()));
         this.setGraphic(planetaImg);
          int[] position = planeta.getPixelsPosition();
