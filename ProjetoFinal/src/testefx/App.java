@@ -2,7 +2,6 @@ package testefx;
 
 import javafx.application.Application;
 import javafx.scene.Group;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -22,25 +21,13 @@ public class App extends Application {
         ImageView backgroundView = new ImageView(background);
         backgroundView.setX(0);
         backgroundView.setY(0);
-        Image nave = new Image("testefx/nave.png");
-        ImageView naveView = new ImageView(nave);
-        naveView.setY(260);
-        naveView.setX(15);
 
-
-        Rectangle interfaceRecursos = new Rectangle();
-        interfaceRecursos.setHeight(400);
-        interfaceRecursos.setWidth(140);
-        interfaceRecursos.setY(250);
-        interfaceRecursos.setFill(Color.GRAY);
 
         BarraLateral jogador1 = new BarraLateral(root);
         BotaoPlaneta p = new BotaoPlaneta("planeta.png");
         BarraSelecao teste1 = new BarraSelecao(root);
 
         root.getChildren().add(backgroundView);
-        //root.getChildren().add(interfaceRecursos);
-        //root.getChildren().add(naveView);
         root.getChildren().add(p);
         jogador1.Desenhar(0,5,4,1,1,3);
         teste1.Desenhar();
