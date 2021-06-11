@@ -1,6 +1,6 @@
 package Tabuleiro;
 
-import java.util.Random;
+/*import java.util.Random;
 import Itens.Item;
 import Itens.NaveColonizadora;
 import Itens.Satelite;
@@ -94,3 +94,4 @@ public class Montador {
         return controle;
     }
 }
+*/

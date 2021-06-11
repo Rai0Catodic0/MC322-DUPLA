@@ -1,5 +1,6 @@
 package App;
 
+/*
 import Tabuleiro.Tabuleiro;
 
 import javax.swing.*;
@@ -109,3 +110,4 @@ public class App extends Canvas implements Runnable {
         Parar();
     }
 }
+*/
