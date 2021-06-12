@@ -40,7 +40,7 @@ public class Item implements IItem{
         position.add(this.j);
         return  position;
     }
-    /*
+
     public String getType(){
         if(this instanceof NaveGuerra){
             System.out.println("tipo :guerra");
@@ -53,5 +53,5 @@ public class Item implements IItem{
             System.out.println("tipo :satelite");
             return "satelite";
         }
-    }*/
+    }
 }

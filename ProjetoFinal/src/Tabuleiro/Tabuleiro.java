@@ -32,11 +32,11 @@ public class Tabuleiro {
         Item satelite2 = new Satelite(posicaoJogador2[0], posicaoJogador2[1], 'C',this);
 
         //Colocar Itens no tabuleiro
-        this.Inserir(nave1);
+       /* this.Inserir(nave1);
         this.Inserir(nave2);
         this.Inserir(satelite1);
         this.Inserir(satelite2);
-
+        */
         //Instanciar Jogadores em suas posições
         Jogador jogador1 = new Jogador(posicaoJogador1[0], posicaoJogador1[1]);
         Jogador jogador2 = new Jogador(posicaoJogador2[0], posicaoJogador2[1]);
@@ -75,7 +75,7 @@ public class Tabuleiro {
                 planetas[i][j]=null;
             }
         }
-        planetas[0][1] = new Planeta(0,1,550,620,1,SortearPlaneta());
+        planetas[0][1] = new Planeta(0,1,475,620,1,SortearPlaneta());
         planetas[0][2] = new Planeta(0,2,300,800,2,SortearPlaneta());
         planetas[0][3] = new Planeta(0,3,140,1224,3,SortearPlaneta());
         planetas[1][0] = new Planeta(1,0,320,1224,4,SortearPlaneta());

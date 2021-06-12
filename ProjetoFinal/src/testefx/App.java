@@ -25,11 +25,11 @@ public class App extends Application {
         //backgroundView.setY(0);
 
         Tabuleiro tab = new Tabuleiro();
+        NaveGuerra n = new NaveGuerra(0,1,'r',tab);
+        tab.Inserir(n);
         BarraLateral jogador1 = new BarraLateral(root);
         TabuleiroGrafico tabg = new TabuleiroGrafico(tab,root);
         BarraSelecao teste1 = new BarraSelecao(root);
-        NaveGuerra n = new NaveGuerra(0,1,'r',tab);
-        //tab.Inserir(n);
 
         root.getChildren().add(backgroundView);
         jogador1.Desenhar(0,5,4,1,1,3);

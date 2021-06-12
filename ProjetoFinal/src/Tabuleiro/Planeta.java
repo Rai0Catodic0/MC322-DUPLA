@@ -54,17 +54,8 @@ public class Planeta extends Observable implements IPlaneta{
     @Override
     public void Inserir(Item item) {
         itens.add(item);
-        if(item instanceof NaveGuerra){
-            System.out.println("tipo :guerra");
-            this.imgpath = this.imgpath+ "nave";
-        }else if(item instanceof NaveColonizadora){
-            System.out.println("tipo :colonizadora");
-            this.imgpath = this.imgpath+ "nave";
-        }
-        else {
-            System.out.println("tipo :satelite");
-            this.imgpath = this.imgpath+ "satelite";
-        }
+        //FIXME hardcoded string , mudar pra concatenacao
+        this.imgpath = "images/planetacombustivel1nave";
         setChanged();
         notifyObservers(item);
     }
