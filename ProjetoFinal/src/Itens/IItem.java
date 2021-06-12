@@ -12,4 +12,5 @@ public interface IItem {
         coletados.add(coletado);
     }
     List<Integer> getPosition();
+    //String getType();
 }

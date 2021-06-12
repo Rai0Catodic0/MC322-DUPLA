@@ -1,5 +1,7 @@
 package testefx;
 
+import Itens.Item;
+import Itens.NaveGuerra;
 import Tabuleiro.Tabuleiro;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -14,7 +16,7 @@ public class App extends Application {
     public void start(Stage stage) throws Exception{
         //Stage stage = new Stage();
         Group root = new Group();
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root,2399,1199);
         stage.setTitle("Conquistadores do Espaço");
         //Image background = new Image("images/exemplo_interface.png");
         Image background = new Image("images/background.png");
@@ -26,6 +28,8 @@ public class App extends Application {
         BarraLateral jogador1 = new BarraLateral(root);
         TabuleiroGrafico tabg = new TabuleiroGrafico(tab,root);
         BarraSelecao teste1 = new BarraSelecao(root);
+        NaveGuerra n = new NaveGuerra(0,1,'r',tab);
+        //tab.Inserir(n);
 
         root.getChildren().add(backgroundView);
         jogador1.Desenhar(0,5,4,1,1,3);

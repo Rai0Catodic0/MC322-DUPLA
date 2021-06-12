@@ -1,6 +1,8 @@
 package Tabuleiro;
 
 import Itens.Item;
+import Itens.NaveColonizadora;
+import Itens.NaveGuerra;
 import Outros.Jogador;
 import Recursos.*;
 
@@ -20,7 +22,7 @@ public class Planeta extends Observable implements IPlaneta{
     String imgpath;
 
     public String getImgpath() {
-        return imgpath;
+        return imgpath+".png";
     }
 
     public int[] getPixelsPosition() {
@@ -36,8 +38,7 @@ public class Planeta extends Observable implements IPlaneta{
         this.id = id;
         this.type = type;
         int imgNumber = new Random().nextInt(2);
-        this.imgpath = "images/planeta"+type+ imgNumber+".png";
-        System.out.println(imgpath);
+        this.imgpath = "images/planeta"+type+ 1;
 
     }
 
@@ -53,6 +54,17 @@ public class Planeta extends Observable implements IPlaneta{
     @Override
     public void Inserir(Item item) {
         itens.add(item);
+        if(item instanceof NaveGuerra){
+            System.out.println("tipo :guerra");
+            this.imgpath = this.imgpath+ "nave";
+        }else if(item instanceof NaveColonizadora){
+            System.out.println("tipo :colonizadora");
+            this.imgpath = this.imgpath+ "nave";
+        }
+        else {
+            System.out.println("tipo :satelite");
+            this.imgpath = this.imgpath+ "satelite";
+        }
         setChanged();
         notifyObservers(item);
     }

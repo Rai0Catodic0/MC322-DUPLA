@@ -10,8 +10,9 @@ public class BotaoPlaneta extends Button {
     public BotaoPlaneta(Planeta planeta){
         super();
         this.planeta = planeta;
-        ImageView planetaImg = new ImageView(new Image(planeta.getImgpath()));
-        this.setGraphic(planetaImg);
+        System.out.println(planeta.getImgpath());
+        //ImageView planetaImg = new ImageView(new Image(planeta.getImgpath()));
+        //this.setGraphic(planetaImg);
          int[] position = planeta.getPixelsPosition();
         this.setLayoutX(position[1]);
         this.setLayoutY(position[0]);
