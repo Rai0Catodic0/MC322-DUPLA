@@ -18,13 +18,13 @@ public class Item implements IItem{
     Tabuleiro tabuleiro;
 
     public Item(int i, int j, char repre, Tabuleiro tab){
+        //repre dever ser ou a ou v
+        //a = jogador azul
+        //v = jogador verde
         this.tabuleiro = tab;
         this.i = i;
         this.j = j;
         this.representacao = repre;
-        // inserir item no tabuleiro ???
-        //spritesheet = new Spritesheet("uma string com o caminho das imagens");
-        //ImagemItem = spritesheet.getSpritesheet(0,0,600,400);
     }
 
     @Override
@@ -44,14 +44,14 @@ public class Item implements IItem{
     public String getType(){
         if(this instanceof NaveGuerra){
             System.out.println("tipo :guerra");
-            return "nave";
+            return "images/nave.png";
         }else if(this instanceof NaveColonizadora){
             System.out.println("tipo :colonizadora");
-            return  "nave";
+            return  "images/nave.png";
         }
         else {
             System.out.println("tipo :satelite");
-            return "satelite";
+            return "images/satelite.png";
         }
     }
 }

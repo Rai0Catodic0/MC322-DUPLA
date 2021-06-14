@@ -11,7 +11,7 @@ import java.util.List;
 public class TabuleiroGrafico  {
     Tabuleiro tab;
     Group root;
-    List<BotaoPlaneta> botoes = new ArrayList();
+    List<Tile> botoes = new ArrayList();
     public TabuleiroGrafico(Tabuleiro tabuleiro, Group root){
         this.root = root;
         this.tab = tabuleiro;
@@ -19,14 +19,14 @@ public class TabuleiroGrafico  {
         for(int i = 0; i < 5; i++){
             for(int j = 0; j < 5; j++){
                 if(planetas[i][j]!=null){
-                    botoes.add(new BotaoPlaneta(planetas[i][j]));
+                    botoes.add(new Tile(planetas[i][j]));
                 }
             }
         }
     }
 
     public void desenhar() {
-        for (BotaoPlaneta botao : botoes) {
+        for (Tile botao : botoes) {
             this.root.getChildren().add(botao);
         }
     }

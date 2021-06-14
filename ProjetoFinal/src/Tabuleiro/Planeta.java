@@ -55,7 +55,7 @@ public class Planeta extends Observable implements IPlaneta{
     public void Inserir(Item item) {
         itens.add(item);
         //FIXME hardcoded string , mudar pra concatenacao
-        this.imgpath = "images/planetacombustivel1nave";
+        //this.imgpath = "images/planetacombustivel1nave";
         setChanged();
         notifyObservers(item);
     }
