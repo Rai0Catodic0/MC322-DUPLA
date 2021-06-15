@@ -42,16 +42,18 @@ public class Item implements IItem{
     }
 
     public String getType(){
+        String path = "images/";
         if(this instanceof NaveGuerra){
-            System.out.println("tipo :guerra");
-            return "images/nave.png";
+            path = path+"naveguerra"+this.representacao+".png";
+            System.out.println("tipo :guerra -> "+path);
         }else if(this instanceof NaveColonizadora){
-            System.out.println("tipo :colonizadora");
-            return  "images/nave.png";
+            path = path+"navecolonizadora"+this.representacao+".png";
+            System.out.println("tipo :colonizadora -> "+path);
         }
         else {
-            System.out.println("tipo :satelite");
-            return "images/satelite.png";
+            path = path+"satelite"+this.representacao+".png";
+            System.out.println("tipo :satelite -> "+path);
         }
+        return path;
     }
 }

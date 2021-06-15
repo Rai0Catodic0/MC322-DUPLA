@@ -1,6 +1,7 @@
 package testefx;
 
 import Itens.Item;
+import Itens.NaveColonizadora;
 import Itens.NaveGuerra;
 import Itens.Satelite;
 import Tabuleiro.Tabuleiro;
@@ -27,9 +28,9 @@ public class App extends Application {
         //backgroundView.setY(0);
 
         Tabuleiro tab = new Tabuleiro();
-        NaveGuerra n = new NaveGuerra(0,1,'r',tab);
-        Satelite s = new Satelite(0,1,'r',tab);
-        tab.Inserir(s);
+        //Item n = new NaveColonizadora(0,1,'a',tab);
+        //Satelite s = new Satelite(0,1,'a',tab);
+        //tab.Inserir(s);
         //tab.Inserir(n);
         BarraLateral jogador1 = new BarraLateral(root);
         TabuleiroGrafico tabg = new TabuleiroGrafico(tab,root);
