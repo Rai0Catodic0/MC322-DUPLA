@@ -19,7 +19,7 @@ public class BotaoPlaneta extends Button {
         this.setGraphic(planetaImg);
         this.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         this.setOnAction(actionEvent -> {
-            this.barraselecao.Desenhar();
+            this.barraselecao.Desenhar( );
         });
     }
 

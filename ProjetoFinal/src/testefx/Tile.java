@@ -23,7 +23,7 @@ public class Tile extends Pane {
         this.setLayoutX(position[1]);
         this.setLayoutY(position[0]);
         BotaoPlaneta botao = new BotaoPlaneta(this.planeta, barra);
-        ImageView images[] = new ImageView[3];
+        ImageView images[] = new ImageView[5];
         int i=0;
         for(Item item : this.items){
             images[i] = new ImageView(new Image(item.getImgPath()));
