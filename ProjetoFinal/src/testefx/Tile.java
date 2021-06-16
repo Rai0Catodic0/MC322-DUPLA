@@ -43,7 +43,7 @@ public class Tile extends Pane {
         this.items = planeta.getItens();
         int i = 0;
         for(Item item : this.items){
-            images[i] = new ImageView(new Image(item.getType()));
+            images[i] = new ImageView(new Image(item.getImgPath()));
             images[i].setX(110*i);
             images[i].setY(110*i);
             System.out.println("Essa é a imagem CRIADA: "+images[i]);

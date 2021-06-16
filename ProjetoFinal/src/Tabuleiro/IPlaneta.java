@@ -1,7 +1,6 @@
 package Tabuleiro;
 
 import Itens.Item;
-import Outros.Jogador;
 import Recursos.Recursos;
 
 import java.util.List;

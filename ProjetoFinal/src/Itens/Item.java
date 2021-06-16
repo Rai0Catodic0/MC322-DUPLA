@@ -41,19 +41,28 @@ public class Item implements IItem{
         return  position;
     }
 
+    public List<Recursos> getColetados() {
+        return coletados;
+    }
+
     public String getType(){
-        String path = "images/";
+        String type;
         if(this instanceof NaveGuerra){
-            path = path+"naveguerra"+this.representacao+".png";
-            System.out.println("tipo :guerra -> "+path);
+            type = "naveguerra";
+            System.out.println("tipo :guerra -> ");
         }else if(this instanceof NaveColonizadora){
-            path = path+"navecolonizadora"+this.representacao+".png";
-            System.out.println("tipo :colonizadora -> "+path);
+             type = "navecolonizadora";
+            System.out.println("tipo :colonizadora -> ");
         }
         else {
-            path = path+"satelite"+this.representacao+".png";
-            System.out.println("tipo :satelite -> "+path);
+            type = "satelite";
+            System.out.println("tipo :satelite -> ");
         }
-        return path;
+        return type;
+    }
+    public String getImgPath(){
+        String imgpath;
+        imgpath = "images/"+this.getType()+this.representacao+".png";
+        return imgpath;
     }
 }

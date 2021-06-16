@@ -36,13 +36,15 @@ public class App extends Application {
         //tab.Inserir(s);
         //tab.Inserir(n);
         BarraLateral jogador1 = new BarraLateral(root);
+
         TabuleiroGrafico tabg = new TabuleiroGrafico(tab,root,this);
         Tile t = new Tile(tab.getPlanetas()[0][1],this, tabg);
+
         root.getChildren().add(backgroundView);
         root.getChildren().add(sub);
-        root.getChildren().add(t);
 
-        jogador1.Desenhar(0,5,4,1,1,3);
+        jogador1.Desenhar(tab.j.status());
+
         tabg.desenhar();
         stage.setScene(scene);
         stage.show();

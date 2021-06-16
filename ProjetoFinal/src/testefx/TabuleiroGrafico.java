@@ -13,6 +13,7 @@ public class TabuleiroGrafico  {
     Tabuleiro tab;
     Group root;
     List<Tile> botoes = new ArrayList();
+
     public TabuleiroGrafico(Tabuleiro tabuleiro, Group root, App app){
         this.root = root;
         this.tab = tabuleiro;
