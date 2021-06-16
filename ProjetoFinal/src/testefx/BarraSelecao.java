@@ -1,5 +1,10 @@
 package testefx;
 
+import Itens.Item;
+import Itens.NaveColonizadora;
+import Itens.NaveGuerra;
+import Itens.Satelite;
+import Tabuleiro.Planeta;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -11,73 +16,116 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 
+import java.util.List;
+
 public class BarraSelecao {
-    public boolean naveColonizadoraSelecionada = false;
-    public boolean naveGuerraSelecionada = false;
-    public boolean sateliteSelecionado = false;
-    public Group root;
-    public BarraSelecao(Group root){
+    private boolean naveColonizadoraSelecionada = false;
+    private boolean naveGuerraSelecionada = false;
+    private boolean sateliteSelecionado = false;
+    private Button botaoMover;
+    private Button botaoConstruirSatelite;
+    private Button botaoConstruirNaveGuerra;
+    private Button botaoConstruirNaveColonizacao;
+    private Button botaoNaveColonizadora;
+    private Button botaoNaveGuerra;
+    private Button botaoSatelite;
+    private App app;
+
+    private boolean mover = false;
+    private boolean construirNaveGuerra = false;
+    private boolean construirNaveColonizadora = false;
+    private boolean construirSatelite = false;
+
+    private int planetaRecebeAcao;
+    private int planetaClicado;
+
+    private Item itemMovido;
+
+
+
+    private Group root;
+
+
+    public BarraSelecao(Group root, App app){
         this.root = root;
+        this.app = app;
+        CriarCena();
     }
 
-    private void ColocarBotoes(Button botaoMover, Button botaoConstruirSatelite, Button botaoConstruirNaveColonizacao, Button botaoConstruirNaveGuerra){
-        if(naveColonizadoraSelecionada){
-            root.getChildren().add(botaoMover);
-            root.getChildren().add(botaoConstruirSatelite);
-        } else {
-            root.getChildren().remove(botaoMover);
-            root.getChildren().remove(botaoConstruirSatelite);
-        }
-        if(naveGuerraSelecionada){
-            root.getChildren().add(botaoMover);
-        } else {
-            root.getChildren().remove(botaoMover);
-        }
-        if(sateliteSelecionado){
-            root.getChildren().add(botaoConstruirNaveColonizacao);
-            root.getChildren().add(botaoConstruirNaveGuerra);
-        } else {
-            root.getChildren().remove(botaoConstruirNaveColonizacao);
-            root.getChildren().remove(botaoConstruirNaveGuerra);
-        }
+    public boolean getMover(){
+        return this.mover;
     }
 
-    public void Desenhar(){
+    public boolean getNaveColonizadoraSelecionada(){
+        return this.naveColonizadoraSelecionada;
+    }
 
+    public boolean getNaveGuerraSelecionada(){
+        return this.naveGuerraSelecionada;
+    }
+
+
+    private void CriarCena(){
         //Botao Mover
-        Button botaoMover = new Button();
+        botaoMover = new Button();
         botaoMover.setText("Mover");
         botaoMover.setLayoutY(539.5);
         botaoMover.setLayoutX(300);
         botaoMover.setFont(Font.font("Verdana", 15));
         botaoMover.getStylesheets().add(getClass().getResource("styleBotaoSelecao.css").toExternalForm());
+        botaoMover.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                mover = true;
+                botaoMover.setDisable(true);
+                planetaRecebeAcao = planetaClicado;
+            }
+        });
 
         //Botao Construir satélite
-        Button botaoConstruirSatelite = new Button();
+        botaoConstruirSatelite = new Button();
         botaoConstruirSatelite.setText("Construir Satelite");
         botaoConstruirSatelite.setLayoutY(539.5);
         botaoConstruirSatelite.setLayoutX(500);
         botaoConstruirSatelite.setFont(Font.font("Verdana", 15));
         botaoConstruirSatelite.getStylesheets().add(getClass().getResource("styleBotaoSelecao.css").toExternalForm());
+        botaoConstruirSatelite.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                construirSatelite = true;
+            }
+        });
 
         //Botao Construir Nave de Guerra
-        Button botaoConstruirNaveGuerra = new Button();
+        botaoConstruirNaveGuerra = new Button();
         botaoConstruirNaveGuerra.setText("Construir Nave de Guerra");
         botaoConstruirNaveGuerra.setLayoutY(539.5);
         botaoConstruirNaveGuerra.setLayoutX(700);
         botaoConstruirNaveGuerra.setFont(Font.font("Verdana", 15));
         botaoConstruirNaveGuerra.getStylesheets().add(getClass().getResource("styleBotaoSelecao.css").toExternalForm());
+        botaoConstruirNaveGuerra.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                construirNaveGuerra = true;
+            }
+        });
 
         //Botao Construir Nave de Colonização
-        Button botaoConstruirNaveColonizacao = new Button();
+        botaoConstruirNaveColonizacao = new Button();
         botaoConstruirNaveColonizacao.setText("Construir Nave de Colonizacao");
         botaoConstruirNaveColonizacao.setLayoutY(539.5);
         botaoConstruirNaveColonizacao.setLayoutX(300);
         botaoConstruirNaveColonizacao.setFont(Font.font("Verdana", 15));
         botaoConstruirNaveColonizacao.getStylesheets().add(getClass().getResource("styleBotaoSelecao.css").toExternalForm());
+        botaoConstruirNaveColonizacao.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                construirNaveColonizadora = true;
+            }
+        });
 
         //Botao Nave colonizadora
-        Button botaoNaveColonizadora = new Button();
+        botaoNaveColonizadora = new Button();
         botaoNaveColonizadora.setText("Nave Colonizadora");
         botaoNaveColonizadora.setLayoutY(539.5);
         botaoNaveColonizadora.setLayoutX(0);
@@ -95,13 +143,12 @@ public class BarraSelecao {
                 naveGuerraSelecionada = false;
                 sateliteSelecionado = false;
                 naveColonizadoraSelecionada=!naveColonizadoraSelecionada;
-                ColocarBotoes( botaoMover,  botaoConstruirSatelite,  botaoConstruirNaveColonizacao,  botaoConstruirNaveGuerra);
+                ColocarBotoes();
             }
         });
-        root.getChildren().add(botaoNaveColonizadora);
 
         //Botao Nave de Guerra
-        Button botaoNaveGuerra = new Button();
+        botaoNaveGuerra = new Button();
         botaoNaveGuerra.setText("Nave de Guerra");
         botaoNaveGuerra.setLayoutY(599.5);
         botaoNaveGuerra.setLayoutX(0);
@@ -118,14 +165,13 @@ public class BarraSelecao {
                 naveColonizadoraSelecionada = false;
                 sateliteSelecionado = false;
                 naveGuerraSelecionada=!naveGuerraSelecionada;
-                ColocarBotoes( botaoMover,  botaoConstruirSatelite,  botaoConstruirNaveColonizacao,  botaoConstruirNaveGuerra);
+                ColocarBotoes();
             }
         });
-        root.getChildren().add(botaoNaveGuerra);
 
 
         //Botao Nave de Guerra
-        Button botaoSatelite = new Button();
+        botaoSatelite = new Button();
         botaoSatelite.setText("Satélite");
         botaoSatelite.setLayoutY(659.5);
         botaoSatelite.setLayoutX(0);
@@ -142,9 +188,80 @@ public class BarraSelecao {
                 naveColonizadoraSelecionada = false;
                 naveGuerraSelecionada = false;
                 sateliteSelecionado=!sateliteSelecionado;
-                ColocarBotoes( botaoMover,  botaoConstruirSatelite,  botaoConstruirNaveColonizacao,  botaoConstruirNaveGuerra);
+                ColocarBotoes();
             }
         });
-        root.getChildren().add(botaoSatelite);
+    }
+
+    private void ColocarBotoes(){
+        System.out.println("nave col: "+naveColonizadoraSelecionada);
+        System.out.println("nave guer: "+naveGuerraSelecionada);
+        System.out.println("satelite : "+sateliteSelecionado);
+        if((naveColonizadoraSelecionada || naveGuerraSelecionada)&&!root.getChildren().contains(botaoMover)){
+            root.getChildren().add(botaoMover);
+        }
+        if(!naveColonizadoraSelecionada && !naveGuerraSelecionada){
+            root.getChildren().remove(botaoMover);
+        }
+        if(naveColonizadoraSelecionada){
+            root.getChildren().add(botaoConstruirSatelite);
+        }
+        if(!naveColonizadoraSelecionada){
+            root.getChildren().remove(botaoConstruirSatelite);
+        }
+        if(sateliteSelecionado){
+            root.getChildren().add(botaoConstruirNaveColonizacao);
+            root.getChildren().add(botaoConstruirNaveGuerra);
+        } else {
+            root.getChildren().remove(botaoConstruirNaveColonizacao);
+            root.getChildren().remove(botaoConstruirNaveGuerra);
+        }
+    }
+
+    public void Esconder(){
+        root.getChildren().remove(botaoConstruirNaveColonizacao);
+        root.getChildren().remove(botaoConstruirNaveGuerra);
+        root.getChildren().remove(botaoConstruirSatelite);
+
+        root.getChildren().remove(botaoNaveColonizadora);
+        root.getChildren().remove(botaoNaveGuerra);
+        root.getChildren().remove(botaoSatelite);
+    }
+
+    public void DesenharBarras(List<Item> itens){
+        double y = 539.5;
+        int itemNaveGuerra = 0;
+        int itemNaveCol = 0;
+        int itemSat = 0;
+        Esconder();
+        for(Item item : itens){
+            if(item instanceof NaveGuerra && itemNaveGuerra ==0){
+                itemNaveGuerra = 1;
+                botaoNaveGuerra.setLayoutY(y);
+                root.getChildren().add(botaoNaveGuerra);
+                y+=60;
+            } else if (item instanceof NaveColonizadora && itemNaveCol == 0){
+                itemNaveCol = 1;
+                botaoConstruirNaveColonizacao.setLayoutY(y);
+                root.getChildren().add(botaoNaveColonizadora);
+                y+=60;
+            } else if(item instanceof Satelite && itemSat == 0) {
+                itemSat = 1;
+                botaoSatelite.setLayoutY(y);
+                root.getChildren().add(botaoSatelite);
+                y+=60;
+            }
+        }
+    }
+
+    public void ClicouPlaneta(int id, List<Item> itens){
+        planetaClicado = id;
+        System.out.println("CLICOU"+id);
+        if(!mover){
+            DesenharBarras(itens);
+        }
+        else if(mover && naveColonizadoraSelecionada){
+            app.tab.Mover(planetaClicado, planetaRecebeAcao, "naveColonizadora");
+        }
     }
 }

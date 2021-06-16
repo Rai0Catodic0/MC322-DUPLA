@@ -12,7 +12,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+import Tabuleiro.Planeta;
+
 public class App extends Application {
+    public BarraSelecao controle;
+    public Tabuleiro tab;
+
 
     @Override
     public void start(Stage stage) throws Exception{
@@ -27,21 +32,33 @@ public class App extends Application {
         //backgroundView.setX(0);
         //backgroundView.setY(0);
 
-        Tabuleiro tab = new Tabuleiro();
-        //Item n = new NaveColonizadora(0,1,'a',tab);
-        //Satelite s = new Satelite(0,1,'a',tab);
-        //tab.Inserir(s);
-        //tab.Inserir(n);
+        controle  = new BarraSelecao(root, this);
+
+        //Cria dois Tabuleiros
+        tab = new Tabuleiro();
+        TabuleiroGrafico tabg = new TabuleiroGrafico(root, controle);
+
+        //Linka Tile com planeta
+
+        Planeta planetas[][] = tab.getPlanetas();
+        int k = 0;
+        for(int i = 0; i<4; i++){
+            for(int j = 0; j<4;j++){
+                if(planetas[i][j]!=null){
+                    planetas[i][j].setTile(tabg.botoes.get(k));
+                    k++;
+                }
+            }
+        }
+
+
         BarraLateral jogador1 = new BarraLateral(root);
-        BarraSelecao teste1 = new BarraSelecao(root);
-        TabuleiroGrafico tabg = new TabuleiroGrafico(tab,root,teste1);
+
         root.getChildren().add(backgroundView);
         root.getChildren().add(sub);
 
-
         jogador1.Desenhar(tab.j.status());
-        teste1.Desenhar();
-        tabg.desenhar();
+        tabg.Desenhar();
         stage.setScene(scene);
         stage.show();
     }

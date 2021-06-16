@@ -1,26 +1,29 @@
 package testefx;
 
+import Itens.Item;
+import Itens.NaveColonizadora;
 import Tabuleiro.Planeta;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.util.Observer;
+
 public class BotaoPlaneta extends Button {
-    Planeta planeta;
-    BarraSelecao barraselecao;
-    public BotaoPlaneta(Planeta planeta, BarraSelecao barra){
+
+    public BotaoPlaneta(String imhpath, int[] positions){
         super();
-        this.planeta = planeta;
-        this.barraselecao = barra;
-        System.out.println(planeta.getImgpath());
-        ImageView planetaImg = new ImageView(new Image(planeta.getImgpath()));
+        System.out.println("ESSE É O CAMINHO!!! "+imhpath);
+        ImageView planetaImg = new ImageView(new Image(imhpath));
         this.setLayoutY(30);
         this.setLayoutX(30);
         this.setGraphic(planetaImg);
         this.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-        this.setOnAction(actionEvent -> {
-            this.barraselecao.Desenhar( );
-        });
+
     }
 
 
