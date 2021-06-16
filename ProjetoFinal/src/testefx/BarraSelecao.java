@@ -21,17 +21,20 @@ public class BarraSelecao {
     }
 
     private void ColocarBotoes(Button botaoMover, Button botaoConstruirSatelite, Button botaoConstruirNaveColonizacao, Button botaoConstruirNaveGuerra){
-        if(naveColonizadoraSelecionada){
+        System.out.println("nave col: "+naveColonizadoraSelecionada);
+        System.out.println("nave guer: "+naveGuerraSelecionada);
+        System.out.println("satelite : "+sateliteSelecionado);
+        if((naveColonizadoraSelecionada || naveGuerraSelecionada)&&!root.getChildren().contains(botaoMover)){
             root.getChildren().add(botaoMover);
-            root.getChildren().add(botaoConstruirSatelite);
-        } else {
-            root.getChildren().remove(botaoMover);
-            root.getChildren().remove(botaoConstruirSatelite);
         }
-        if(naveGuerraSelecionada){
-            root.getChildren().add(botaoMover);
-        } else {
+        if(!naveColonizadoraSelecionada && !naveGuerraSelecionada){
             root.getChildren().remove(botaoMover);
+        }
+        if(naveColonizadoraSelecionada){
+            root.getChildren().add(botaoConstruirSatelite);
+        }
+        if(!naveColonizadoraSelecionada){
+            root.getChildren().remove(botaoConstruirSatelite);
         }
         if(sateliteSelecionado){
             root.getChildren().add(botaoConstruirNaveColonizacao);
