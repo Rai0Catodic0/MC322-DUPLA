@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class App extends Application {
+    public BarraSelecao barraSelecao;
 
     @Override
     public void start(Stage stage) throws Exception{
@@ -27,15 +28,16 @@ public class App extends Application {
         //backgroundView.setX(0);
         //backgroundView.setY(0);
 
+        barraSelecao  = new BarraSelecao(root, this);
+
         Tabuleiro tab = new Tabuleiro();
         //Item n = new NaveColonizadora(0,1,'a',tab);
         //Satelite s = new Satelite(0,1,'a',tab);
         //tab.Inserir(s);
         //tab.Inserir(n);
         BarraLateral jogador1 = new BarraLateral(root);
-        BarraSelecao teste1 = new BarraSelecao(root);
-        TabuleiroGrafico tabg = new TabuleiroGrafico(tab,root,teste1);
-        Tile t = new Tile(tab.getPlanetas()[0][1],teste1);
+        TabuleiroGrafico tabg = new TabuleiroGrafico(tab,root,this);
+        Tile t = new Tile(tab.getPlanetas()[0][1],this, tabg);
         root.getChildren().add(backgroundView);
         root.getChildren().add(sub);
         root.getChildren().add(t);

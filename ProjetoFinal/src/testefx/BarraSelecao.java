@@ -27,16 +27,48 @@ public class BarraSelecao {
     private Button botaoNaveColonizadora;
     private Button botaoNaveGuerra;
     private Button botaoSatelite;
+    private App app;
 
+    private boolean mover = false;
+    private boolean construirNaveGuerra = false;
+    private boolean construirNaveColonizadora = false;
+    private boolean construirSatelite = false;
+
+    private Planeta planetaRecebeAcao;
+    private Planeta planetaClicado;
 
 
     private Group root;
 
 
+    public Planeta getPlanetaClicado(){
+        return planetaClicado;
+    }
 
-    public BarraSelecao(Group root){
+    public Planeta getPlanetaRecebeAcao(){
+        return planetaRecebeAcao;
+    }
+
+    public BarraSelecao(Group root, App app){
         this.root = root;
+        this.app = app;
         CriarCena();
+    }
+
+    public boolean getMover(){
+        return this.mover;
+    }
+
+    public boolean getNaveColonizadoraSelecionada(){
+        return this.naveColonizadoraSelecionada;
+    }
+
+    public boolean getNaveGuerraSelecionada(){
+        return this.naveGuerraSelecionada;
+    }
+
+    public void setPlanetaClicado(Planeta planeta){
+        planetaClicado = planeta;
     }
 
     private void CriarCena(){
@@ -47,6 +79,14 @@ public class BarraSelecao {
         botaoMover.setLayoutX(300);
         botaoMover.setFont(Font.font("Verdana", 15));
         botaoMover.getStylesheets().add(getClass().getResource("styleBotaoSelecao.css").toExternalForm());
+        botaoMover.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                mover = true;
+                botaoMover.setDisable(true);
+                planetaRecebeAcao = planetaClicado;
+            }
+        });
 
         //Botao Construir satélite
         botaoConstruirSatelite = new Button();
@@ -55,6 +95,12 @@ public class BarraSelecao {
         botaoConstruirSatelite.setLayoutX(500);
         botaoConstruirSatelite.setFont(Font.font("Verdana", 15));
         botaoConstruirSatelite.getStylesheets().add(getClass().getResource("styleBotaoSelecao.css").toExternalForm());
+        botaoConstruirSatelite.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                construirSatelite = true;
+            }
+        });
 
         //Botao Construir Nave de Guerra
         botaoConstruirNaveGuerra = new Button();
@@ -63,6 +109,12 @@ public class BarraSelecao {
         botaoConstruirNaveGuerra.setLayoutX(700);
         botaoConstruirNaveGuerra.setFont(Font.font("Verdana", 15));
         botaoConstruirNaveGuerra.getStylesheets().add(getClass().getResource("styleBotaoSelecao.css").toExternalForm());
+        botaoConstruirNaveGuerra.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                construirNaveGuerra = true;
+            }
+        });
 
         //Botao Construir Nave de Colonização
         botaoConstruirNaveColonizacao = new Button();
@@ -71,6 +123,12 @@ public class BarraSelecao {
         botaoConstruirNaveColonizacao.setLayoutX(300);
         botaoConstruirNaveColonizacao.setFont(Font.font("Verdana", 15));
         botaoConstruirNaveColonizacao.getStylesheets().add(getClass().getResource("styleBotaoSelecao.css").toExternalForm());
+        botaoConstruirNaveColonizacao.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                construirNaveColonizadora = true;
+            }
+        });
 
         //Botao Nave colonizadora
         botaoNaveColonizadora = new Button();

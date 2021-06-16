@@ -29,6 +29,14 @@ public class Planeta extends Observable implements IPlaneta{
         return new int[]{ipixels, jpixels};
     }
 
+    public int getI(){
+        return  i;
+    }
+
+    public int getJ(){
+        return j;
+    }
+
 
     public Planeta(int i, int j, int ipixels, int jpixels, int id, String  type) {
         this.i = i;
@@ -75,6 +83,12 @@ public class Planeta extends Observable implements IPlaneta{
                 break;
         }
         return result;
+    }
+
+    public boolean Mover(Item item){
+        //Faz a lógica de mover e faz a lógica da luta
+        Inserir(item);
+        return true;
     }
 
 
