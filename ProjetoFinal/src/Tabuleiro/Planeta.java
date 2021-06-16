@@ -1,6 +1,9 @@
 package Tabuleiro;
 
 import Itens.Item;
+import Itens.NaveColonizadora;
+import Itens.NaveGuerra;
+import Itens.Satelite;
 import Recursos.*;
 import testefx.Tile;
 
@@ -65,6 +68,25 @@ public class Planeta  implements IPlaneta {
         //this.imgpath = "images/planetacombustivel1nave";
     }
 
+    public void Inserir(String itemInseridoString, Item itemInserido) {
+        Inserir(itemInserido);
+        tile.update(itens);
+        System.out.println("INSERIR "+id);
+    }
+
+    public Item Remover(String itemRemovido) {
+        if(itemRemovido.equals("naveColonizadora")){
+            for(Item item : itens){
+                if(item instanceof NaveColonizadora){
+                    Remover(item);
+                    tile.update(itens);
+                    return item;
+                }
+            }
+        }
+        return null;
+    }
+
     @Override
     public Recursos GerarRecursos() {
         Recursos result = null;
@@ -82,17 +104,12 @@ public class Planeta  implements IPlaneta {
         return result;
     }
 
-    public boolean Mover(Item item){
-        //Faz a lógica de mover e faz a lógica da luta
-        Inserir(item);
-        return true;
-    }
-
     public void setTile(Tile tile){
         this.tile = tile;
         tile.setImgpath(this.getImgpath());
         tile.setPositionsPixels(this.getPixelsPosition());
         tile.setItems(this.getItens());
+        tile.setPlanetaId(id);
         tile.IniciarTile();
     }
 

@@ -15,7 +15,9 @@ import javafx.stage.Stage;
 import Tabuleiro.Planeta;
 
 public class App extends Application {
-    public BarraSelecao barraSelecao;
+    public BarraSelecao controle;
+    public Tabuleiro tab;
+
 
     @Override
     public void start(Stage stage) throws Exception{
@@ -30,11 +32,11 @@ public class App extends Application {
         //backgroundView.setX(0);
         //backgroundView.setY(0);
 
-        barraSelecao  = new BarraSelecao(root, this);
+        controle  = new BarraSelecao(root, this);
 
         //Cria dois Tabuleiros
-        Tabuleiro tab = new Tabuleiro();
-        TabuleiroGrafico tabg = new TabuleiroGrafico(root);
+        tab = new Tabuleiro();
+        TabuleiroGrafico tabg = new TabuleiroGrafico(root, controle);
 
         //Linka Tile com planeta
 
@@ -49,19 +51,14 @@ public class App extends Application {
             }
         }
 
-        tabg.Desenhar();
 
-        //Item n = new NaveColonizadora(0,1,'a',tab);
-        //Satelite s = new Satelite(0,1,'a',tab);
-        //tab.Inserir(s);
-        //tab.Inserir(n);
         BarraLateral jogador1 = new BarraLateral(root);
 
         root.getChildren().add(backgroundView);
         root.getChildren().add(sub);
 
         jogador1.Desenhar(tab.j.status());
-
+        tabg.Desenhar();
         stage.setScene(scene);
         stage.show();
     }

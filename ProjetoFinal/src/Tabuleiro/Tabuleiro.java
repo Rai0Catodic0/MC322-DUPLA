@@ -140,4 +140,22 @@ public class Tabuleiro {
     public Planeta[][] getPlanetas() {
         return planetas;
     }
+
+    private Planeta AcharPlaneta(int id){
+        for(int i = 0; i<5; i++){
+            for(int j = 0; j<5;j++){
+                if(planetas[i][j]!=null && planetas[i][j].id == id){
+                    return planetas[i][j];
+                }
+            }
+        }
+        return null;
+    }
+
+    public void Mover(int idDestino, int idOrigem, String itemMovido){
+        Planeta destino = AcharPlaneta(idDestino);
+        Planeta origem = AcharPlaneta(idOrigem);
+        Item item = origem.Remover(itemMovido);
+        destino.Inserir(itemMovido, item);
+    }
 }

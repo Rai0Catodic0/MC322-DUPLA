@@ -23,13 +23,6 @@ public class BotaoPlaneta extends Button {
         this.setLayoutX(30);
         this.setGraphic(planetaImg);
         this.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-
-        this.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                System.out.println("pensar como se comunicar com a barra");
-            }
-        });
     }
 
 
