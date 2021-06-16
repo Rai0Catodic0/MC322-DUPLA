@@ -2,29 +2,31 @@ package testefx;
 
 import Itens.Item;
 import Tabuleiro.Planeta;
+import javafx.beans.InvalidationListener;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 public class Tile extends Pane {
-    Planeta planeta;
     List<Item> items = new ArrayList<>();
     BotaoPlaneta botao;
-    TabuleiroGrafico tg;
     ImageView images[];
+    String imgpath;
+    int positions[];
 
-    public Tile(Planeta planeta, App app, TabuleiroGrafico tg ) {
+    public Tile() {
         super();
-        this.tg = tg;
         this.resize(100,100);
-        this.planeta = planeta;
-        int[] position = planeta.getPixelsPosition();
-        this.setLayoutX(position[1]);
-        this.setLayoutY(position[0]);
-        botao = new BotaoPlaneta(this.planeta, app, tg);
+        images = new ImageView[3];
+    }
+
+    public void IniciarTile(){
+        botao = new BotaoPlaneta(imgpath, positions);
         this.getChildren().add(botao);
         this.Desenhar();
     }
@@ -39,8 +41,6 @@ public class Tile extends Pane {
     }
 
     public void Desenhar(){
-        images = new ImageView[3];
-        this.items = planeta.getItens();
         int i = 0;
         for(Item item : this.items){
             images[i] = new ImageView(new Image(item.getImgPath()));
@@ -51,4 +51,19 @@ public class Tile extends Pane {
             i++;
         }
     }
+
+    public void setImgpath(String imgpath){
+        this.imgpath = imgpath;
+    }
+
+    public void setItems(List<Item> items){
+        this.items = items;
+    }
+
+    public void setPositionsPixels(int[] positions){
+        this.positions = positions;
+        this.setLayoutX(positions[1]);
+        this.setLayoutY(positions[0]);
+    }
+
 }

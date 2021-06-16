@@ -1,11 +1,14 @@
 package Tabuleiro;
 
 import Itens.Item;
+
+import java.util.ArrayList;
 import java.util.List;
 
 
 import Itens.NaveColonizadora;
 import Itens.Satelite;
+import testefx.Tile;
 
 import java.util.Random;
 
@@ -83,6 +86,7 @@ public class Tabuleiro {
 
         //400
         //300
+
         planetas[0][1] = new Planeta(0,1,140,600,1,SortearPlaneta());
         planetas[0][2] = new Planeta(0,2,040,900,2,SortearPlaneta());
         planetas[0][3] = new Planeta(0,3,120,1200,3,SortearPlaneta());
