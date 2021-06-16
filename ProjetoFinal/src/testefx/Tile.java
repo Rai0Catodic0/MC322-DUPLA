@@ -25,6 +25,7 @@ public class Tile extends Pane {
         this.setLayoutX(position[1]);
         this.setLayoutY(position[0]);
         botao = new BotaoPlaneta(this.planeta, app, tg);
+        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ADICIONANDO O BOTAO DO PLANETA NO TILE");
         this.getChildren().add(botao);
         this.Desenhar();
     }
@@ -39,6 +40,7 @@ public class Tile extends Pane {
     }
 
     public void Desenhar(){
+        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ADICIONANDO O ITENS NO TILE");
         images = new ImageView[3];
         this.items = planeta.getItens();
         int i = 0;

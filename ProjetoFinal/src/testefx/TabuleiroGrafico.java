@@ -21,6 +21,7 @@ public class TabuleiroGrafico  {
         for(int i = 0; i < 5; i++){
             for(int j = 0; j < 5; j++){
                 if(planetas[i][j]!=null){
+                    System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ADICIONANDO TILES NA LISTA TABG");
                     botoes.add(new Tile(planetas[i][j], app, this));
                 }
             }
@@ -51,6 +52,7 @@ public class TabuleiroGrafico  {
     }
 
     public void desenhar() {
+        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ADICIONANDO LISTA DO TABG NA ROOT");
         for (Tile botao : botoes) {
             this.root.getChildren().add(botao);
         }
