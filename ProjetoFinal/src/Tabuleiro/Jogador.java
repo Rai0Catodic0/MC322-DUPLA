@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-public class Jogador implements Observer {
+public class Jogador {
     public int pontuacao;
     public List<Item> itens;
 
@@ -38,20 +38,21 @@ public class Jogador implements Observer {
         //TODO implementar destruir
     }
 
-    @Override
-    public void update(Observable observable, Object o) {
-        Item item = (Item) o;
-        this.itens.add(item);
-        if(item instanceof NaveColonizadora){
-            this.pontuacao +=1;
-        }
-        else if(item instanceof NaveGuerra){
-            this.pontuacao += 2;
-        }
-        else{
-            this.pontuacao +=3;
-        }
-    }
+//    @Override
+//    public void update(Observable observable, Object o) {
+//        Item item = (Item) o;
+//        this.itens.add(item);
+//        if(item instanceof NaveColonizadora){
+//            this.pontuacao +=1;
+//        }
+//        else if(item instanceof NaveGuerra){
+//            this.pontuacao += 2;
+//        }
+//        else{
+//            this.pontuacao +=3;
+//        }
+//    }
+
     public int[] status(){
         //metal,municao,combustivel,satelite,guerra,colonizacao
         int[] saida = new int[6];

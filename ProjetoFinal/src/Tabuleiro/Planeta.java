@@ -1,19 +1,24 @@
 package Tabuleiro;
 
 import Itens.Item;
+import Itens.NaveColonizadora;
+import Itens.NaveGuerra;
+import Itens.Satelite;
 import Recursos.*;
+import testefx.Tile;
 
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
-public class Planeta extends Observable implements IPlaneta{
+public class Planeta  implements IPlaneta {
     int i;
     int j;
     int ipixels;
     int jpixels;
     int id;
+    Tile tile;
     public List<Item> itens = new ArrayList<>();
     String type;
     String imgpath;
@@ -26,6 +31,14 @@ public class Planeta extends Observable implements IPlaneta{
         return new int[]{ipixels, jpixels};
     }
 
+    public int getI(){
+        return  i;
+    }
+
+    public int getJ(){
+        return j;
+    }
+
 
     public Planeta(int i, int j, int ipixels, int jpixels, int id, String  type) {
         this.i = i;
@@ -36,7 +49,6 @@ public class Planeta extends Observable implements IPlaneta{
         this.type = type;
         int imgNumber = new Random().nextInt(2);
         this.imgpath = "images/planeta"+type+ 1;
-
     }
 
     @Override
@@ -48,13 +60,31 @@ public class Planeta extends Observable implements IPlaneta{
         return itens;
     }
 
+
     @Override
     public void Inserir(Item item) {
         itens.add(item);
         //FIXME hardcoded string , mudar pra concatenacao
         //this.imgpath = "images/planetacombustivel1nave";
-        setChanged();
-        notifyObservers(item);
+    }
+
+    public void Inserir(String itemInseridoString, Item itemInserido) {
+        Inserir(itemInserido);
+        tile.update(itens);
+        System.out.println("INSERIR "+id);
+    }
+
+    public Item Remover(String itemRemovido) {
+        if(itemRemovido.equals("naveColonizadora")){
+            for(Item item : itens){
+                if(item instanceof NaveColonizadora){
+                    Remover(item);
+                    tile.update(itens);
+                    return item;
+                }
+            }
+        }
+        return null;
     }
 
     @Override
@@ -74,10 +104,13 @@ public class Planeta extends Observable implements IPlaneta{
         return result;
     }
 
-
-
-    @Override
-    public void addObserver(Jogador j) {
-        super.addObserver(j);
+    public void setTile(Tile tile){
+        this.tile = tile;
+        tile.setImgpath(this.getImgpath());
+        tile.setPositionsPixels(this.getPixelsPosition());
+        tile.setItems(this.getItens());
+        tile.setPlanetaId(id);
+        tile.IniciarTile();
     }
+
 }
