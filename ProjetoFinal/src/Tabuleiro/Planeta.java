@@ -75,16 +75,20 @@ public class Planeta  implements IPlaneta {
     }
 
     public Item Remover(String itemRemovido) {
+        System.out.println("Essa é a lista do planeta " + this +"antes de remover :"+itens);
+        Item itemRemoverI = null;
         if(itemRemovido.equals("naveColonizadora")){
             for(Item item : itens){
                 if(item instanceof NaveColonizadora){
-                    Remover(item);
-                    tile.update(itens);
-                    return item;
+                    itemRemoverI = item;
+                    break;
                 }
             }
         }
-        return null;
+        Remover(itemRemoverI);
+        tile.update(itens);
+        System.out.println("Essa é a lista do planeta " + this +"depois de remover :"+itens);
+        return itemRemoverI;
     }
 
     @Override

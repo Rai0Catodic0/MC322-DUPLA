@@ -155,6 +155,9 @@ public class Tabuleiro {
     public void Mover(int idDestino, int idOrigem, String itemMovido){
         Planeta destino = AcharPlaneta(idDestino);
         Planeta origem = AcharPlaneta(idOrigem);
+        System.out.println("ESSE é o planeta origem "+origem);
+        System.out.println("Essa é a lista do planeta origem, "+origem.getItens());
+
         Item item = origem.Remover(itemMovido);
         destino.Inserir(itemMovido, item);
     }

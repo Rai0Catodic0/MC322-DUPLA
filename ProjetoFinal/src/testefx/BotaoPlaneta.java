@@ -17,7 +17,6 @@ public class BotaoPlaneta extends Button {
 
     public BotaoPlaneta(String imhpath, int[] positions){
         super();
-        System.out.println("ESSE É O CAMINHO!!! "+imhpath);
         ImageView planetaImg = new ImageView(new Image(imhpath));
         this.setLayoutY(30);
         this.setLayoutX(30);
