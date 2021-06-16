@@ -13,7 +13,7 @@ public class Tile extends Pane {
     Planeta planeta;
     List<Item> items = new ArrayList<>();
 
-    public Tile(Planeta planeta ) {
+    public Tile(Planeta planeta, BarraSelecao barraSelecao ) {
         super();
         this.resize(100,100);
         this.planeta = planeta;
@@ -22,7 +22,7 @@ public class Tile extends Pane {
         int[] position = planeta.getPixelsPosition();
         this.setLayoutX(position[1]);
         this.setLayoutY(position[0]);
-        BotaoPlaneta botao = new BotaoPlaneta(this.planeta);
+        BotaoPlaneta botao = new BotaoPlaneta(this.planeta, barraSelecao);
         ImageView images[] = new ImageView[3];
         int i=0;
         for(Item item : this.items){

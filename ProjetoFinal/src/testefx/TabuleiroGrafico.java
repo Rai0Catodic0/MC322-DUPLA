@@ -12,14 +12,14 @@ public class TabuleiroGrafico  {
     Tabuleiro tab;
     Group root;
     List<Tile> botoes = new ArrayList();
-    public TabuleiroGrafico(Tabuleiro tabuleiro, Group root){
+    public TabuleiroGrafico(Tabuleiro tabuleiro, Group root, BarraSelecao barraSelecao){
         this.root = root;
         this.tab = tabuleiro;
         Planeta[][] planetas = tab.getPlanetas();
         for(int i = 0; i < 5; i++){
             for(int j = 0; j < 5; j++){
                 if(planetas[i][j]!=null){
-                    botoes.add(new Tile(planetas[i][j]));
+                    botoes.add(new Tile(planetas[i][j], barraSelecao));
                 }
             }
         }
