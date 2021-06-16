@@ -1,9 +1,6 @@
 package Tabuleiro;
 
 import Itens.Item;
-import Itens.NaveColonizadora;
-import Itens.NaveGuerra;
-import Outros.Jogador;
 import Recursos.*;
 
 import java.util.Random;

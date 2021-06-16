@@ -13,6 +13,7 @@ public class Tabuleiro {
 
     private Planeta[][] planetas;
     private int metal, municao, combustivel;
+    public Jogador j; //FIXME resolver se o tabuleiro recebe o jogador ou retorna ele
     public Tabuleiro() {
 
         //Instanciar Planetas
@@ -40,9 +41,9 @@ public class Tabuleiro {
         this.Inserir(satelite2);
 
         //Instanciar Jogadores em suas posições
-        Jogador jogador1 = new Jogador(posicaoJogador1[0], posicaoJogador1[1]);
-        Jogador jogador2 = new Jogador(posicaoJogador2[0], posicaoJogador2[1]);
-
+        Jogador jogador1 = new Jogador();//posicaoJogador1[0], posicaoJogador1[1]
+        Jogador jogador2 = new Jogador();//posicaoJogador2[0], posicaoJogador2[1]
+        this.j = jogador1;
         //Atualizar itens dos jogadores
         jogador1.setItens(nave1, satelite1);
         jogador2.setItens(nave2, satelite2);

@@ -8,6 +8,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
+
 public class BarraLateral {
     public Group root;
 
@@ -15,7 +16,7 @@ public class BarraLateral {
         this.root = root;
     }
 
-    public void Desenhar(int qtdmetal, int qtdmunicao, int qtdcombustivel, int qtdnaveGuerra, int qtdnaveColonizacao, int qtdsatelite){
+    public void Desenhar(int valores[]){
         //Quadrado
         Rectangle lateralBar = new Rectangle();
         lateralBar.setX(0);
@@ -25,60 +26,71 @@ public class BarraLateral {
         lateralBar.setFill(Color.GREY);
 
         //Textos itens
+        // metal
         Text metal = new Text();
-        metal.setText(String.valueOf(qtdmetal));
+        metal.setText(String.valueOf(valores[0]));
         metal.setX(70);
         metal.setY(169.5);
         metal.setFont(Font.font("Verdana", 20));
         metal.setFill(Color.BLACK);
 
+
+        // combutivel
         Text fuel = new Text();
-        fuel.setText(String.valueOf(qtdcombustivel));
+        fuel.setText(String.valueOf(valores[2]));
         fuel.setX(70);
         fuel.setY(229.5);
         fuel.setFont(Font.font("Verdana", 20));
         fuel.setFill(Color.BLACK);
 
+        //municao
         Text bullet = new Text();
-        bullet.setText(String.valueOf(qtdmunicao));
+        bullet.setText(String.valueOf(valores[1]));
         bullet.setY(289.5);
         bullet.setX(70);
         bullet.setFont(Font.font("Verdana", 20));
         bullet.setFill(Color.BLACK);
 
+        //guerra
         Text warStarship = new Text();
-        warStarship.setText(String.valueOf(qtdnaveColonizacao));
+        warStarship.setText(String.valueOf(valores[5]));
         warStarship.setX(70);
         warStarship.setY(349.5);
         warStarship.setFont(Font.font("Verdana", 20));
         warStarship.setFill(Color.BLACK);
 
+        //colonizadora
         Text colonizationStarship = new Text();
-        colonizationStarship.setText(String.valueOf(qtdnaveGuerra));
+        colonizationStarship.setText(String.valueOf(valores[4]));
         colonizationStarship.setX(70);
         colonizationStarship.setY(409.5);
         colonizationStarship.setFont(Font.font("Verdana", 20));
         colonizationStarship.setFill(Color.BLACK);
 
+        //satelite
         Text satelite = new Text();
-        satelite.setText(String.valueOf(qtdsatelite));
+        satelite.setText(String.valueOf(valores[3]));
         satelite.setX(70);
         satelite.setY(469.5);
         satelite.setFont(Font.font("Verdana", 20));
         satelite.setFill(Color.BLACK);
 
         //Imagens dos itens
-        Image warStarshipImage = new Image("testefx/nave.png");
+
+        // guerra
+        Image warStarshipImage = new Image("images/naveguerrav.png");
         ImageView imageViewWarStarship = new ImageView(warStarshipImage);
         imageViewWarStarship.setX(5);
         imageViewWarStarship.setY(139.5);
 
-        Image colonizationStarshipImage = new Image("testefx/nave.png");
+        // colonizadora
+        Image colonizationStarshipImage = new Image("images/navecolonizadorav.png");
         ImageView imageViewColonizationStarship = new ImageView(colonizationStarshipImage);
         imageViewColonizationStarship.setX(5);
         imageViewColonizationStarship.setY(200.5);
 
-        Image sateliteImage = new Image("testefx/nave.png");
+        // satelite
+        Image sateliteImage = new Image("images/satelitev.png");
         ImageView imageViewSatelite = new ImageView(sateliteImage);
         imageViewSatelite.setX(5);
         imageViewSatelite.setY(261.5);
