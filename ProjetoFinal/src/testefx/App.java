@@ -42,8 +42,8 @@ public class App extends Application {
 
         Planeta planetas[][] = tab.getPlanetas();
         int k = 0;
-        for(int i = 0; i<4; i++){
-            for(int j = 0; j<4;j++){
+        for(int i = 0; i<5; i++){
+            for(int j = 0; j<5;j++){
                 if(planetas[i][j]!=null){
                     planetas[i][j].setTile(tabg.botoes.get(k));
                     k++;

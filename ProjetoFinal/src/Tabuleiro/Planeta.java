@@ -117,4 +117,8 @@ public class Planeta  implements IPlaneta {
         tile.IniciarTile();
     }
 
+    public void Construir(String objeto){
+
+    }
+
 }

@@ -161,4 +161,10 @@ public class Tabuleiro {
         Item item = origem.Remover(itemMovido);
         destino.Inserir(itemMovido, item);
     }
+
+    public boolean Construir(int id, String objeto){
+        Planeta p = AcharPlaneta(id);
+        p.Construir(objeto);
+        return true;
+    }
 }

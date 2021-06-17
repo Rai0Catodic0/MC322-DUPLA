@@ -21,10 +21,11 @@ public class TabuleiroGrafico  {
         }
     }
 
-    public void Desenhar(){
+    public boolean Desenhar(){
         for (Tile botao : botoes) {
             this.root.getChildren().add(botao);
         }
+        return true;
     }
 
 }
