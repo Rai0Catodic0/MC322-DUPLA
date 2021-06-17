@@ -59,8 +59,8 @@ public class Tile extends Pane {
 
         for(Item item : this.items){
             images[i] = new ImageView(new Image(item.getImgPath()));
-            images[i].setX(110*i);
-            images[i].setY(110*i);
+            images[i].setX(100*i);
+            images[i].setY(100*i);
             //System.out.println("Essa é o item criado: "+item);
             this.getChildren().add(images[i]);
             i++;

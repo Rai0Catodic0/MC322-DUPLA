@@ -1,15 +1,10 @@
 package Tabuleiro;
 
 import Itens.Item;
-
-import java.util.ArrayList;
-import java.util.List;
-
-
 import Itens.NaveColonizadora;
 import Itens.Satelite;
-import testefx.Tile;
 
+import java.util.List;
 import java.util.Random;
 
 public class Tabuleiro {
@@ -21,6 +16,7 @@ public class Tabuleiro {
 
         //Instanciar Planetas
         planetas = InstanciarPlanetas();
+        this.setarvizinho(this.planetas);
            this.metal = 0;
            this.municao = 0;
            this.combustivel = 0;
@@ -142,7 +138,10 @@ public class Tabuleiro {
         }
         return new int[] {sorteadoLinha, sorteadoColuna};
     }
-
+    private  int[] gerarIds(){
+        Random gerador = new Random();
+        return new int[] {13,12,11,10,9,8};
+    }
 
     /**Funções ativas no Jogo*/
 
@@ -175,21 +174,15 @@ public class Tabuleiro {
         boolean movimentoValido = false;
         Planeta destino;
         Planeta origem = AcharPlaneta(idOrigem);
-<<<<<<< HEAD
         if(origem.isVizinho(idDestino)){
              destino = AcharPlaneta(idDestino);
             Item item = origem.Remover(itemMovido);
             destino.Inserir(itemMovido, item);
             movimentoValido = true;
         }
-        return  movimentoValido;
-=======
         System.out.println("ESSE é o planeta origem "+origem);
         System.out.println("Essa é a lista do planeta origem, "+origem.getItens());
-
-        Item item = origem.Remover(itemMovido);
-        destino.Inserir(itemMovido, item);
->>>>>>> 409219a285b585a3201f91a3d53ac2d58020c29b
+        return  movimentoValido;
     }
 
     public boolean Construir(int id, String objeto){

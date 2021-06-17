@@ -29,7 +29,7 @@ public class BarraLateral {
         //Textos itens
         // metal
         Text metal = new Text();
-        metal.setText(String.valueOf(55));//valores[0]
+        metal.setText(String.valueOf(valores[0]));
         metal.setX(70);
         metal.setY(469.5);//409.5
         metal.setFont(Font.font("Verdana", 20));
@@ -38,7 +38,7 @@ public class BarraLateral {
 
         // combutivel
         Text fuel = new Text();
-        fuel.setText(String.valueOf(66));//valores[2]
+        fuel.setText(String.valueOf(valores[2]));
         fuel.setX(70);
         fuel.setY(349.5);
         fuel.setFont(Font.font("Verdana", 20));
@@ -46,7 +46,7 @@ public class BarraLateral {
 
         //municao
         Text bullet = new Text();
-        bullet.setText(String.valueOf(77));//valores[1])//;trocar com o combustivel
+        bullet.setText(String.valueOf(valores[1]));
         bullet.setX(70);
         bullet.setY(409.5);
         bullet.setFont(Font.font("Verdana", 20));

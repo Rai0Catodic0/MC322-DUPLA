@@ -119,12 +119,14 @@ public class Planeta  implements IPlaneta {
         tile.IniciarTile();
     }
 
-<<<<<<< HEAD
+
     public void setIdVizinhos(int[] idVizinhos) {
         this.idVizinhos = idVizinhos;
     }
     public boolean  isVizinho(int idVizinho){
         boolean is = false;
+        System.out.println(is);
+        System.out.println(this.idVizinhos.length);
         for(int i = 0 ; i<this.idVizinhos.length; i++){
             if(idVizinho==this.idVizinhos[i]){
                 is = true;
@@ -133,10 +135,9 @@ public class Planeta  implements IPlaneta {
         }
         return is;
     }
-=======
+
     public void Construir(String objeto){
 
     }
 
->>>>>>> 409219a285b585a3201f91a3d53ac2d58020c29b
 }
