@@ -1,9 +1,8 @@
 package Tabuleiro;
 
 import Itens.Item;
-import Itens.NaveColonizadora;
-import Itens.NaveGuerra;
 import Recursos.Recursos;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +57,7 @@ public class Jogador {
         int[] saida = new int[6];
         Item item = itens.get(0);
         for(Recursos r : item.getColetados()){
-            String tipo = r.gettype();
+            String tipo = r.getType();
             switch (tipo){
                 case "Mineral":
                     saida[0]++;

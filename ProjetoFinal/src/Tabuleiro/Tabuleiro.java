@@ -87,7 +87,7 @@ public class Tabuleiro {
         //400
         //300
 
-        planetas[0][1] = new Planeta(0,1,140,600,1,SortearPlaneta());
+        planetas[0][1] = new Planeta(0,1,140,600, 1, SortearPlaneta());
         planetas[0][2] = new Planeta(0,2,040,900,2,SortearPlaneta());
         planetas[0][3] = new Planeta(0,3,120,1200,3,SortearPlaneta());
         planetas[1][0] = new Planeta(1,0,300,400,4,SortearPlaneta());
@@ -105,6 +105,25 @@ public class Tabuleiro {
         planetas[4][3] = new Planeta(4,3,750,1210,16,SortearPlaneta());
         return planetas;
 
+    }
+
+    private void setarvizinho(Planeta planetas[][]){
+        planetas[0][1].setIdVizinhos(new int[] {planetas[1][0].id,planetas[0][2].id});
+        planetas[0][2].setIdVizinhos(new int[] {planetas[0][1].id,planetas[1][2].id,planetas[0][3].id});
+        planetas[0][3].setIdVizinhos(new int[] {planetas[0][2].id,planetas[1][4].id});
+        planetas[1][0].setIdVizinhos(new int[] {planetas[2][0].id,planetas[0][1].id});
+        planetas[1][2].setIdVizinhos(new int[] {planetas[0][2].id,planetas[3][2].id,});
+        planetas[1][4].setIdVizinhos(new int[] {planetas[0][3].id,planetas[2][4].id});
+        planetas[2][0].setIdVizinhos(new int[] {planetas[1][0].id,planetas[2][1].id,planetas[3][0].id});
+        planetas[2][1].setIdVizinhos(new int[] {planetas[2][0].id,planetas[2][3].id});
+        planetas[2][3].setIdVizinhos(new int[] {planetas[2][1].id,planetas[2][4].id});
+        planetas[2][4].setIdVizinhos(new int[] {planetas[2][3].id,planetas[1][4].id,planetas[3][4].id});
+        planetas[3][0].setIdVizinhos(new int[] {planetas[2][0].id,planetas[4][1].id});
+        planetas[3][2].setIdVizinhos(new int[] {planetas[1][2].id,planetas[4][2].id});
+        planetas[3][4].setIdVizinhos(new int[] {planetas[2][4].id,planetas[4][3].id});
+        planetas[4][1].setIdVizinhos(new int[] {planetas[3][0].id,planetas[4][2].id});
+        planetas[4][2].setIdVizinhos(new int[] {planetas[4][1].id,planetas[3][2].id,planetas[4][3].id});
+        planetas[4][3].setIdVizinhos(new int[] {planetas[4][2].id,planetas[3][4].id});
     }
 
     private int[] SortearPosicaoJogador(){
@@ -152,10 +171,16 @@ public class Tabuleiro {
         return null;
     }
 
-    public void Mover(int idDestino, int idOrigem, String itemMovido){
-        Planeta destino = AcharPlaneta(idDestino);
+    public boolean Mover(int idDestino, int idOrigem, String itemMovido){
+        boolean movimentoValido = false;
+        Planeta destino;
         Planeta origem = AcharPlaneta(idOrigem);
-        Item item = origem.Remover(itemMovido);
-        destino.Inserir(itemMovido, item);
+        if(origem.isVizinho(idDestino)){
+             destino = AcharPlaneta(idDestino);
+            Item item = origem.Remover(itemMovido);
+            destino.Inserir(itemMovido, item);
+            movimentoValido = true;
+        }
+        return  movimentoValido;
     }
 }

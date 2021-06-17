@@ -61,8 +61,8 @@ public class Item implements IItem{
         return type;
     }
     public String getImgPath(){
-        String imgpath;
-        imgpath = "images/"+this.getType()+this.representacao+".png";
-        return imgpath;
+        String imgPath;
+        imgPath = "images/"+this.getType()+this.representacao+".png";
+        return imgPath;
     }
 }

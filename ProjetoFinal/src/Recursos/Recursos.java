@@ -4,7 +4,7 @@ public  class Recursos {
     //descobrir oq fazer com isso :)
     public  Recursos(){
     }
-    public String gettype(){
+    public String getType(){
         if(this instanceof Combustivel){
             return "combustivel";
         }
