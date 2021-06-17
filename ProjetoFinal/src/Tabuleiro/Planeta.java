@@ -94,7 +94,7 @@ public class Planeta  implements IPlaneta {
     }
 
     @Override
-    public Recursos GerarRecursos() {
+    public void GerarRecursos() {
         Recursos result = null;
         switch (this.type){
             case "metal":
@@ -107,7 +107,10 @@ public class Planeta  implements IPlaneta {
                 result = new Combustivel();
                 break;
         }
-        return result;
+        if(this.itens.size() !=0){
+            Item coletor = this.itens.get(0);
+            coletor.recolherRecurso(result);
+        }
     }
 
     public void setTile(Tile tile){

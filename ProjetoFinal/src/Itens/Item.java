@@ -33,6 +33,11 @@ public class Item implements IItem{
         return gerador.nextInt(6);
     }
 
+    public void recolherRecurso(Recursos coletado) {
+         coletados.add(coletado);
+    }
+
+
     @Override
     public List<Integer> getPosition() {
         List<Integer> position = new ArrayList<>();
