@@ -2,6 +2,7 @@ package Tabuleiro;
 
 import Itens.Item;
 import Itens.NaveColonizadora;
+import Itens.NaveGuerra;
 import Itens.Satelite;
 
 import java.util.List;
@@ -172,16 +173,33 @@ public class Tabuleiro {
 
     public boolean Mover(int idDestino, int idOrigem, String itemMovido){
         boolean movimentoValido = false;
-        Planeta destino;
+        Planeta destino = AcharPlaneta(idDestino);
+        Item item;
         Planeta origem = AcharPlaneta(idOrigem);
         if(origem.isVizinho(idDestino)){
-             destino = AcharPlaneta(idDestino);
-            Item item = origem.Remover(itemMovido);
-            destino.Inserir(itemMovido, item);
-            movimentoValido = true;
+            switch (itemMovido){
+                case "naveGuerra":
+                    if(destino.hasItem(NaveGuerra.class)){
+                        //luta nave guerra x nave guerra
+                        movimentoValido = true;
+                    }
+                    break;
+                case "naveColonizadora":
+                    if(destino.hasItem(NaveColonizadora.class)){
+                        movimentoValido = false;
+                    }
+                    else{
+                        movimentoValido = true;
+                    }
+                    break;
+            }
         }
         System.out.println("ESSE é o planeta origem "+origem);
         System.out.println("Essa é a lista do planeta origem, "+origem.getItens());
+        if(movimentoValido == true){
+            item = origem.Remover(itemMovido);
+            destino.Inserir(itemMovido, item);
+        }
         return  movimentoValido;
     }
 

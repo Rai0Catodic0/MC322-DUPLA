@@ -123,6 +123,7 @@ public class Planeta  implements IPlaneta {
     public void setIdVizinhos(int[] idVizinhos) {
         this.idVizinhos = idVizinhos;
     }
+
     public boolean  isVizinho(int idVizinho){
         boolean is = false;
         System.out.println(is);
@@ -136,6 +137,15 @@ public class Planeta  implements IPlaneta {
         return is;
     }
 
+    public <tipo> boolean hasItem(Class<?> tipo){
+        boolean isInstance;
+        for(Item item: this.itens){
+            if(item.getClass() == tipo){
+                return true;
+            }
+        }
+        return false;
+    }
     public void Construir(String objeto){
 
     }
