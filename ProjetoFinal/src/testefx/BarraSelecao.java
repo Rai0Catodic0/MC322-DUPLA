@@ -15,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 import java.util.List;
 
@@ -93,6 +94,7 @@ public class BarraSelecao {
             @Override
             public void handle(ActionEvent actionEvent) {
                 construirSatelite = true;
+                app.tab.Construir(planetaClicado, "satelite");
             }
         });
 
@@ -107,6 +109,7 @@ public class BarraSelecao {
             @Override
             public void handle(ActionEvent actionEvent) {
                 construirNaveGuerra = true;
+                app.tab.Construir(planetaClicado, "naveGuerra");
             }
         });
 
@@ -121,6 +124,7 @@ public class BarraSelecao {
             @Override
             public void handle(ActionEvent actionEvent) {
                 construirNaveColonizadora = true;
+                app.tab.Construir(planetaClicado, "naveColonizadora");
             }
         });
 
@@ -257,11 +261,16 @@ public class BarraSelecao {
     public void ClicouPlaneta(int id, List<Item> itens){
         planetaClicado = id;
         System.out.println("CLICOU"+id);
-        if(!mover){
-            DesenharBarras(itens);
-        }
-        else if(mover && naveColonizadoraSelecionada){
+        if(mover && naveColonizadoraSelecionada){
             app.tab.Mover(planetaClicado, planetaRecebeAcao, "naveColonizadora");
+            botaoMover.setDisable(false);
+            mover = false;
+        } else if(mover && naveGuerraSelecionada){
+            app.tab.Mover(planetaClicado, planetaRecebeAcao, "naveGuerra");
+            botaoMover.setDisable(false);
+            mover = false;
+        } else if (!mover){
+            DesenharBarras(itens);
         }
     }
 }

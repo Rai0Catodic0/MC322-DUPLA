@@ -175,6 +175,7 @@ public class Tabuleiro {
         boolean movimentoValido = false;
         Planeta destino;
         Planeta origem = AcharPlaneta(idOrigem);
+<<<<<<< HEAD
         if(origem.isVizinho(idDestino)){
              destino = AcharPlaneta(idDestino);
             Item item = origem.Remover(itemMovido);
@@ -182,5 +183,18 @@ public class Tabuleiro {
             movimentoValido = true;
         }
         return  movimentoValido;
+=======
+        System.out.println("ESSE é o planeta origem "+origem);
+        System.out.println("Essa é a lista do planeta origem, "+origem.getItens());
+
+        Item item = origem.Remover(itemMovido);
+        destino.Inserir(itemMovido, item);
+>>>>>>> 409219a285b585a3201f91a3d53ac2d58020c29b
+    }
+
+    public boolean Construir(int id, String objeto){
+        Planeta p = AcharPlaneta(id);
+        p.Construir(objeto);
+        return true;
     }
 }

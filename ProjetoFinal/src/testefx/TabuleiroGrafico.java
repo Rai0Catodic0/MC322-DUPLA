@@ -15,18 +15,17 @@ public class TabuleiroGrafico  {
     List<Tile> botoes = new ArrayList<>();
 
     public TabuleiroGrafico(Group root, BarraSelecao controle){
-        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ADICIONANDO TILES NA LISTA TABG");
         this.root = root;
         for(int i =0; i<16;i++){
             botoes.add(new Tile(controle));
         }
     }
 
-    public void Desenhar(){
-        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ADICIONANDO LISTA DO TABG NA ROOT");
+    public boolean Desenhar(){
         for (Tile botao : botoes) {
             this.root.getChildren().add(botao);
         }
+        return true;
     }
 
 }

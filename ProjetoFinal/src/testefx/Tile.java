@@ -31,7 +31,6 @@ public class Tile extends Pane {
     }
 
     public void IniciarTile(){
-        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ADICIONANDO O BOTAO DO PLANETA NO TILE");
         botao = new BotaoPlaneta(imgpath, positions);
         botao.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -39,28 +38,30 @@ public class Tile extends Pane {
                 controle.ClicouPlaneta(id, items);
             }
         });
+
         this.getChildren().add(botao);
         this.Desenhar();
     }
 
     public void Esconder(){
-        int i = 0;
-        for(Item item : this.items){
-            System.out.println("Essa é a imagem removida: "+images[i]);
+        //System.out.println("Esse é o items no esconder "+items);
+
+        for(int i = 0; i<3;i++){
             this.getChildren().remove(images[i]);
-            i++;
+            images[i] = null;
+
         }
     }
 
     public void Desenhar(){
-        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ADICIONANDO O ITENS NO TILE");
+        //System.out.println("Esse é o items no desenhar "+items);
         int i = 0;
 
         for(Item item : this.items){
             images[i] = new ImageView(new Image(item.getImgPath()));
             images[i].setX(110*i);
             images[i].setY(110*i);
-            System.out.println("Essa é a imagem CRIADA: "+images[i]);
+            //System.out.println("Essa é o item criado: "+item);
             this.getChildren().add(images[i]);
             i++;
         }
@@ -85,8 +86,8 @@ public class Tile extends Pane {
     }
 
     public void update(List<Item> itens){
-        this.items = itens;
         Esconder();
+        this.items = itens;
         Desenhar();
     }
 

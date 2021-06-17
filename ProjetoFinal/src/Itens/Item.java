@@ -49,14 +49,14 @@ public class Item implements IItem{
         String type;
         if(this instanceof NaveGuerra){
             type = "naveguerra";
-            System.out.println("tipo :guerra -> ");
+            //System.out.println("tipo :guerra -> ");
         }else if(this instanceof NaveColonizadora){
              type = "navecolonizadora";
-            System.out.println("tipo :colonizadora -> ");
+            //System.out.println("tipo :colonizadora -> ");
         }
         else {
             type = "satelite";
-            System.out.println("tipo :satelite -> ");
+            //System.out.println("tipo :satelite -> ");
         }
         return type;
     }
