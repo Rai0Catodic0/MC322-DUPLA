@@ -54,6 +54,9 @@ public class Planeta  implements IPlaneta {
     @Override
     public void Remover(Item item) {
         this.itens.remove(item);
+        if(this.tile!=null){
+            this.tile.update(this.itens);
+        }
     }
 
     public List<Item> getItens() {
@@ -64,13 +67,15 @@ public class Planeta  implements IPlaneta {
     @Override
     public void Inserir(Item item) {
         itens.add(item);
+        if(this.tile!=null){
+            this.tile.update(this.itens);
+        }
         //FIXME hardcoded string , mudar pra concatenacao
         //this.imgpath = "images/planetacombustivel1nave";
     }
 
     public void Inserir(String itemInseridoString, Item itemInserido) {
         Inserir(itemInserido);
-        tile.update(itens);
         System.out.println("INSERIR "+id);
     }
 
@@ -86,7 +91,6 @@ public class Planeta  implements IPlaneta {
             }
         }
         Remover(itemRemoverI);
-        tile.update(itens);
         System.out.println("Essa é a lista do planeta " + this +"depois de remover :"+itens);
         return itemRemoverI;
     }
@@ -118,7 +122,34 @@ public class Planeta  implements IPlaneta {
     }
 
     public void Construir(String objeto){
+        Item construtor = null;
+        if(objeto.equals("naveGuerra")){
+            for (Item item : itens) {
+                if(item instanceof Satelite){
+                    construtor = item;
+                    break;
+                }
+            }
+            this.Inserir(((Satelite) construtor).ConstruirNave('g'));
+        }else if(objeto.equals("satelite")){
+            for (Item item : itens) {
+                if(item instanceof NaveColonizadora){
+                    construtor = item;
+                    break;
+                }
+            }
+            this.Inserir(((NaveColonizadora) construtor).Construir('g'));
+        } else {
+            for (Item item : itens) {
+                if(item instanceof Satelite){
+                    construtor = item;
+                    break;
+                }
+            }
+            this.Inserir(((Satelite) construtor).ConstruirNave('c'));
+        }
 
+        System.out.println("Planeta e que vou inserir (Planeta): " +this.id+this.i+this.j);
     }
 
 }

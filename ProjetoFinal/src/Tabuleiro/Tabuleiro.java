@@ -165,6 +165,7 @@ public class Tabuleiro {
     public boolean Construir(int id, String objeto){
         Planeta p = AcharPlaneta(id);
         p.Construir(objeto);
+        System.out.println("Planeta que vou inserir tab: "+p.id+p.i+p.j);
         return true;
     }
 }

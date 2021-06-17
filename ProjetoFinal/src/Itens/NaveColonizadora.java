@@ -12,4 +12,9 @@ public class NaveColonizadora extends Nave implements INaveColonizadora{
         Satelite satelite = new Satelite(this.i, this.j, this.representacao, this.tabuleiro);
         return satelite;
     }
+
+    public Item Construir(char type){
+        Item satelite = new Satelite(this.i, this.j, this.representacao, this.tabuleiro);
+        return satelite;
+    }
 }

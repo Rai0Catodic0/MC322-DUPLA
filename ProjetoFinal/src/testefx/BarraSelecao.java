@@ -40,12 +40,7 @@ public class BarraSelecao {
     private int planetaRecebeAcao;
     private int planetaClicado;
 
-    private Item itemMovido;
-
-
-
     private Group root;
-
 
     public BarraSelecao(Group root, App app){
         this.root = root;
