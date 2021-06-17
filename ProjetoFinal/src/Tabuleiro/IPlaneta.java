@@ -11,5 +11,5 @@ public interface IPlaneta {
     void Inserir(Item item);
     Recursos GerarRecursos();
     List<Item> getItens();
-    void addObserver(Jogador j);
+    //void addObserver(Jogador j);
 }

@@ -15,6 +15,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+
+import java.util.List;
 
 public class BarraSelecao {
     private boolean naveColonizadoraSelecionada = false;
@@ -34,20 +37,15 @@ public class BarraSelecao {
     private boolean construirNaveColonizadora = false;
     private boolean construirSatelite = false;
 
-    private Planeta planetaRecebeAcao;
-    private Planeta planetaClicado;
+    private int planetaRecebeAcao;
+    private int planetaClicado;
+
+    private Item itemMovido;
+
 
 
     private Group root;
 
-
-    public Planeta getPlanetaClicado(){
-        return planetaClicado;
-    }
-
-    public Planeta getPlanetaRecebeAcao(){
-        return planetaRecebeAcao;
-    }
 
     public BarraSelecao(Group root, App app){
         this.root = root;
@@ -67,9 +65,6 @@ public class BarraSelecao {
         return this.naveGuerraSelecionada;
     }
 
-    public void setPlanetaClicado(Planeta planeta){
-        planetaClicado = planeta;
-    }
 
     private void CriarCena(){
         //Botao Mover
@@ -99,6 +94,7 @@ public class BarraSelecao {
             @Override
             public void handle(ActionEvent actionEvent) {
                 construirSatelite = true;
+                app.tab.Construir(planetaClicado, "satelite");
             }
         });
 
@@ -113,6 +109,7 @@ public class BarraSelecao {
             @Override
             public void handle(ActionEvent actionEvent) {
                 construirNaveGuerra = true;
+                app.tab.Construir(planetaClicado, "naveGuerra");
             }
         });
 
@@ -127,6 +124,7 @@ public class BarraSelecao {
             @Override
             public void handle(ActionEvent actionEvent) {
                 construirNaveColonizadora = true;
+                app.tab.Construir(planetaClicado, "naveColonizadora");
             }
         });
 
@@ -234,13 +232,13 @@ public class BarraSelecao {
         root.getChildren().remove(botaoSatelite);
     }
 
-    public void Desenhar(Planeta planeta){
+    public void DesenharBarras(List<Item> itens){
         double y = 539.5;
         int itemNaveGuerra = 0;
         int itemNaveCol = 0;
         int itemSat = 0;
         Esconder();
-        for(Item item : planeta.getItens()){
+        for(Item item : itens){
             if(item instanceof NaveGuerra && itemNaveGuerra ==0){
                 itemNaveGuerra = 1;
                 botaoNaveGuerra.setLayoutY(y);
@@ -257,6 +255,22 @@ public class BarraSelecao {
                 root.getChildren().add(botaoSatelite);
                 y+=60;
             }
+        }
+    }
+
+    public void ClicouPlaneta(int id, List<Item> itens){
+        planetaClicado = id;
+        System.out.println("CLICOU"+id);
+        if(mover && naveColonizadoraSelecionada){
+            app.tab.Mover(planetaClicado, planetaRecebeAcao, "naveColonizadora");
+            botaoMover.setDisable(false);
+            mover = false;
+        } else if(mover && naveGuerraSelecionada){
+            app.tab.Mover(planetaClicado, planetaRecebeAcao, "naveGuerra");
+            botaoMover.setDisable(false);
+            mover = false;
+        } else if (!mover){
+            DesenharBarras(itens);
         }
     }
 }
