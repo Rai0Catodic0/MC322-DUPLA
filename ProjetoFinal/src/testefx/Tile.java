@@ -1,8 +1,6 @@
 package testefx;
 
 import Itens.Item;
-import Tabuleiro.Planeta;
-import javafx.beans.InvalidationListener;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
@@ -11,8 +9,6 @@ import javafx.scene.layout.Pane;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
 
 public class Tile extends Pane {
     List<Item> items = new ArrayList<>();
@@ -56,6 +52,7 @@ public class Tile extends Pane {
     public void Desenhar(){
         //System.out.println("Esse é o items no desenhar "+items);
         int i = 0;
+
         for(Item item : this.items){
             images[i] = new ImageView(new Image(item.getImgPath()));
             images[i].setX(110*i);

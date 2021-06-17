@@ -18,7 +18,6 @@ public class BarraLateral {
 
     public void Desenhar(int valores[]){
 
-        //FIXME arrumar a ordem dos icones em relacao aos numeros , ;-;
         //Quadrado
         Rectangle lateralBar = new Rectangle();
         lateralBar.setX(0);

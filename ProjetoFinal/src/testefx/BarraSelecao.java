@@ -4,6 +4,7 @@ import Itens.Item;
 import Itens.NaveColonizadora;
 import Itens.NaveGuerra;
 import Itens.Satelite;
+import Tabuleiro.Jogador;
 import Tabuleiro.Planeta;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -46,18 +47,6 @@ public class BarraSelecao {
         this.root = root;
         this.app = app;
         CriarCena();
-    }
-
-    public boolean getMover(){
-        return this.mover;
-    }
-
-    public boolean getNaveColonizadoraSelecionada(){
-        return this.naveColonizadoraSelecionada;
-    }
-
-    public boolean getNaveGuerraSelecionada(){
-        return this.naveGuerraSelecionada;
     }
 
 
@@ -169,7 +158,7 @@ public class BarraSelecao {
         });
 
 
-        //Botao Nave de Guerra
+        //Botao Satelite
         botaoSatelite = new Button();
         botaoSatelite.setText("Satélite");
         botaoSatelite.setLayoutY(659.5);

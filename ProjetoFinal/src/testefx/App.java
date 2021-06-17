@@ -1,9 +1,5 @@
 package testefx;
 
-import Itens.Item;
-import Itens.NaveColonizadora;
-import Itens.NaveGuerra;
-import Itens.Satelite;
 import Tabuleiro.Tabuleiro;
 import javafx.application.Application;
 import javafx.scene.Group;

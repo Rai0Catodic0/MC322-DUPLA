@@ -22,6 +22,7 @@ public class BotaoPlaneta extends Button {
         this.setLayoutX(30);
         this.setGraphic(planetaImg);
         this.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+
     }
 
 

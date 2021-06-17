@@ -18,6 +18,7 @@ public class Planeta  implements IPlaneta {
     int ipixels;
     int jpixels;
     int id;
+    int[] idVizinhos;
     Tile tile;
     public List<Item> itens = new ArrayList<>();
     String type;
@@ -46,6 +47,7 @@ public class Planeta  implements IPlaneta {
         this.ipixels = ipixels;
         this.jpixels = jpixels;
         this.id = id;
+        //this.idVizinhos = idVizinhos;
         this.type = type;
         int imgNumber = new Random().nextInt(2);
         this.imgpath = "images/planeta"+type+ 1;
@@ -119,6 +121,22 @@ public class Planeta  implements IPlaneta {
         tile.setItems(this.getItens());
         tile.setPlanetaId(id);
         tile.IniciarTile();
+    }
+
+
+    public void setIdVizinhos(int[] idVizinhos) {
+        this.idVizinhos = idVizinhos;
+    }
+
+    public boolean  isVizinho(int idVizinho){
+        boolean ehVizinho = false;
+        for(int i = 0 ; i<this.idVizinhos.length; i++){
+            if(idVizinho==this.idVizinhos[i]){
+                ehVizinho = true;
+                break;
+            }
+        }
+        return ehVizinho;
     }
 
     public void Construir(String objeto){
