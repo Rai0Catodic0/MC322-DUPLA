@@ -287,5 +287,10 @@ Método | Objetivo
 Classe | Descrição
 ----- | -----
 InvalidImgPath | Indica caminhos invalidos para arquivos
-InvalidMovement | Indica movimentos invalidos 
-UnableToBuild | Indica Que não é possível construir um determinado item
+InvalidMovement | Engloba movimentos invalidos
+MovementOutOfReach | indica que o planeta de destino é invalido
+MovementBLockedByNaveColonizadora | indica que o planeta de destino está bloquado por outra nave colonizadora
+ItemAlreadyMoved | Indica que a peça já foi movimentada
+UnableToBuild | Engloba erros de Construção
+NotEnoughRecursos | Indica que o jogador nao possui recursos suficientes
+NotEnoughSpace | Indica que não há espaço suficiente no planeta para construir mais itens 
