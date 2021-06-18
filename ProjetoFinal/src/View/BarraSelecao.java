@@ -4,6 +4,8 @@ import Itens.Item;
 import Itens.NaveColonizadora;
 import Itens.NaveGuerra;
 import Itens.Satelite;
+import Tabuleiro.Jogador;
+import Tabuleiro.Planeta;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -36,29 +38,12 @@ public class BarraSelecao {
     private int planetaRecebeAcao;
     private int planetaClicado;
 
-    private Item itemMovido;
-
-
-
     private Group root;
-
 
     public BarraSelecao(Group root, App app){
         this.root = root;
         this.app = app;
         CriarCena();
-    }
-
-    public boolean getMover(){
-        return this.mover;
-    }
-
-    public boolean getNaveColonizadoraSelecionada(){
-        return this.naveColonizadoraSelecionada;
-    }
-
-    public boolean getNaveGuerraSelecionada(){
-        return this.naveGuerraSelecionada;
     }
 
 

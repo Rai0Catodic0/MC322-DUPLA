@@ -16,7 +16,7 @@ colonizar, mais chances tem de ganhar mais recursos.
 Ganha o jogador que fizer 12 pontos primeiro (cada item construído
 # Equipe
 * `Jéssica  Da Silva De Oliveira` - `RA173931`
-* `Gabriel Lima Luz` - `RA177836
+* `Gabriel Lima Luz` - `RA177836`
 
 # Vídeos do Projeto
 
@@ -35,20 +35,16 @@ Ganha o jogador que fizer 12 pontos primeiro (cada item construído
 
 ## Diagrama Geral do Projeto
 ![Diagrama Geral](mediasDoProjeto/diagramageral.png)
-> <Apresente um diagrama geral de organização da organização do seu sistema. O formato é livre. A escolha de um ou mais estilos arquiteturais será considerado um diferencial.>
 
-> <Faça uma breve descrição do diagrama.>
+> A classe principal App instancia as classes "Controle", "View" e "Tabuleiro". Cada uma dessas classes é responsável por instanciar os itens que a contem.
+> A View cria o contexto com a interface Gráfica e o Tabuleiro cria os planetas com seus respectivos itens.
+> O App faz uma conexão entre o a parte visual do planeta com a a classe "Planeta", para que essa classe atualize diretamente a View quando muda seu estado.
+> O controle recebe os comandos da View e os requisita para o tabuleiro e também controla a vez do jogador.
 
 ## Diagrama Geral de Componentes
 
 ![Diagrama geral de componentes](mediasDoProjeto/diagramageralcomponentes.png)
-### Componente jogador
 
-Este é o diagrama do componente Jogador:
-
-![Diagrama do Componente jogador](mediasDoProjeto/CJogador.png)
-
-Para cada componente será apresentado um documento conforme o modelo a seguir:
 
 ## Componente `Jogador`
 
@@ -63,22 +59,26 @@ Classe | `Tabuleiro.Jogador`\
 Autores | `Jéssica & Gabriel`\
 Interfaces | `Ijogador`
 
+
 ### Interfaces
 
 Interfaces associadas a esse componente:
 
 ![Diagrama Interfaces](mediasDoProjeto/Ijogador.png)
 
-Interface agregadora do componente em Java: ???????
+Interface agregadora do componente em Java: 
 
 ~~~java
-public interface IDataSet extends ITableProducer, IDataSetProperties {
+public interface IJogador {
+    void AdicionarItem(Item item);
+    boolean RemoverItem(Item item);
 }
 ~~~
 ## Componente `Controle`
 
->   O Componente Jogador tem como função armazenar a potuação, recursos e itens do jogador
-> para que o controle saiba quando o jogo acabou e quais ações são possíveis no turno atual\
+>   Esse componente administra o estado do Jogador, atualizando sempre que ocorre alguma mudança de pontos e administrando a vez dos jogadores.
+> Ele recebe os comandos do usuário pela interface gráfica e requisita as funções específicas para o tabuleiro caso elas sejam validadas.
+
 ![Diagrama do Componente jogador](mediasDoProjeto/CControle.png)
 
 **Ficha Técnica** 
@@ -87,7 +87,7 @@ item | detalhamento
 Classe | `Tabuleiro.Controle`
 Autores | `Jéssica`
 Interfaces | `IControle`
-?
+
 ### Interfaces
 
 Interfaces associadas a esse componente:
@@ -95,9 +95,11 @@ Interfaces associadas a esse componente:
 ![Diagrama Interfaces](mediasDoProjeto/Icontrole.png)
 
 Interface agregadora do componente em Java:
-???
+
 ~~~java
-public interface IDataSet extends ITableProducer, IDataSetProperties {
+public interface IControle {
+    boolean Construir(Item item);
+    boolean Mover(Item item);
 }
 ~~~
 ## Componente `Tabuleiro`
@@ -112,23 +114,24 @@ item | detalhamento
 Classe | `Tabuleiro.Tabuleiro`
 Autores | `Jéssica & Gabriel`
 Interfaces | `ITabuleiro`
-???
+
 ### Interfaces
 
 Interfaces associadas a esse componente:
 
 ![Diagrama Interfaces](mediasDoProjeto/ITabuleiro.png)
 
-Interface agregadora do componente em Java:
-???
+
 ~~~java
-public interface IDataSet extends ITableProducer, IDataSetProperties {
+public interface ITabuleiro {
+    void Mover(int idDestino, int idOrigem, String itemMovido);
+    void Construir(int id, String objeto);
 }
 ~~~
 ## Componente `Tile`
 
->   O Componente Jogador tem como função armazenar a potuação, recursos e itens do jogador
-> para que o controle saiba quando o jogo acabou e quais ações são possíveis no turno atual\
+>   Envolve o Planeta, os Itens instanciados em cada Planeta e os recursos disponíveis nos planetas. 
+> É ele que insere ou remove itens do planeta. Esse componente também conhece seus vizinhos (outros componentes Tile) e fornece essa informação quando necessário para que o tabuleiro possa validar o movimento.
 ![Diagrama do Componente jogador](mediasDoProjeto/CTile.png)
 
 **Ficha Técnica**
@@ -137,7 +140,7 @@ item | detalhamento
 Classe |  `Tabuleiro.Tile`\
 Autores | `Jéssica & Gabriel`\
 Interfaces | `ITile`
-???
+
 ### Interfaces
 
 Interfaces associadas a esse componente:
@@ -145,15 +148,21 @@ Interfaces associadas a esse componente:
 ![Diagrama Interfaces](mediasDoProjeto/ITile.png)
 
 Interface agregadora do componente em Java:
-???
+
 ~~~java
-public interface IDataSet extends ITableProducer, IDataSetProperties {
+public interface ITile {
+    boolean isVizinho(int id);
+    Item Construir(String objeto);
+    Item Remover(String itemRemovido);
+    Item Inserir(Item itemInserido);
 }
 ~~~
 ## Componente `TileView`
 
->   O Componente Jogador tem como função armazenar a potuação, recursos e itens do jogador
-> para que o controle saiba quando o jogo acabou e quais ações são possíveis no turno atual\
+>  Esse componente é a interface gŕafica do planeta e seus itens. 
+> É atualizado pelo componente Tile toda vez que ele muda seu estado, (desenhando ou excluindo os itens da tela conforme eles se mexem) e também é inicializado pelo Tile.
+> O TileView é um botão que requisita ações para View sempre que é clicado.
+> 
 ![Diagrama do Componente jogador](mediasDoProjeto/CTileView.png)
 
 **Ficha Técnica**
@@ -162,7 +171,7 @@ item | detalhamento
 Classe |  `View.TileView`
 Autores | `Jéssica & Gabriel`
 Interfaces | `ItileView`
-???
+
 ### Interfaces
 
 Interfaces associadas a esse componente:
@@ -170,15 +179,17 @@ Interfaces associadas a esse componente:
 ![Diagrama Interfaces](mediasDoProjeto/ITileView.png)
 
 Interface agregadora do componente em Java:
-???
+
 ~~~java
-public interface IDataSet extends ITableProducer, IDataSetProperties {
+public interface ITileView {
+    void Update(List<Item>);
+    void IniciarTile();
 }
 ~~~
 ## Componente `View`
 
->   O Componente Jogador tem como função armazenar a potuação, recursos e itens do jogador
-> para que o controle saiba quando o jogo acabou e quais ações são possíveis no turno atual\
+> Organiza toda a estrutura gráfica do Jogo, mostrando na tela o menu com os materiais e itens dos jogadores, e os botões específicos conforme as regras do jogo.
+> 
 ![Diagrama do Componente jogador](mediasDoProjeto/CView.png)
 
 **Ficha Técnica**
@@ -187,7 +198,7 @@ item | detalhamento
 Classe |  `View`
 Autores | `Jéssica & Gabriel`
 Interfaces | `IView`
-???
+
 ### Interfaces
 
 Interfaces associadas a esse componente:
@@ -195,9 +206,12 @@ Interfaces associadas a esse componente:
 ![Diagrama Interfaces](mediasDoProjeto/IView.png)
 
 Interface agregadora do componente em Java:
-???
+
 ~~~java
-public interface IDataSet extends ITableProducer, IDataSetProperties {
+public interface IView {
+    void ClicarBarra(ActionEvent actionEvent);
+    void ClicarPlaneta(ActionEvent actionEvent);
+    void ClicarConstruir(ActionEvent actionEvent);
 }
 ~~~
 ## Detalhamento das Interfaces
