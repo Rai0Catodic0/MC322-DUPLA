@@ -66,8 +66,6 @@ public class Planeta  implements IPlaneta {
     @Override
     public void Inserir(Item item) {
         itens.add(item);
-        //FIXME hardcoded string , mudar pra concatenacao
-        //this.imgpath = "images/planetacombustivel1nave";
     }
 
     public void Inserir(String itemInseridoString, Item itemInserido) {
@@ -113,6 +111,10 @@ public class Planeta  implements IPlaneta {
         }
     }
 
+    public void Construir(String objeto){
+
+    }
+
     public void setTile(Tile tile){
         this.tile = tile;
         tile.setImgpath(this.getImgpath());
@@ -148,9 +150,6 @@ public class Planeta  implements IPlaneta {
             }
         }
         return false;
-    }
-    public void Construir(String objeto){
-
     }
 
 }

@@ -54,7 +54,6 @@ public class Tabuleiro {
     /**Funções auxiliares do Construtor**/
 
     private String SortearPlaneta(){
-        //FIXME colocar limite de planetas repetidos
         Random sortear = new Random();
         int sorteado = sortear.nextInt(3);
         System.out.println(sorteado);
@@ -141,21 +140,7 @@ public class Tabuleiro {
         }
         return new int[] {sorteadoLinha, sorteadoColuna};
     }
-    private int[] gerarIds(){
-        //FIXME talvez duplicar os ids seja uma ideia idiota
 
-        Random gerador = new Random();
-        List<Integer> ids = new ArrayList<>();
-        while (ids.size()!=16){
-            int sorteado = gerador.nextInt(8);
-            if(Collections.frequency(ids, sorteado)<3){
-                ids.add(sorteado);
-            }
-        }
-        System.out.println(ids);
-        int[] saida = ids.stream().mapToInt(i->i).toArray();
-        return saida;
-    }
 
     /**Funções ativas no Jogo*/
 
@@ -164,14 +149,13 @@ public class Tabuleiro {
     }
 
     public void Remover(Item item) {
+        //FIXME talvez de erro
+
         List<Integer> position = item.getPosition();
-        this.planetas[position.get(0)][position.get(0)].Remover(item);
+        this.planetas[position.get(0)][position.get(1)].Remover(item);
 
     }
 
-    public Planeta[][] getPlanetas() {
-        return planetas;
-    }
 
     private Planeta AcharPlaneta(int id){
         for(int i = 0; i<5; i++){
@@ -224,4 +208,28 @@ public class Tabuleiro {
         p.Construir(objeto);
         return true;
     }
+
+    // getrs e setrs
+
+    public Planeta[][] getPlanetas() {
+        return planetas;
+    }
+
+    private int[] gerarIds(){
+        //FIXME talvez duplicar os ids seja uma ideia idiota
+
+        Random gerador = new Random();
+        List<Integer> ids = new ArrayList<>();
+        while (ids.size()!=16){
+            int sorteado = gerador.nextInt(8);
+            if(Collections.frequency(ids, sorteado)<3){
+                ids.add(sorteado);
+            }
+        }
+        System.out.println(ids);
+        int[] saida = ids.stream().mapToInt(i->i).toArray();
+        return saida;
+    }
+
+
 }

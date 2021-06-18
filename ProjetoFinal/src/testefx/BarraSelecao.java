@@ -135,6 +135,7 @@ public class BarraSelecao {
         botaoNaveColonizadora.setLayoutX(0);
         botaoNaveColonizadora.setFont(Font.font("Verdana", 15));
         Image imageNave = new Image(getClass().getResourceAsStream("nave.png"));
+        //Image imageNave = new Image("images/navecolonizadorav.png");
         ImageView iNave = new ImageView(imageNave);
         botaoNaveColonizadora.setGraphic(iNave);
         botaoNaveColonizadora.getStylesheets().add(getClass().getResource("styleBotaoSelecao.css").toExternalForm());
@@ -158,6 +159,7 @@ public class BarraSelecao {
         botaoNaveGuerra.setLayoutX(0);
         botaoNaveGuerra.setFont(Font.font("Verdana", 15));
         Image imageNaveGuerra = new Image(getClass().getResourceAsStream("nave.png"));
+        //Image imageNaveGuerra = new Image("images/naveguerrav.png"); // trocar ?
         ImageView iNaveGuerra = new ImageView(imageNaveGuerra);
         botaoNaveGuerra.setGraphic(iNaveGuerra);
         botaoNaveGuerra.getStylesheets().add(getClass().getResource("styleBotaoSelecao.css").toExternalForm());
@@ -174,13 +176,14 @@ public class BarraSelecao {
         });
 
 
-        //Botao Nave de Guerra
+        //Botao Nave de Satelite
         botaoSatelite = new Button();
         botaoSatelite.setText("Satélite");
         botaoSatelite.setLayoutY(659.5);
         botaoSatelite.setLayoutX(0);
         botaoSatelite.setFont(Font.font("Verdana", 15));
         Image imageSatelite = new Image(getClass().getResourceAsStream("nave.png"));
+        //Image imageSatelite = new Image("images/satelitev.png");
         ImageView iSatelite = new ImageView(imageSatelite);
         botaoSatelite.setGraphic(iSatelite);
         botaoSatelite.getStylesheets().add(getClass().getResource("styleBotaoSelecao.css").toExternalForm());
