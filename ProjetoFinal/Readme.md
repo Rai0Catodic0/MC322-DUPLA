@@ -47,24 +47,12 @@ Este é o diagrama do componente Jogador:
 
 ![Diagrama do Componente jogador](mediasDoProjeto/CJogador.png)
 
-### Componente controle
-
-a gente vai explicar o componente ?:
-
-![Diagrama Componente Controle](mediasDoProjeto/CControle.png)
-
-### Exemplo 3
-
-Este é outro diagrama de um projeto de vendas:
-
-![Diagrama Componente Tabuleiro](mediasDoProjeto/CTabuleiro.png)
-
 Para cada componente será apresentado um documento conforme o modelo a seguir:
 
 ## Componente `Jogador`
 
 >   O Componente Jogador tem como função armazenar a potuação, recursos e itens do jogador
-> para que o controle saiba quando o jogo acabou e quais ações são possíveis no turno atual
+> para que o controle saiba quando o jogo acabou e quais ações são possíveis no turno atual\
 ![Diagrama do Componente jogador](mediasDoProjeto/CJogador.png)
 
 **Ficha Técnica**
@@ -89,7 +77,7 @@ public interface IDataSet extends ITableProducer, IDataSetProperties {
 ## Componente `Controle`
 
 >   O Componente Jogador tem como função armazenar a potuação, recursos e itens do jogador
-> para que o controle saiba quando o jogo acabou e quais ações são possíveis no turno atual
+> para que o controle saiba quando o jogo acabou e quais ações são possíveis no turno atual\
 ![Diagrama do Componente jogador](mediasDoProjeto/CControle.png)
 
 **Ficha Técnica** 
@@ -114,7 +102,7 @@ public interface IDataSet extends ITableProducer, IDataSetProperties {
 ## Componente `Tabuleiro`
 
 >   O Componente Jogador tem como função armazenar a potuação, recursos e itens do jogador
-> para que o controle saiba quando o jogo acabou e quais ações são possíveis no turno atual
+> para que o controle saiba quando o jogo acabou e quais ações são possíveis no turno atual\
 ![Diagrama do Componente jogador](mediasDoProjeto/CTabuleiro.png)
 
 **Ficha Técnica**
@@ -139,7 +127,7 @@ public interface IDataSet extends ITableProducer, IDataSetProperties {
 ## Componente `Tile`
 
 >   O Componente Jogador tem como função armazenar a potuação, recursos e itens do jogador
-> para que o controle saiba quando o jogo acabou e quais ações são possíveis no turno atual
+> para que o controle saiba quando o jogo acabou e quais ações são possíveis no turno atual\
 ![Diagrama do Componente jogador](mediasDoProjeto/CTile.png)
 
 **Ficha Técnica**
@@ -164,7 +152,7 @@ public interface IDataSet extends ITableProducer, IDataSetProperties {
 ## Componente `TileView`
 
 >   O Componente Jogador tem como função armazenar a potuação, recursos e itens do jogador
-> para que o controle saiba quando o jogo acabou e quais ações são possíveis no turno atual
+> para que o controle saiba quando o jogo acabou e quais ações são possíveis no turno atual\
 ![Diagrama do Componente jogador](mediasDoProjeto/CTileView.png)
 
 **Ficha Técnica**
@@ -189,7 +177,7 @@ public interface IDataSet extends ITableProducer, IDataSetProperties {
 ## Componente `View`
 
 >   O Componente Jogador tem como função armazenar a potuação, recursos e itens do jogador
-> para que o controle saiba quando o jogo acabou e quais ações são possíveis no turno atual
+> para que o controle saiba quando o jogo acabou e quais ações são possíveis no turno atual\
 ![Diagrama do Componente jogador](mediasDoProjeto/CView.png)
 
 **Ficha Técnica**
