@@ -258,7 +258,9 @@ Método | Objetivo
 
 Classe | Descrição
 ----- | -----
-InvalidImgPath | Indica caminhos invalidos para arquivos
+InvalidImgPath | Engloba todos os erros de caminho para imagens
+InvalidItemIcon | indica erro no caminho de uma imagem de um item
+InvalidPLanetIcon |indica erro no caminho de uma imagem de um planeta
 InvalidMovement | Engloba movimentos invalidos
 MovementOutOfReach | indica que o planeta de destino é invalido
 MovementBLockedByNaveColonizadora | indica que o planeta de destino está bloquado por outra nave colonizadora
