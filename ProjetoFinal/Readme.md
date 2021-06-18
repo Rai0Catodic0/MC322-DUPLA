@@ -52,11 +52,11 @@ Ganha o jogador que fizer 12 pontos primeiro (cada item construído
 > para que o controle saiba quando o jogo acabou e quais ações são possíveis no turno atual\
 ![Diagrama do Componente jogador](mediasDoProjeto/CJogador.png)
 
-**Ficha Técnica**\
-item | detalhamento\
----- | ------------\
-Classe | `Tabuleiro.Jogador`\
-Autores | `Jéssica & Gabriel`\
+**Ficha Técnica**
+item | detalhamento
+---- | ------------
+Classe | `Tabuleiro.Jogador`
+Autores | `Jéssica & Gabriel`
 Interfaces | `Ijogador`
 
 
@@ -137,8 +137,8 @@ public interface ITabuleiro {
 **Ficha Técnica**
 item | detalhamento
 ----- | -----
-Classe |  `Tabuleiro.Tile`\
-Autores | `Jéssica & Gabriel`\
+Classe |  `Tabuleiro.Tile`
+Autores | `Jéssica & Gabriel`
 Interfaces | `ITile`
 
 ### Interfaces
@@ -182,7 +182,7 @@ Interface agregadora do componente em Java:
 
 ~~~java
 public interface ITileView {
-    void Update(List<Item>);
+    void Update(List<Item> itens);
     void IniciarTile();
 }
 ~~~

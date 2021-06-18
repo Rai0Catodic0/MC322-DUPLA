@@ -4,8 +4,6 @@ import Itens.Item;
 import Itens.NaveColonizadora;
 import Itens.NaveGuerra;
 import Itens.Satelite;
-import Tabuleiro.Jogador;
-import Tabuleiro.Planeta;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
