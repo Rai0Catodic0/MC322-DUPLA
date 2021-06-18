@@ -286,6 +286,6 @@ Método | Objetivo
 
 Classe | Descrição
 ----- | -----
-DivisaoInvalida | Engloba todas as exceções de divisões não aceitas.
-DivisaoInutil | Indica que a divisão por 1 é inútil.
-DivisaoNaoInteira | Indica uma divisão não inteira.
+InvalidImgPath | Indica caminhos invalidos para arquivos
+InvalidMovement | Indica movimentos invalidos 
+UnableToBuild | Indica Que não é possível construir um determinado item
