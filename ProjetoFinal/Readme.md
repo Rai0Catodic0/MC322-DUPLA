@@ -250,7 +250,7 @@ Método | Objetivo
 ## Diagrama da hierarquia de exceções
 `<Elabore um diagrama com a hierarquia de exceções como detalhado abaixo>`
 
-![Hierarquia Exceções](mediasDoProjeto/exceções)
+![Hierarquia Exceções](mediasDoProjeto/exceções.png)
 
 ## Descrição das classes de exceção
 
