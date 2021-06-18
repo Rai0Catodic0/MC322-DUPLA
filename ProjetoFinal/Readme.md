@@ -216,20 +216,6 @@ public interface IView {
 ~~~
 ## Detalhamento das Interfaces
 
-### Interface `<nome da interface>`
-
-`<Resumo do papel da interface.>`
-
-~~~
-<Interface em Java.>
-~~~
-
-Método | Objetivo
--------| --------
-`<id do método em Java>` | `<objetivo do método e descrição dos parâmetros>`
-
-## Exemplo:
-
 ### Interface `IItem`
 
 Padronizar e modularizar a comunicação entre as classes Item e Planeta
@@ -257,21 +243,7 @@ Método | Objetivo
 `getColetados`|retorna uma lista de recursos coletados pelos itens
 `getType` | Retorna uma string informando o nome da classe.
 `getImgpath` | Retorna uma string com o caminho para o arquivo da imagem para o item
-### Interface `IDataSetProperties`
-
-Define o recurso (usualmente o caminho para um arquivo em disco) que é a fonte de dados.
-
-~~~java
-public interface IDataSetProperties {
-  public String getDataSource();
-  public void setDataSource(String dataSource);
-}
-~~~
-
-Método | Objetivo
--------| --------
-`getDataSource` | Retorna o caminho da fonte de dados.
-`setDataSource` | Define o caminho da fonte de dados, informado através do parâmetro `dataSource`.
+`.
 
 # Plano de Exceções
 
