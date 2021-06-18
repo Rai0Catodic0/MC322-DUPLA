@@ -2,15 +2,12 @@ package Tabuleiro;
 
 import Itens.Item;
 import Itens.NaveColonizadora;
-import Itens.NaveGuerra;
-import Itens.Satelite;
 import Recursos.*;
-import testefx.Tile;
+import View.Tile;
 
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
 
 public class Planeta  implements IPlaneta {
     int i;

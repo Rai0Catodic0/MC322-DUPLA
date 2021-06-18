@@ -52,11 +52,11 @@ Ganha o jogador que fizer 12 pontos primeiro (cada item construído
 > para que o controle saiba quando o jogo acabou e quais ações são possíveis no turno atual\
 ![Diagrama do Componente jogador](mediasDoProjeto/CJogador.png)
 
-**Ficha Técnica**\
-item | detalhamento\
----- | ------------\
-Classe | `Tabuleiro.Jogador`\
-Autores | `Jéssica & Gabriel`\
+**Ficha Técnica**
+item | detalhamento
+---- | ------------
+Classe | `Tabuleiro.Jogador`
+Autores | `Jéssica & Gabriel`
 Interfaces | `Ijogador`
 
 
@@ -137,8 +137,8 @@ public interface ITabuleiro {
 **Ficha Técnica**
 item | detalhamento
 ----- | -----
-Classe |  `Tabuleiro.Tile`\
-Autores | `Jéssica & Gabriel`\
+Classe |  `Tabuleiro.Tile`
+Autores | `Jéssica & Gabriel`
 Interfaces | `ITile`
 
 ### Interfaces
@@ -182,7 +182,7 @@ Interface agregadora do componente em Java:
 
 ~~~java
 public interface ITileView {
-    void Update(List<Item>);
+    void Update(List<Item> itens);
     void IniciarTile();
 }
 ~~~
@@ -258,6 +258,12 @@ Método | Objetivo
 
 Classe | Descrição
 ----- | -----
-DivisaoInvalida | Engloba todas as exceções de divisões não aceitas.
-DivisaoInutil | Indica que a divisão por 1 é inútil.
-DivisaoNaoInteira | Indica uma divisão não inteira.
+InvalidImgPath | Indica caminhos invalidos para arquivos
+InvalidMovement | Engloba movimentos invalidos
+MovementOutOfReach | indica que o planeta de destino é invalido
+MovementBLockedByNaveColonizadora | indica que o planeta de destino está bloquado por outra nave colonizadora
+ItemAlreadyMoved | Indica que a peça já foi movimentada
+UnableToBuild | Engloba erros de Construção
+NotEnoughRecursos | Indica que o jogador nao possui recursos suficientes
+NotEnoughSpace | Indica que não há espaço suficiente no planeta para construir mais itens 
+

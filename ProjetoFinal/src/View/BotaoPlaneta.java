@@ -1,17 +1,8 @@
 package View;
 
-import Itens.Item;
-import Itens.NaveColonizadora;
-import Tabuleiro.Planeta;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
-import java.util.Observer;
 
 public class BotaoPlaneta extends Button {
 
