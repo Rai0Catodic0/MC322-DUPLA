@@ -21,7 +21,8 @@ Ganha o jogador que fizer 12 pontos primeiro (cada item construído
 # Vídeos do Projeto
 
 ## Vídeo da Prévia
-> [<video>](https://drive.google.com/file/d/1sm055svD8BkM5IXoianjSeHf3vuLuPKr/view?usp=sharing)
+[![preview](mediasDoProjeto/video.png)](https://drive.google.com/file/d/1sm055svD8BkM5IXoianjSeHf3vuLuPKr/view?usp=sharing)
+
 
 # Slides do Projeto
 
@@ -53,10 +54,11 @@ Ganha o jogador que fizer 12 pontos primeiro (cada item construído
 
 **Ficha Técnica**\
 item | detalhamento\
------ | -----
-Classe | `<caminho completo da classe com pacotes>` <br> Exemplo: `pt.c08componentes.s20catalog.s10ds.DataSetComponent`
-Autores | `<nome dos membros que criaram o componente>`
-Interfaces | `<listagem das interfaces do componente>`
+---- | ------------\
+Classe | `Tabuleiro.Jogador`\
+Autores | `Jéssica & Gabriel`\
+Interfaces | `Ijogador`
+
 
 ### Interfaces
 
@@ -82,9 +84,9 @@ public interface IJogador {
 **Ficha Técnica** 
 item | detalhamento
 ----- | -----
-Classe | `<caminho completo da classe com pacotes>` <br> Exemplo: `pt.c08componentes.s20catalog.s10ds.DataSetComponent`
-Autores | `<nome dos membros que criaram o componente>`
-Interfaces | `<listagem das interfaces do componente>`
+Classe | `Tabuleiro.Controle`
+Autores | `Jéssica`
+Interfaces | `IControle`
 
 ### Interfaces
 
@@ -107,10 +109,12 @@ public interface IControle {
 ![Diagrama do Componente jogador](mediasDoProjeto/CTabuleiro.png)
 
 **Ficha Técnica**
-Método | Objetivo
--------| --------
-`<id do método em Java>` | `<objetivo do método e descrição dos parâmetros>`
-???
+item | detalhamento
+----- | -----
+Classe | `Tabuleiro.Tabuleiro`
+Autores | `Jéssica & Gabriel`
+Interfaces | `ITabuleiro`
+
 ### Interfaces
 
 Interfaces associadas a esse componente:
@@ -133,10 +137,10 @@ public interface ITabuleiro {
 **Ficha Técnica**
 item | detalhamento
 ----- | -----
-Classe | `<caminho completo da classe com pacotes>` <br> Exemplo: `pt.c08componentes.s20catalog.s10ds.DataSetComponent`
-Autores | `<nome dos membros que criaram o componente>`
-Interfaces | `<listagem das interfaces do componente>`
-???
+Classe |  `Tabuleiro.Tile`\
+Autores | `Jéssica & Gabriel`\
+Interfaces | `ITile`
+
 ### Interfaces
 
 Interfaces associadas a esse componente:
@@ -164,10 +168,10 @@ public interface ITile {
 **Ficha Técnica**
 item | detalhamento
 ----- | -----
-Classe | `<caminho completo da classe com pacotes>` <br> Exemplo: `pt.c08componentes.s20catalog.s10ds.DataSetComponent`
-Autores | `<nome dos membros que criaram o componente>`
-Interfaces | `<listagem das interfaces do componente>`
-???
+Classe |  `View.TileView`
+Autores | `Jéssica & Gabriel`
+Interfaces | `ItileView`
+
 ### Interfaces
 
 Interfaces associadas a esse componente:
@@ -191,10 +195,10 @@ public interface ITileView {
 **Ficha Técnica**
 item | detalhamento
 ----- | -----
-Classe | `<caminho completo da classe com pacotes>` <br> Exemplo: `pt.c08componentes.s20catalog.s10ds.DataSetComponent`
-Autores | `<nome dos membros que criaram o componente>`
-Interfaces | `<listagem das interfaces do componente>`
-???
+Classe |  `View`
+Autores | `Jéssica & Gabriel`
+Interfaces | `IView`
+
 ### Interfaces
 
 Interfaces associadas a esse componente:
@@ -249,7 +253,10 @@ Método | Objetivo
 -------| --------
 `lutar` | Retorna um int que quando comparado com o valor fornecido por outro item determina quem ganhou a luta.
 `recolherRecurso` | !!um pequeno problema!!Recebe um objeto da classe Recursos e adiciona ao atributo estático coletados que armazena todos os recursos coletados pelo jogador .
-`continuar a adionar` | mais metodos.
+`getPosition`| Retorna uma lista no formato [i,j] que representa a qual planeta da matriz o item pertence 
+`getColetados`|retorna uma lista de recursos coletados pelos itens
+`getType` | Retorna uma string informando o nome da classe.
+`getImgpath` | Retorna uma string com o caminho para o arquivo da imagem para o item
 ### Interface `IDataSetProperties`
 
 Define o recurso (usualmente o caminho para um arquivo em disco) que é a fonte de dados.
