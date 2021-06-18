@@ -1,4 +1,4 @@
-package testefx;
+package View;
 
 import Itens.Item;
 import javafx.event.ActionEvent;

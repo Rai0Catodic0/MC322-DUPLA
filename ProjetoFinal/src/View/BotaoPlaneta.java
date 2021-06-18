@@ -1,4 +1,4 @@
-package testefx;
+package View;
 
 import Itens.Item;
 import Itens.NaveColonizadora;
