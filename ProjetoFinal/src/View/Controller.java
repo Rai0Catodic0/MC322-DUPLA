@@ -1,4 +1,4 @@
-package testefx;
+package View;
 
 public class Controller {
 }

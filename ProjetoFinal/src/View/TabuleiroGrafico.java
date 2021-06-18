@@ -1,10 +1,7 @@
-package testefx;
+package View;
 
-import Itens.Item;
 import Tabuleiro.Tabuleiro;
-import Tabuleiro.Planeta;
 import javafx.scene.Group;
-import javafx.scene.layout.StackPane;
 
 import java.util.ArrayList;
 import java.util.List;

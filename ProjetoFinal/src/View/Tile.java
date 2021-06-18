@@ -1,8 +1,6 @@
-package testefx;
+package View;
 
 import Itens.Item;
-import Tabuleiro.Planeta;
-import javafx.beans.InvalidationListener;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
@@ -11,8 +9,6 @@ import javafx.scene.layout.Pane;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
 
 public class Tile extends Pane {
     List<Item> items = new ArrayList<>();
