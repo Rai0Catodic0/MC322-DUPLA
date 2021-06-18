@@ -1,15 +1,13 @@
 package Tabuleiro;
 
 import Itens.Item;
+import Itens.NaveColonizadora;
+import Itens.NaveGuerra;
+import Itens.Satelite;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-
-
-import Itens.NaveColonizadora;
-import Itens.Satelite;
-import testefx.Tile;
-
 import java.util.Random;
 
 public class Tabuleiro {
@@ -21,6 +19,7 @@ public class Tabuleiro {
 
         //Instanciar Planetas
         planetas = InstanciarPlanetas();
+        this.setarvizinho(this.planetas);
            this.metal = 0;
            this.municao = 0;
            this.combustivel = 0;
@@ -55,7 +54,6 @@ public class Tabuleiro {
     /**Funções auxiliares do Construtor**/
 
     private String SortearPlaneta(){
-        //FIXME colocar limite de planetas repetidos
         Random sortear = new Random();
         int sorteado = sortear.nextInt(3);
         System.out.println(sorteado);
@@ -86,23 +84,23 @@ public class Tabuleiro {
 
         //400
         //300
-
-        planetas[0][1] = new Planeta(0,1,140,600, 1, SortearPlaneta());
-        planetas[0][2] = new Planeta(0,2,040,900,2,SortearPlaneta());
-        planetas[0][3] = new Planeta(0,3,120,1200,3,SortearPlaneta());
-        planetas[1][0] = new Planeta(1,0,300,400,4,SortearPlaneta());
-        planetas[1][2] = new Planeta(1,2,295,910,5,SortearPlaneta());
-        planetas[1][4] = new Planeta(1,4,296,1350,6,SortearPlaneta());
-        planetas[2][0] = new Planeta(2,0,452,306,7,SortearPlaneta());
-        planetas[2][1] = new Planeta(2,1,453,650,8,SortearPlaneta());
-        planetas[2][3] = new Planeta(2,3,455,1206,9,SortearPlaneta());
-        planetas[2][4] = new Planeta(2,4,450,1555,10,SortearPlaneta());
-        planetas[3][0] = new Planeta(3,0,630,440,11,SortearPlaneta());
-        planetas[3][2] = new Planeta(3,2,531,911,12,SortearPlaneta());
-        planetas[3][4] = new Planeta(3,4,635,1355,13,SortearPlaneta());
-        planetas[4][1] = new Planeta(4,1,770,610,14,SortearPlaneta());
-        planetas[4][2] = new Planeta(4,2,740,920,15,SortearPlaneta());
-        planetas[4][3] = new Planeta(4,3,750,1210,16,SortearPlaneta());
+        int[] ids = gerarIds();
+        planetas[0][1] = new Planeta(0,1,140,600, ids[0], SortearPlaneta());
+        planetas[0][2] = new Planeta(0,2,040,900,ids[1],SortearPlaneta());
+        planetas[0][3] = new Planeta(0,3,120,1200,ids[2],SortearPlaneta());
+        planetas[1][0] = new Planeta(1,0,300,400,ids[3],SortearPlaneta());
+        planetas[1][2] = new Planeta(1,2,295,910,ids[4],SortearPlaneta());
+        planetas[1][4] = new Planeta(1,4,296,1350,ids[5],SortearPlaneta());
+        planetas[2][0] = new Planeta(2,0,452,306,ids[6],SortearPlaneta());
+        planetas[2][1] = new Planeta(2,1,453,650,ids[7],SortearPlaneta());
+        planetas[2][3] = new Planeta(2,3,455,1206,ids[8],SortearPlaneta());
+        planetas[2][4] = new Planeta(2,4,450,1555,ids[9],SortearPlaneta());
+        planetas[3][0] = new Planeta(3,0,630,440,ids[10],SortearPlaneta());
+        planetas[3][2] = new Planeta(3,2,531,911,ids[11],SortearPlaneta());
+        planetas[3][4] = new Planeta(3,4,635,1355,ids[12],SortearPlaneta());
+        planetas[4][1] = new Planeta(4,1,770,610,ids[13],SortearPlaneta());
+        planetas[4][2] = new Planeta(4,2,740,920,ids[14],SortearPlaneta());
+        planetas[4][3] = new Planeta(4,3,750,1210,ids[15],SortearPlaneta());
         return planetas;
 
     }
@@ -151,14 +149,13 @@ public class Tabuleiro {
     }
 
     public void Remover(Item item) {
+        //FIXME talvez de erro
+
         List<Integer> position = item.getPosition();
-        this.planetas[position.get(0)][position.get(0)].Remover(item);
+        this.planetas[position.get(0)][position.get(1)].Remover(item);
 
     }
 
-    public Planeta[][] getPlanetas() {
-        return planetas;
-    }
 
     private Planeta AcharPlaneta(int id){
         for(int i = 0; i<5; i++){
@@ -172,6 +169,7 @@ public class Tabuleiro {
     }
 
     public boolean Mover(int idDestino, int idOrigem, String itemMovido){
+<<<<<<< HEAD
         boolean movimentoValido = false;
         Planeta destino = AcharPlaneta(idDestino);
         Planeta origem = AcharPlaneta(idOrigem);
@@ -191,6 +189,40 @@ public class Tabuleiro {
         destino.Inserir(itemMovido, item);
         return true;
 
+=======
+        boolean movimentoValido = true;
+        Planeta destino = AcharPlaneta(idDestino);
+        Item item;
+        Planeta origem = AcharPlaneta(idOrigem);
+        if(origem.isVizinho(idDestino)){
+            switch (itemMovido){
+                case "naveGuerra":
+                    if(destino.hasItem(NaveGuerra.class)){
+                        //luta nave guerra x nave guerra
+                        movimentoValido = true;
+                    }
+                    else if(destino.hasItem(NaveColonizadora.class)){
+                        //luta nave guerra X nave colonizadora
+                    }else if(destino.hasItem(Satelite.class)){
+                        //luta nave guerra X satelite
+                    }
+
+                    break;
+                case "naveColonizadora":
+                    if(destino.hasItem(NaveColonizadora.class)){
+                        movimentoValido = false;
+                    }
+                    break;
+            }
+        }
+        System.out.println("ESSE é o planeta origem "+origem);
+        System.out.println("Essa é a lista do planeta origem, "+origem.getItens());
+        if(movimentoValido == true){
+            item = origem.Remover(itemMovido);
+            destino.Inserir(itemMovido, item);
+        }
+        return  movimentoValido;
+>>>>>>> ca64e5b7ddd135153733e28efca41594d2c372cb
     }
 
     public boolean Construir(int id, String objeto){
@@ -199,4 +231,28 @@ public class Tabuleiro {
         System.out.println("Planeta que vou inserir tab: "+p.id+p.i+p.j);
         return true;
     }
+
+    // getrs e setrs
+
+    public Planeta[][] getPlanetas() {
+        return planetas;
+    }
+
+    private int[] gerarIds(){
+        //FIXME talvez duplicar os ids seja uma ideia idiota
+
+        Random gerador = new Random();
+        List<Integer> ids = new ArrayList<>();
+        while (ids.size()!=16){
+            int sorteado = gerador.nextInt(8);
+            if(Collections.frequency(ids, sorteado)<3){
+                ids.add(sorteado);
+            }
+        }
+        System.out.println(ids);
+        int[] saida = ids.stream().mapToInt(i->i).toArray();
+        return saida;
+    }
+
+
 }

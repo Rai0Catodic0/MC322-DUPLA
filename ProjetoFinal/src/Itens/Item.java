@@ -27,12 +27,18 @@ public class Item implements IItem{
         this.representacao = repre;
     }
 
+    // acoes do jogo
     @Override
     public int lutar() {
         Random gerador = new Random();
         return gerador.nextInt(6);
     }
 
+    public void recolherRecurso(Recursos coletado) {
+         coletados.add(coletado);
+    }
+
+    // getters e setters
     @Override
     public List<Integer> getPosition() {
         List<Integer> position = new ArrayList<>();
@@ -45,7 +51,10 @@ public class Item implements IItem{
         return coletados;
     }
 
-    public String getType(){
+    public String getType() {
+        /**
+         *  retorna o tipo do item em forma de string tudo junto e minúsculo
+         */
         String type;
         if(this instanceof NaveGuerra){
             type = "naveguerra";
@@ -60,7 +69,11 @@ public class Item implements IItem{
         }
         return type;
     }
+
     public String getImgPath(){
+        /**
+         *  retorna o cominho que contem a imagem pra esse item
+         */
         String imgPath;
         imgPath = "images/"+this.getType()+this.representacao+".png";
         return imgPath;

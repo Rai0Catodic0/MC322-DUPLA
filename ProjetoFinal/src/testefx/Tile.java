@@ -26,6 +26,10 @@ public class Tile extends Pane {
         this.controle = controle;
     }
 
+    //TODO classe separada pra luta
+    // tudo bem classe meio inuteis
+    // so uma interface tá show
+    //FIXME isso nao deveria ser um construtor ?
     public void IniciarTile(){
         botao = new BotaoPlaneta(imgpath, positions);
         botao.setOnAction(new EventHandler<ActionEvent>() {
@@ -39,6 +43,7 @@ public class Tile extends Pane {
         this.Desenhar();
     }
 
+    // metodos pra modificar o tile
     public void Esconder(){
         //System.out.println("Esse é o items no esconder "+items);
 
@@ -55,14 +60,21 @@ public class Tile extends Pane {
 
         for(Item item : this.items){
             images[i] = new ImageView(new Image(item.getImgPath()));
-            images[i].setX(110*i);
-            images[i].setY(110*i);
+            images[i].setX(100*i);
+            images[i].setY(100*i);
             //System.out.println("Essa é o item criado: "+item);
             this.getChildren().add(images[i]);
             i++;
         }
     }
 
+    public void update(List<Item> itens){
+        Esconder();
+        this.items = itens;
+        Desenhar();
+    }
+
+    // setrs e getrs
     public void setPlanetaId(int i){
         this.id = i;
     }
@@ -80,11 +92,4 @@ public class Tile extends Pane {
         this.setLayoutX(positions[1]);
         this.setLayoutY(positions[0]);
     }
-
-    public void update(List<Item> itens){
-        Esconder();
-        this.items = itens;
-        Desenhar();
-    }
-
 }

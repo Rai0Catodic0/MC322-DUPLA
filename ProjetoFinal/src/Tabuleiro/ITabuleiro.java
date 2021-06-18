@@ -7,5 +7,4 @@ public interface ITabuleiro {
     boolean Inserir(Item item);
     void Remover(Item item);
     void Movimentar();
-    void Lutar(); // TODO isso fica ?
-}
+    void Lutar(); }

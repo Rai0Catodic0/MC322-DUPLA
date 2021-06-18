@@ -69,11 +69,14 @@ public class Planeta  implements IPlaneta {
     @Override
     public void Inserir(Item item) {
         itens.add(item);
+<<<<<<< HEAD
         if(this.tile!=null){
             this.tile.update(this.itens);
         }
         //FIXME hardcoded string , mudar pra concatenacao
         //this.imgpath = "images/planetacombustivel1nave";
+=======
+>>>>>>> ca64e5b7ddd135153733e28efca41594d2c372cb
     }
 
     public void Inserir(String itemInseridoString, Item itemInserido) {
@@ -98,7 +101,7 @@ public class Planeta  implements IPlaneta {
     }
 
     @Override
-    public Recursos GerarRecursos() {
+    public void GerarRecursos() {
         Recursos result = null;
         switch (this.type){
             case "metal":
@@ -111,7 +114,14 @@ public class Planeta  implements IPlaneta {
                 result = new Combustivel();
                 break;
         }
-        return result;
+        if(this.itens.size() !=0){
+            Item coletor = this.itens.get(0);
+            coletor.recolherRecurso(result);
+        }
+    }
+
+    public void Construir(String objeto){
+
     }
 
     public void setTile(Tile tile){
@@ -129,7 +139,13 @@ public class Planeta  implements IPlaneta {
     }
 
     public boolean  isVizinho(int idVizinho){
+<<<<<<< HEAD
         boolean ehVizinho = false;
+=======
+        boolean is = false;
+        System.out.println(is);
+        System.out.println(this.idVizinhos.length);
+>>>>>>> ca64e5b7ddd135153733e28efca41594d2c372cb
         for(int i = 0 ; i<this.idVizinhos.length; i++){
             if(idVizinho==this.idVizinhos[i]){
                 ehVizinho = true;
@@ -138,6 +154,7 @@ public class Planeta  implements IPlaneta {
         }
         return ehVizinho;
     }
+<<<<<<< HEAD
 
     public void Construir(String objeto){
         Item construtor = null;
@@ -168,6 +185,17 @@ public class Planeta  implements IPlaneta {
         }
 
         System.out.println("Planeta e que vou inserir (Planeta): " +this.id+this.i+this.j);
+=======
+
+    public <tipo> boolean hasItem(Class<?> tipo){
+        boolean isInstance;
+        for(Item item: this.itens){
+            if(item.getClass() == tipo){
+                return true;
+            }
+        }
+        return false;
+>>>>>>> ca64e5b7ddd135153733e28efca41594d2c372cb
     }
 
 }
