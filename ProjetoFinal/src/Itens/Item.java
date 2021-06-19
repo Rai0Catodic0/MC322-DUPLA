@@ -4,13 +4,11 @@ import java.util.Random;
 import java.util.List;
 import java.util.ArrayList;
 
-import App.Spritesheet;
 import Recursos.Recursos;
 import Tabuleiro.Tabuleiro;
 
 public class Item implements IItem{
     private BufferedImage ImagemItem;
-    private Spritesheet spritesheet;
     public int i;
     public int j;
     List<Recursos> coletados = new ArrayList<Recursos>();

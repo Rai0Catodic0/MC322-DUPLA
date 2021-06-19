@@ -1,4 +1,4 @@
-package testefx;
+package View;
 
 import Tabuleiro.Tabuleiro;
 import javafx.scene.Group;

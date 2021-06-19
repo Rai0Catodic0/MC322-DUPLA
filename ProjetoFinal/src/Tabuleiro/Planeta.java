@@ -5,7 +5,7 @@ import Itens.NaveColonizadora;
 import Itens.NaveGuerra;
 import Itens.Satelite;
 import Recursos.*;
-import testefx.Tile;
+import View.Tile;
 
 import java.util.Random;
 import java.util.ArrayList;
@@ -69,14 +69,11 @@ public class Planeta  implements IPlaneta {
     @Override
     public void Inserir(Item item) {
         itens.add(item);
-<<<<<<< HEAD
         if(this.tile!=null){
             this.tile.update(this.itens);
         }
         //FIXME hardcoded string , mudar pra concatenacao
         //this.imgpath = "images/planetacombustivel1nave";
-=======
->>>>>>> ca64e5b7ddd135153733e28efca41594d2c372cb
     }
 
     public void Inserir(String itemInseridoString, Item itemInserido) {
@@ -120,9 +117,6 @@ public class Planeta  implements IPlaneta {
         }
     }
 
-    public void Construir(String objeto){
-
-    }
 
     public void setTile(Tile tile){
         this.tile = tile;
@@ -139,13 +133,7 @@ public class Planeta  implements IPlaneta {
     }
 
     public boolean  isVizinho(int idVizinho){
-<<<<<<< HEAD
         boolean ehVizinho = false;
-=======
-        boolean is = false;
-        System.out.println(is);
-        System.out.println(this.idVizinhos.length);
->>>>>>> ca64e5b7ddd135153733e28efca41594d2c372cb
         for(int i = 0 ; i<this.idVizinhos.length; i++){
             if(idVizinho==this.idVizinhos[i]){
                 ehVizinho = true;
@@ -154,21 +142,20 @@ public class Planeta  implements IPlaneta {
         }
         return ehVizinho;
     }
-<<<<<<< HEAD
 
-    public void Construir(String objeto){
+    public void Construir(String objeto) {
         Item construtor = null;
-        if(objeto.equals("naveGuerra")){
+        if (objeto.equals("naveGuerra")) {
             for (Item item : itens) {
-                if(item instanceof Satelite){
+                if (item instanceof Satelite) {
                     construtor = item;
                     break;
                 }
             }
             this.Inserir(((Satelite) construtor).ConstruirNave('g'));
-        }else if(objeto.equals("satelite")){
+        } else if (objeto.equals("satelite")) {
             for (Item item : itens) {
-                if(item instanceof NaveColonizadora){
+                if (item instanceof NaveColonizadora) {
                     construtor = item;
                     break;
                 }
@@ -176,7 +163,7 @@ public class Planeta  implements IPlaneta {
             this.Inserir(((NaveColonizadora) construtor).Construir('g'));
         } else {
             for (Item item : itens) {
-                if(item instanceof Satelite){
+                if (item instanceof Satelite) {
                     construtor = item;
                     break;
                 }
@@ -184,8 +171,9 @@ public class Planeta  implements IPlaneta {
             this.Inserir(((Satelite) construtor).ConstruirNave('c'));
         }
 
-        System.out.println("Planeta e que vou inserir (Planeta): " +this.id+this.i+this.j);
-=======
+        System.out.println("Planeta e que vou inserir (Planeta): " + this.id + this.i + this.j);
+
+    }
 
     public <tipo> boolean hasItem(Class<?> tipo){
         boolean isInstance;
@@ -195,7 +183,6 @@ public class Planeta  implements IPlaneta {
             }
         }
         return false;
->>>>>>> ca64e5b7ddd135153733e28efca41594d2c372cb
     }
 
 }
