@@ -25,20 +25,6 @@ public class Jogador {
         this.itens.add(satelite);
     }
 
-    public boolean Mover(){
-        //TODO implementar mover
-        return true;
-    }
-
-    public boolean Construir(){
-        //TODO implementar Construir
-        return false;
-    }
-
-    public void Destruir(){
-        //TODO implementar destruir
-    }
-
 //    @Override
 //    public void update(Observable observable, Object o) {
 //        Item item = (Item) o;

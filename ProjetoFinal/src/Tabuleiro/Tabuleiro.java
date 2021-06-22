@@ -30,11 +30,16 @@ public class Tabuleiro {
             posicaoJogador2 = SortearPosicaoJogador();
         } while (posicaoJogador1[0]==posicaoJogador2[0] && posicaoJogador1[1]==posicaoJogador2[1]);
 
+        //Instanciar Jogadores em suas posições
+        Jogador jogador1 = new Jogador("a");//posicaoJogador1[0], posicaoJogador1[1]
+        Jogador jogador2 = new Jogador("v");//posicaoJogador2[0], posicaoJogador2[1]
+        this.j = jogador1;
+
         //Instanciar Itens para jogadores
-        Item nave1 = new NaveColonizadora(posicaoJogador1[0], posicaoJogador1[1], 'a',this);
-        Item satelite1 = new Satelite(posicaoJogador1[0], posicaoJogador1[1], 'a',this);
-        Item nave2 = new NaveColonizadora(posicaoJogador2[0], posicaoJogador2[1], 'v',this);
-        Item satelite2 = new Satelite(posicaoJogador2[0], posicaoJogador2[1], 'v',this);
+        Item nave1 = new NaveColonizadora(posicaoJogador1[0], posicaoJogador1[1], jogador1.repre,this);
+        Item satelite1 = new Satelite(posicaoJogador1[0], posicaoJogador1[1], jogador1.repre,this);
+        Item nave2 = new NaveColonizadora(posicaoJogador2[0], posicaoJogador2[1], jogador2.repre,this);
+        Item satelite2 = new Satelite(posicaoJogador2[0], posicaoJogador2[1], jogador2.repre,this);
 
         //Colocar Itens no tabuleiro
         this.Inserir(nave1);
@@ -42,10 +47,6 @@ public class Tabuleiro {
         this.Inserir(satelite1);
         this.Inserir(satelite2);
 
-        //Instanciar Jogadores em suas posições
-        Jogador jogador1 = new Jogador("a");//posicaoJogador1[0], posicaoJogador1[1]
-        Jogador jogador2 = new Jogador("v");//posicaoJogador2[0], posicaoJogador2[1]
-        this.j = jogador1;
         //Atualizar itens dos jogadores
         jogador1.setItens(nave1, satelite1);
         jogador2.setItens(nave2, satelite2);
@@ -192,19 +193,24 @@ public class Tabuleiro {
         if(origem.isVizinho(idDestino)){
             switch (itemMovido){
                 case "naveGuerra":
-                    if(destino.hasItem(NaveGuerra.class)){
-                        //luta nave guerra x nave guerra
+                    if(destino.hasItem(Satelite.class)!=null){
+                        // guerra X sateilite
+                        Satelite s = (Satelite) destino.hasItem(Satelite.class);
+                         item = origem.hasItem(NaveGuerra.class);
+                        //FIXME preciso da instancia do item , vamo ter que modificar as coisas ?
+                        int[] atacante  = item.lutar();
+                        int[] defensor = s.lutar();
                         movimentoValido = true;
                     }
-                    else if(destino.hasItem(NaveColonizadora.class)){
+                    else if(destino.hasItem(NaveGuerra.class)!=null){
                         //luta nave guerra X nave colonizadora
-                    }else if(destino.hasItem(Satelite.class)){
+                    }else if(destino.hasItem(NaveColonizadora.class)!=null){
                         //luta nave guerra X satelite
                     }
 
                     break;
                 case "naveColonizadora":
-                    if(destino.hasItem(NaveColonizadora.class)){
+                    if(destino.hasItem(NaveColonizadora.class)!=null){
                         movimentoValido = false;
                     }
                     break;

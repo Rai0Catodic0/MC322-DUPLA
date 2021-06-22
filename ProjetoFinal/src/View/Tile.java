@@ -29,7 +29,6 @@ public class Tile extends Pane {
     //TODO classe separada pra luta
     // tudo bem classe meio inuteis
     // so uma interface tá show
-    //FIXME isso nao deveria ser um construtor ?
     public void IniciarTile(){
         botao = new BotaoPlaneta(imgpath, positions);
         botao.setOnAction(new EventHandler<ActionEvent>() {

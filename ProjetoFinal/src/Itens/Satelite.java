@@ -6,16 +6,16 @@ import java.util.Random;
 
 public class Satelite extends Item implements ISatelite {
 
-    public Satelite(int i, int j, char repre, Tabuleiro tab){
+    public Satelite(int i, int j, String repre, Tabuleiro tab){
         super(i,j,repre,tab);
     }
 
 
     @Override
-    public int lutar(){
+    public int[] lutar(){
         Random gerador = new Random();
-        int soma =  gerador.nextInt(6) + gerador.nextInt(6) + gerador.nextInt(6);
-        return soma;
+        int[] result =  gerador.ints(0,6,3).toArray();
+        return result;
     }
 
     @Override
