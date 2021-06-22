@@ -1,5 +1,6 @@
 package View;
 
+import Tabuleiro.Jogador;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -16,9 +17,10 @@ public class BarraLateral {
         this.root = root;
     }
 
-    public void Desenhar(int valores[]){
+    public void Desenhar(Jogador jogador){
 
         //Quadrado
+        int [] valores = jogador.status();
         Rectangle lateralBar = new Rectangle();
         lateralBar.setX(0);
         lateralBar.setY(119.5);
@@ -77,21 +79,24 @@ public class BarraLateral {
         satelite.setFill(Color.BLACK);
 
         //Imagens dos itens
-
+        //FIXME fazer o getter pro repre do jogador
         // guerra
-        Image warStarshipImage = new Image("images/naveguerraa.png");
+        String guerraPath = "images/naveguerra"+jogador.repre+".png";
+        Image warStarshipImage = new Image(guerraPath);
         ImageView imageViewWarStarship = new ImageView(warStarshipImage);
         imageViewWarStarship.setX(5);
         imageViewWarStarship.setY(139.5);
 
         // colonizadora
-        Image colonizationStarshipImage = new Image("images/navecolonizadoraa.png");
+        String colonizadoraPath = "images/navecolonizadora"+jogador.repre+".png";
+        Image colonizationStarshipImage = new Image(colonizadoraPath);
         ImageView imageViewColonizationStarship = new ImageView(colonizationStarshipImage);
         imageViewColonizationStarship.setX(5);
         imageViewColonizationStarship.setY(200.5);
 
         // satelite
-        Image sateliteImage = new Image("images/satelitea.png");
+        String satelitePath = "images/satelite"+jogador.repre+".png";
+        Image sateliteImage = new Image(satelitePath);
         ImageView imageViewSatelite = new ImageView(sateliteImage);
         imageViewSatelite.setX(5);
         imageViewSatelite.setY(261.5);

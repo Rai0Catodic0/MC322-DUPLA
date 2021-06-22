@@ -43,8 +43,8 @@ public class Tabuleiro {
         this.Inserir(satelite2);
 
         //Instanciar Jogadores em suas posições
-        Jogador jogador1 = new Jogador();//posicaoJogador1[0], posicaoJogador1[1]
-        Jogador jogador2 = new Jogador();//posicaoJogador2[0], posicaoJogador2[1]
+        Jogador jogador1 = new Jogador("a");//posicaoJogador1[0], posicaoJogador1[1]
+        Jogador jogador2 = new Jogador("v");//posicaoJogador2[0], posicaoJogador2[1]
         this.j = jogador1;
         //Atualizar itens dos jogadores
         jogador1.setItens(nave1, satelite1);

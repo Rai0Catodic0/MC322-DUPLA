@@ -49,19 +49,28 @@ public class SetupScene extends Group {
         this.btnSubmit.setMinHeight(50);
         this.btnSubmit.setMinWidth(100);
 
-        //background image
-        Image background = new Image("images/backgroundsetUp.jpeg");
-        this.backgroundView = new ImageView(background);
+//background image
+Image background = new Image("images/backgroundsetUp.jpeg");
+this.backgroundView = new ImageView(background);
 
 
         this.Desenhar();
     }
 
     public void Desenhar(){
-        this.getChildren().add(backgroundView);
-        this.getChildren().add(message);
+        this.getChildren().add(this.backgroundView);
+        this.getChildren().add(this.message);
         this.getChildren().add(this.nomePlayer1);
         this.getChildren().add(this.nomePlayer2);
-        this.getChildren().add(btnSubmit);
+        this.getChildren().add(this.btnSubmit);
+    }
+
+    public void Remover(){
+        this.getChildren().remove(this.backgroundView);
+        this.getChildren().remove(this.message);
+        this.getChildren().remove(this.nomePlayer1);
+        this.getChildren().remove(this.nomePlayer2);
+        this.getChildren().remove(this.btnSubmit);
+
     }
 }

@@ -23,7 +23,7 @@ public class App extends Application {
         //Stage stage = new Stage();
         Group root = new Group();
         Group sub = new Group();
-        //Scene scene = new Scene(root,2399,1199);
+        Scene scene = new Scene(root,2399,1199);
         stage.setTitle("Conquistadores do Espaço");
         //Image background = new Image("images/exemplo_interface.png");
         Image background = new Image("images/background.png");
@@ -56,10 +56,9 @@ public class App extends Application {
         root.getChildren().add(backgroundView);
         root.getChildren().add(sub);
 
-        jogador1.Desenhar(tab.j.status());
+        jogador1.Desenhar(tab.j);
         tabg.Desenhar();
-        SetupScene setUp = new SetupScene();
-        Scene scene = new Scene(setUp);
+
         stage.setScene(scene);
         stage.show();
     }

@@ -57,12 +57,14 @@ public class Tile extends Pane {
     public void Desenhar(){
         //System.out.println("Esse é o items no desenhar "+items);
         int i = 0;
+        int [] positionsX = {0,100,0};
+        int [] positionsY = {0,100,100};
         for(Item item : this.items){
             System.out.println("61"+item);
             System.out.println(item.getImgPath());
             images[i] = new ImageView(new Image(item.getImgPath()));
-            images[i].setX(100*i);
-            images[i].setY(100*i);
+            images[i].setX(positionsX[i]);
+            images[i].setY(positionsY[i]);
             //System.out.println("Essa é o item criado: "+item);
             this.getChildren().add(images[i]);
             i++;
