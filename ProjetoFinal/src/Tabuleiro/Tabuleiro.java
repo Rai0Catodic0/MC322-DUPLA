@@ -185,11 +185,12 @@ public class Tabuleiro {
     }
 
     public boolean Mover(int idDestino, int idOrigem, String itemMovido){
-        boolean movimentoValido = true;
+        boolean movimentoValido = false;
         Planeta destino = AcharPlaneta(idDestino);
         Item item;
         Planeta origem = AcharPlaneta(idOrigem);
         if(origem.isVizinho(idDestino)){
+            System.out.println("nao é nos ids");
             switch (itemMovido){
                 case "naveGuerra":
                     if(destino.hasItem(Satelite.class)!=null){
@@ -203,8 +204,10 @@ public class Tabuleiro {
                     }
                     else if(destino.hasItem(NaveGuerra.class)!=null){
                         //luta nave guerra X nave colonizadora
+                        movimentoValido = true;
                     }else if(destino.hasItem(NaveColonizadora.class)!=null){
                         //luta nave guerra X satelite
+                        movimentoValido = true;
                     }
 
                     break;
@@ -212,11 +215,18 @@ public class Tabuleiro {
                     if(destino.hasItem(NaveColonizadora.class)!=null){
                         movimentoValido = false;
                     }
+                    else{
+                        movimentoValido = true;
+                    }
                     break;
+                default:
+                    System.out.println("218");
+                    movimentoValido = true;
             }
         }
         System.out.println("ESSE é o planeta origem "+origem);
         System.out.println("Essa é a lista do planeta origem, "+origem.getItens());
+            System.out.println("movimento: "+movimentoValido);
         if(movimentoValido == true){
             item = origem.Remover(itemMovido);
             destino.Inserir(itemMovido, item);

@@ -81,7 +81,6 @@ public class Planeta  implements IPlaneta {
         //FIXME so funciona com nave de guerra ??
         System.out.println("Essa é a lista do planeta " + this +"antes de remover :"+itens);
         Item itemRemoverI = null;
-        itemRemoverI = this.itens.
         if(itemRemovido.equals("naveColonizadora")){
             for(Item item : itens){
                 if(item instanceof NaveColonizadora){
@@ -170,13 +169,6 @@ public class Planeta  implements IPlaneta {
         }
 
         System.out.println("Planeta e que vou inserir (Planeta): " + this.id + this.i + this.j);
-    }
-
-    public Item popItem(String type){
-        for(Item i : itens){
-            if
-        }
-
     }
 
     public <tipo> Item hasItem(Class<?> tipo){
