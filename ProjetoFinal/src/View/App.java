@@ -57,8 +57,9 @@ public class App extends Application {
         root.getChildren().add(backgroundView);
         root.getChildren().add(sub);
 
-        jogador1.Desenhar(tab.j.status());
+        jogador1.Desenhar(tab.j);
         tabg.Desenhar();
+
         stage.setScene(scene);
         stage.show();
     }

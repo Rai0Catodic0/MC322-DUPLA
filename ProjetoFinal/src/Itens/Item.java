@@ -10,10 +10,10 @@ public class Item implements IItem{
     public int i;
     public int j;
     List<Recursos> coletados = new ArrayList<Recursos>();
-    public char representacao;
+    public String representacao;
     Tabuleiro tabuleiro;
 
-    public Item(int i, int j, char repre, Tabuleiro tab){
+    public Item(int i, int j, String repre, Tabuleiro tab){
         //repre dever ser ou a ou v
         //a = jogador azul
         //v = jogador verde
@@ -25,9 +25,9 @@ public class Item implements IItem{
 
     // acoes do jogo
     @Override
-    public int lutar() {
+    public int[] lutar() {
         Random gerador = new Random();
-        return gerador.nextInt(6);
+        return gerador.ints(0,6,1).toArray();
     }
 
     public void recolherRecurso(Recursos coletado) {

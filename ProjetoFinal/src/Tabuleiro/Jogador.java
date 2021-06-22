@@ -12,29 +12,17 @@ import java.util.Observer;
 public class Jogador {
     public int pontuacao;
     public List<Item> itens;
+    public String repre;
 
-    public Jogador(){
+    public Jogador(String repre){
         this.pontuacao = 0;
-        itens = new ArrayList<>();
+        this.repre = repre;
+        this.itens = new ArrayList<>();
     }
 
     public void setItens(Item nave, Item satelite){
         this.itens.add(nave);
         this.itens.add(satelite);
-    }
-
-    public boolean Mover(){
-        //TODO implementar mover
-        return true;
-    }
-
-    public boolean Construir(){
-        //TODO implementar Construir
-        return false;
-    }
-
-    public void Destruir(){
-        //TODO implementar destruir
     }
 
 //    @Override
