@@ -157,6 +157,21 @@ public class Tabuleiro {
     }
 
 
+    public void gerarRecurso(){
+        Random gerador = new Random();
+        int sorteado = gerador.nextInt();
+        int copia;
+        if(sorteado > 8){
+            copia = sorteado/2;
+            this.AcharPlaneta(copia).GerarRecursos();
+        }
+        else{
+            copia = sorteado*2;
+            this.AcharPlaneta(copia).GerarRecursos();
+        }
+        this.AcharPlaneta(sorteado).GerarRecursos();
+    }
+
     private Planeta AcharPlaneta(int id){
         for(int i = 0; i<5; i++){
             for(int j = 0; j<5;j++){
@@ -218,8 +233,6 @@ public class Tabuleiro {
     }
 
     private int[] gerarIds(){
-        //FIXME talvez duplicar os ids seja uma ideia idiota
-
         Random gerador = new Random();
         List<Integer> ids = new ArrayList<>();
         while (ids.size()<16){
