@@ -58,6 +58,8 @@ public class Tile extends Pane {
         System.out.println("Esse é a lista de itens q vou desenhra: "+items+" no planeta "+this.id);
         int i = 0;
         for(Item item : this.items){
+            System.out.println("61"+item);
+            System.out.println(item.getImgPath());
             images[i] = new ImageView(new Image(item.getImgPath()));
             images[i].setX(100*i);
             images[i].setY(100*i);

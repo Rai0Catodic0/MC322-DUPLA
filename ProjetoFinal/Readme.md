@@ -52,11 +52,11 @@ Ganha o jogador que fizer 12 pontos primeiro (cada item construído
 > para que o controle saiba quando o jogo acabou e quais ações são possíveis no turno atual\
 ![Diagrama do Componente jogador](mediasDoProjeto/CJogador.png)
 
-**Ficha Técnica**\
-item | detalhamento\
----- | ------------\
-Classe | `Tabuleiro.Jogador`\
-Autores | `Jéssica & Gabriel`\
+**Ficha Técnica**
+item | detalhamento
+---- | ------------
+Classe | `Tabuleiro.Jogador`
+Autores | `Jéssica & Gabriel`
 Interfaces | `Ijogador`
 
 
@@ -137,8 +137,8 @@ public interface ITabuleiro {
 **Ficha Técnica**
 item | detalhamento
 ----- | -----
-Classe |  `Tabuleiro.Tile`\
-Autores | `Jéssica & Gabriel`\
+Classe |  `Tabuleiro.Tile`
+Autores | `Jéssica & Gabriel`
 Interfaces | `ITile`
 
 ### Interfaces
@@ -182,7 +182,7 @@ Interface agregadora do componente em Java:
 
 ~~~java
 public interface ITileView {
-    void Update(List<Item>);
+    void Update(List<Item> itens);
     void IniciarTile();
 }
 ~~~
@@ -216,20 +216,6 @@ public interface IView {
 ~~~
 ## Detalhamento das Interfaces
 
-### Interface `<nome da interface>`
-
-`<Resumo do papel da interface.>`
-
-~~~
-<Interface em Java.>
-~~~
-
-Método | Objetivo
--------| --------
-`<id do método em Java>` | `<objetivo do método e descrição dos parâmetros>`
-
-## Exemplo:
-
 ### Interface `IItem`
 
 Padronizar e modularizar a comunicação entre as classes Item e Planeta
@@ -257,28 +243,14 @@ Método | Objetivo
 `getColetados`|retorna uma lista de recursos coletados pelos itens
 `getType` | Retorna uma string informando o nome da classe.
 `getImgpath` | Retorna uma string com o caminho para o arquivo da imagem para o item
-### Interface `IDataSetProperties`
-
-Define o recurso (usualmente o caminho para um arquivo em disco) que é a fonte de dados.
-
-~~~java
-public interface IDataSetProperties {
-  public String getDataSource();
-  public void setDataSource(String dataSource);
-}
-~~~
-
-Método | Objetivo
--------| --------
-`getDataSource` | Retorna o caminho da fonte de dados.
-`setDataSource` | Define o caminho da fonte de dados, informado através do parâmetro `dataSource`.
+`.
 
 # Plano de Exceções
 
 ## Diagrama da hierarquia de exceções
 `<Elabore um diagrama com a hierarquia de exceções como detalhado abaixo>`
 
-![Hierarquia Exceções](exception-hierarchy.png)
+![Hierarquia Exceções](mediasDoProjeto/exceções.png)
 
 ## Descrição das classes de exceção
 
@@ -286,6 +258,14 @@ Método | Objetivo
 
 Classe | Descrição
 ----- | -----
-DivisaoInvalida | Engloba todas as exceções de divisões não aceitas.
-DivisaoInutil | Indica que a divisão por 1 é inútil.
-DivisaoNaoInteira | Indica uma divisão não inteira.
+InvalidImgPath | Engloba todos os erros de caminho para imagens
+InvalidItemIcon | indica erro no caminho de uma imagem de um item
+InvalidPLanetIcon |indica erro no caminho de uma imagem de um planeta
+InvalidMovement | Engloba movimentos invalidos
+MovementOutOfReach | indica que o planeta de destino é invalido
+MovementBLockedByNaveColonizadora | indica que o planeta de destino está bloquado por outra nave colonizadora
+ItemAlreadyMoved | Indica que a peça já foi movimentada
+UnableToBuild | Engloba erros de Construção
+NotEnoughRecursos | Indica que o jogador nao possui recursos suficientes
+NotEnoughSpace | Indica que não há espaço suficiente no planeta para construir mais itens 
+

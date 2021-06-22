@@ -3,12 +3,10 @@ import java.awt.image.BufferedImage;
 import java.util.Random;
 import java.util.List;
 import java.util.ArrayList;
-
 import Recursos.Recursos;
 import Tabuleiro.Tabuleiro;
 
 public class Item implements IItem{
-    private BufferedImage ImagemItem;
     public int i;
     public int j;
     List<Recursos> coletados = new ArrayList<Recursos>();

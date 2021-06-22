@@ -2,7 +2,6 @@ package Tabuleiro;
 
 import Itens.Item;
 import Itens.NaveColonizadora;
-import Itens.NaveGuerra;
 import Itens.Satelite;
 import Recursos.*;
 import View.Tile;
@@ -10,7 +9,6 @@ import View.Tile;
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
 
 public class Planeta  implements IPlaneta {
     int i;
@@ -72,8 +70,11 @@ public class Planeta  implements IPlaneta {
         if(this.tile!=null){
             this.tile.update(this.itens);
         }
+<<<<<<< HEAD
         //FIXME hardcoded string , mudar pra concatenacao
         //this.imgpath = "images/planetacombustivel1nave";
+=======
+>>>>>>> 186574cda717ffc7d07907e0c7c325e4d668f798
     }
 
     public void Inserir(String itemInseridoString, Item itemInserido) {
@@ -172,9 +173,13 @@ public class Planeta  implements IPlaneta {
         }
 
         System.out.println("Planeta e que vou inserir (Planeta): " + this.id + this.i + this.j);
+<<<<<<< HEAD
 
     }
+=======
+>>>>>>> 186574cda717ffc7d07907e0c7c325e4d668f798
 
+    }
     public <tipo> boolean hasItem(Class<?> tipo){
         boolean isInstance;
         for(Item item: this.itens){
