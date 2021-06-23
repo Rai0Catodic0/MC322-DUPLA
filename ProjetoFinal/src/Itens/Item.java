@@ -31,7 +31,8 @@ public class Item implements IItem{
     }
 
     public void recolherRecurso(Recursos coletado) {
-         coletados.add(coletado);
+        coletado.setDono(this.representacao);
+        coletados.add(coletado);
     }
 
     // getters e setters

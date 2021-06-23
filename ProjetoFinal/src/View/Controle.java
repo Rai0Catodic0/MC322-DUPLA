@@ -23,12 +23,14 @@ public class Controle {
     private Button botaoPassarVez;
     private int vez;
     private TabuleiroGrafico tabg;
+    private int numeroinicio;
     //1 = azul
     //0 = verde
 
 
     public Controle(Tabuleiro tab, Group root) {
         this.tab = tab;
+        this.numeroinicio = 0;
         verde = tab.getJogadorVerde();
         azul = tab.getJogadorAzul();
         barraLateral = new BarraLateral(root);
@@ -55,6 +57,12 @@ public class Controle {
     }
 
     public void TrocarVez(){
+        numeroinicio ++;
+        if(numeroinicio ==2){
+            numeroinicio = 0;
+            tab.gerarRecurso();
+            System.out.println("recurso gerado");
+        }
         if(!JogoRodando()){
             System.out.println("ACABOU");
             tabg.Esconder();
@@ -98,7 +106,7 @@ public class Controle {
             getVezJogador().RemoverRecurso();
             return true;
         }
-        return false;
+        return true;
     }
 
     public void Construir(int planetaClicado, String objeto){

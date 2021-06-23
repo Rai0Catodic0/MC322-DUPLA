@@ -4,6 +4,7 @@ import Itens.Item;
 import Itens.NaveColonizadora;
 import Itens.NaveGuerra;
 import Itens.Satelite;
+import Recursos.Recursos;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -175,6 +176,7 @@ public class Tabuleiro {
 
     public void gerarRecurso(){
         Random gerador = new Random();
+        Recursos r = null ;
         int sorteado = gerador.nextInt(16);
         System.out.println("planeta"+sorteado);
         int copia;
@@ -183,12 +185,12 @@ public class Tabuleiro {
             System.out.println(copia);
             this.AcharPlaneta(copia).GerarRecursos();
         }
-        else{
+        else if(sorteado <8){
             copia = sorteado+8;
             System.out.println(copia);
             this.AcharPlaneta(copia).GerarRecursos();
         }
-        this.AcharPlaneta(sorteado).GerarRecursos();
+
     }
 
     private Planeta AcharPlaneta(int id){

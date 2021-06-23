@@ -14,12 +14,14 @@ import java.util.Observer;
 public class Jogador {
     public int pontuacao;
     public List<Item> itens;
+    public List<Recursos> recursos;
     public String repre;
 
     public Jogador(String repre){
         this.pontuacao = 0;
         this.repre = repre;
         this.itens = new ArrayList<>();
+        this.recursos = new ArrayList<>();
     }
 
     public void setItens(Item nave, Item satelite){
@@ -45,9 +47,19 @@ public class Jogador {
     public void RemoverRecurso(){
 
     }
-
+    public void setRecursos(){
+        for(Recursos recurso : itens.get(0).getColetados()){
+            if(recurso.getDono()==this.repre && recurso !=null){
+                if(!this.recursos.contains(recurso)){
+                    System.out.println("recurso "+this.repre+  " :"+recurso);
+                    this.recursos.add(recurso);
+                }
+            }
+        }
+    }
     public int[] status(){
         //metal,municao,combustivel,satelite,guerra,colonizacao
+        setRecursos();
         int[] saida = new int[6];
         Item item = itens.get(0);
         for(Recursos r : item.getColetados()){
