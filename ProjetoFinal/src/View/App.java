@@ -39,6 +39,7 @@ public class App extends Application {
         barraSelecao  = new BarraSelecao(root, controle);
         TabuleiroGrafico tabg = new TabuleiroGrafico(root, barraSelecao);
 
+
         //Linka Tile com planeta
         Planeta planetas[][] = tab.getPlanetas();
         int k = 0;
@@ -50,6 +51,7 @@ public class App extends Application {
                 }
             }
         }
+
         root.getChildren().add(backgroundView);
         controle.IniciarJogo();
         root.getChildren().add(sub);

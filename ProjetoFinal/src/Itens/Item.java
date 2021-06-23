@@ -25,9 +25,9 @@ public class Item implements IItem{
 
     // acoes do jogo
     @Override
-    public int[] lutar() {
+    public int lutar() {
         Random gerador = new Random();
-        return gerador.ints(0,6,1).toArray();
+        return gerador.ints(1,0,6).toArray()[0];
     }
 
     public void recolherRecurso(Recursos coletado) {

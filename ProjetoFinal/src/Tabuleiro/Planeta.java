@@ -2,6 +2,7 @@ package Tabuleiro;
 
 import Itens.Item;
 import Itens.NaveColonizadora;
+import Itens.NaveGuerra;
 import Itens.Satelite;
 import Recursos.*;
 import View.Tile;
@@ -83,7 +84,24 @@ public class Planeta  implements IPlaneta {
         Item itemRemoverI = null;
         if(itemRemovido.equals("naveColonizadora")){
             for(Item item : itens){
+                //System.out.println("nave colonizadora");
                 if(item instanceof NaveColonizadora){
+                    itemRemoverI = item;
+                    break;
+                }
+            }
+        }else if(itemRemovido.equals("naveGuerra")){
+            for(Item item : itens){
+                if(item instanceof NaveGuerra){
+                    //System.out.println("nave guera");
+                    itemRemoverI = item;
+                    break;
+                }
+            }
+        }else{
+            System.out.println("removendo");
+            for(Item item : itens){
+                if(item instanceof  Satelite){
                     itemRemoverI = item;
                     break;
                 }

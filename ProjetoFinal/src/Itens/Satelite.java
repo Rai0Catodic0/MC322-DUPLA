@@ -12,10 +12,14 @@ public class Satelite extends Item implements ISatelite {
 
 
     @Override
-    public int[] lutar(){
+    public int lutar(){
         Random gerador = new Random();
-        int[] result =  gerador.ints(0,6,3).toArray();
-        return result;
+        int[] result =  gerador.ints(3,0,6).toArray();
+        int max = 0;
+        for(int i = 0; i<result.length; i++){
+            max = result[i];
+        }
+        return max;
     }
 
     @Override
