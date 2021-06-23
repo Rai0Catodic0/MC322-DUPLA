@@ -1,6 +1,7 @@
 package View;
 
 
+import Itens.Item;
 import Tabuleiro.Tabuleiro;
 import Tabuleiro.Jogador;
 import javafx.event.ActionEvent;
@@ -21,6 +22,7 @@ public class Controle {
     private Group root;
     private Button botaoPassarVez;
     private int vez;
+    private TabuleiroGrafico tabg;
     //1 = azul
     //0 = verde
 
@@ -33,8 +35,8 @@ public class Controle {
         this.root = root;
         botaoPassarVez = new Button();
         botaoPassarVez.setText("Paasar a vez");
-        botaoPassarVez.setLayoutY(539.5);
-        botaoPassarVez.setLayoutX(100);
+        botaoPassarVez.setLayoutY(50);
+        botaoPassarVez.setLayoutX(0);
         botaoPassarVez.setFont(Font.font("Verdana", 15));
         botaoPassarVez.getStylesheets().add(getClass().getResource("styleBotaoSelecao.css").toExternalForm());
         botaoPassarVez.setOnAction(new EventHandler<ActionEvent>() {
@@ -48,8 +50,16 @@ public class Controle {
         System.out.println("KKKKKKKKKKKKKKKKKKKKKKKKK vez do jogador: "+vez);
     }
 
+    public void setTabuleiroGrafico(TabuleiroGrafico tabg){
+        this.tabg = tabg;
+    }
+
     public void TrocarVez(){
-        if(vez == 0){
+        if(!JogoRodando()){
+            System.out.println("ACABOU");
+            tabg.Esconder();
+        }
+        else if(vez == 0){
             barraLateral.Esconder(verde);
             barraLateral.Desenhar(azul);
             vez = 1;
@@ -71,16 +81,55 @@ public class Controle {
         return verde;
     }
 
+    public Jogador getVezProximoJogador(){
+        if (getVez() == 1) {
+            return verde;
+        }
+        return azul;
+    }
+
+    public boolean ValidarConstrucao(String objeto){
+        int [] status = getVezJogador().status();
+        if(objeto.equals("naveGuerra") && status[0]>=1 && status[1]>=1 && status[2]>=1){
+            //getVezJogador().RemoverRecurso();
+            return true;
+
+        } else if(objeto.equals("naveColonizadora") && status[0]>=1 && status[2]>=1){
+            getVezJogador().RemoverRecurso();
+            return true;
+        }
+        return false;
+    }
+
     public void Construir(int planetaClicado, String objeto){
-        tab.Construir(planetaClicado, objeto);
-        if(JogoRodando()){
+        boolean construir = ValidarConstrucao(objeto);
+        if(construir){
+            Item construido = tab.Construir(planetaClicado, objeto);
+            getVezJogador().AdicionarItem(new Object[] {0,construido});
+            barraLateral.Esconder(getVezJogador());
+            barraLateral.Desenhar(getVezJogador());
             TrocarVez();
         }
     }
 
+    public void AtualizarJogador(){
+
+    }
+
     public void Mover(int planetaClicado, int planetaRecebeAcao, String objeto){
-        tab.Mover(planetaClicado, planetaRecebeAcao, objeto);
-        if(JogoRodando()){
+        Object[] resultado = tab.Mover(planetaClicado, planetaRecebeAcao, objeto);
+        if(resultado[0].equals(-1)){
+            getVezJogador().ExcluirItem(resultado);
+            barraLateral.Esconder(getVezJogador());
+            barraLateral.Desenhar(getVezJogador());
+           TrocarVez();
+        }
+        else if(resultado[0].equals(-2)){
+            getVezProximoJogador().ExcluirItem(resultado);
+            barraLateral.Esconder(getVezJogador());
+            barraLateral.Desenhar(getVezJogador());
+            TrocarVez();
+        } else if(resultado[0].equals(0)){
             TrocarVez();
         }
     }

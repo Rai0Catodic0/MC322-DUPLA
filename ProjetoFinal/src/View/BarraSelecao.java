@@ -44,6 +44,20 @@ public class BarraSelecao {
         CriarCena();
     }
 
+    public ImageView GerarGraphic(String tipo){
+        int vez = controle.getVez();
+        ImageView imageView;
+        if(vez == 1){
+            System.out.println("images/"+tipo+"a.png");
+            Image image = new Image("images/"+tipo+"a.png");
+            imageView = new ImageView(image);
+        } else {
+            Image image = new Image("images/"+tipo+"v.png");
+            imageView = new ImageView(image);
+        }
+        return imageView;
+    }
+
 
     private void CriarCena(){
         //Botao Mover
@@ -113,10 +127,7 @@ public class BarraSelecao {
         botaoNaveColonizadora.setLayoutY(539.5);
         botaoNaveColonizadora.setLayoutX(0);
         botaoNaveColonizadora.setFont(Font.font("Verdana", 15));
-        Image imageNave = new Image(getClass().getResourceAsStream("nave.png"));
-        //Image imageNave = new Image("images/navecolonizadorav.png");
-        ImageView iNave = new ImageView(imageNave);
-        botaoNaveColonizadora.setGraphic(iNave);
+        botaoNaveColonizadora.setGraphic(GerarGraphic("navecolonizadora"));
         botaoNaveColonizadora.getStylesheets().add(getClass().getResource("styleBotaoSelecao.css").toExternalForm());
         botaoNaveColonizadora.setMinWidth(210);
         botaoNaveColonizadora.setAlignment(Pos.BASELINE_LEFT);
@@ -137,10 +148,7 @@ public class BarraSelecao {
         botaoNaveGuerra.setLayoutY(599.5);
         botaoNaveGuerra.setLayoutX(0);
         botaoNaveGuerra.setFont(Font.font("Verdana", 15));
-        Image imageNaveGuerra = new Image(getClass().getResourceAsStream("nave.png"));
-        //Image imageNaveGuerra = new Image("images/naveguerrav.png"); // trocar ?
-        ImageView iNaveGuerra = new ImageView(imageNaveGuerra);
-        botaoNaveGuerra.setGraphic(iNaveGuerra);
+        botaoNaveGuerra.setGraphic(GerarGraphic("naveguerra"));
         botaoNaveGuerra.getStylesheets().add(getClass().getResource("styleBotaoSelecao.css").toExternalForm());
         botaoNaveGuerra.setMinWidth(210);
         botaoNaveGuerra.setAlignment(Pos.BASELINE_LEFT);
@@ -161,10 +169,7 @@ public class BarraSelecao {
         botaoSatelite.setLayoutY(659.5);
         botaoSatelite.setLayoutX(0);
         botaoSatelite.setFont(Font.font("Verdana", 15));
-        Image imageSatelite = new Image(getClass().getResourceAsStream("nave.png"));
-        //Image imageSatelite = new Image("images/satelitev.png");
-        ImageView iSatelite = new ImageView(imageSatelite);
-        botaoSatelite.setGraphic(iSatelite);
+        botaoSatelite.setGraphic(GerarGraphic("satelite"));
         botaoSatelite.getStylesheets().add(getClass().getResource("styleBotaoSelecao.css").toExternalForm());
         botaoSatelite.setMinWidth(210);
         botaoSatelite.setAlignment(Pos.BASELINE_LEFT);
@@ -224,16 +229,19 @@ public class BarraSelecao {
             if(item instanceof NaveGuerra && itemNaveGuerra ==0){
                 itemNaveGuerra = 1;
                 botaoNaveGuerra.setLayoutY(y);
+                botaoNaveGuerra.setGraphic(GerarGraphic("naveguerra"));
                 root.getChildren().add(botaoNaveGuerra);
                 y+=60;
             } else if (item instanceof NaveColonizadora && itemNaveCol == 0){
                 itemNaveCol = 1;
                 botaoConstruirNaveColonizacao.setLayoutY(y);
+                botaoNaveColonizadora.setGraphic(GerarGraphic("navecolonizadora"));
                 root.getChildren().add(botaoNaveColonizadora);
                 y+=60;
             } else if(item instanceof Satelite && itemSat == 0) {
                 itemSat = 1;
                 botaoSatelite.setLayoutY(y);
+                botaoSatelite.setGraphic(GerarGraphic("satelite"));
                 root.getChildren().add(botaoSatelite);
                 y+=60;
             }

@@ -285,11 +285,10 @@ public class Tabuleiro {
         return  new Object[] {movimentoValido};
     }
 
-    public boolean Construir(int id, String objeto){
+    public Item Construir(int id, String objeto){
         Planeta p = AcharPlaneta(id);
-        p.Construir(objeto);
-        System.out.println("Planeta que vou inserir tab: "+p.id+p.i+p.j);
-        return true;
+        Item construido = p.Construir(objeto);
+        return construido;
     }
 
     // getrs e setrs

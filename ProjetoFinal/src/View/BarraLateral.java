@@ -78,7 +78,7 @@ public class BarraLateral {
 
         //colonizadora
         colonizationStarship = new Text();
-        colonizationStarship.setText(String.valueOf(0));
+        colonizationStarship.setText(String.valueOf(1));
         colonizationStarship.setX(70);
         colonizationStarship.setY(229.5);
         colonizationStarship.setFont(Font.font("Verdana", 20));
@@ -86,7 +86,7 @@ public class BarraLateral {
 
         //satelite
         satelite = new Text();
-        satelite.setText(String.valueOf(0));
+        satelite.setText(String.valueOf(1));
         satelite.setX(70); // 70
         satelite.setY(289.5); // 469.5
         satelite.setFont(Font.font("Verdana", 20));
@@ -156,12 +156,26 @@ public class BarraLateral {
     }
 
     public void Desenhar(Jogador jogador){
+        int[] status = jogador.status();
+
+        metal.setText(String.valueOf(status[0]));
         root.getChildren().add(metal);
+
+        fuel.setText(String.valueOf(status[2]));
         root.getChildren().add(fuel);
+
+        bullet.setText(String.valueOf(status[1]));
         root.getChildren().add(bullet);
+
+        warStarship.setText(String.valueOf(status[4]));
         root.getChildren().add(warStarship);
+
+        colonizationStarship.setText(String.valueOf(status[5]));
         root.getChildren().add(colonizationStarship);
+
+        satelite.setText(String.valueOf(status[3]));
         root.getChildren().add(satelite);
+
         if(jogador.repre.equals("a")){
             root.getChildren().add(imageViewColonizationStarshipAzul);
             root.getChildren().add(imageViewWarStarshipAzul);

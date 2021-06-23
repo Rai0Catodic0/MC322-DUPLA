@@ -25,4 +25,11 @@ public class TabuleiroGrafico  {
         return true;
     }
 
+    public boolean Esconder(){
+        for (Tile botao : botoes) {
+            this.root.getChildren().remove(botao);
+        }
+        return true;
+    }
+
 }

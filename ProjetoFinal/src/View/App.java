@@ -38,6 +38,7 @@ public class App extends Application {
         Controle controle = new Controle(tab, root);
         barraSelecao  = new BarraSelecao(root, controle);
         TabuleiroGrafico tabg = new TabuleiroGrafico(root, barraSelecao);
+        controle.setTabuleiroGrafico(tabg);
 
 
         //Linka Tile com planeta
