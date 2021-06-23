@@ -71,7 +71,6 @@ public class BarraSelecao {
             @Override
             public void handle(ActionEvent actionEvent) {
                 mover = true;
-                botaoMover.setDisable(true);
                 planetaRecebeAcao = planetaClicado;
             }
         });
@@ -184,6 +183,17 @@ public class BarraSelecao {
         });
     }
 
+    public boolean EhMinhaVez(Item item){
+        int vez = controle.getVez();
+        System.out.println("NA FUNÇÃO É MINHA VEZ: "+vez+item.representacao);
+        if(vez==1 && item.representacao.equals("a")){
+            return true;
+        } else if(vez==0 && item.representacao.equals("v")){
+            return true;
+        }
+        return false;
+    }
+
     private void ColocarBotoes(){
         System.out.println("nave col: "+naveColonizadoraSelecionada);
         System.out.println("nave guer: "+naveGuerraSelecionada);
@@ -217,6 +227,8 @@ public class BarraSelecao {
         root.getChildren().remove(botaoNaveColonizadora);
         root.getChildren().remove(botaoNaveGuerra);
         root.getChildren().remove(botaoSatelite);
+
+        root.getChildren().remove(botaoMover);
     }
 
     public void DesenharBarras(List<Item> itens){
@@ -226,19 +238,20 @@ public class BarraSelecao {
         int itemSat = 0;
         Esconder();
         for(Item item : itens){
-            if(item instanceof NaveGuerra && itemNaveGuerra ==0){
+            System.out.println("ESSE É A REPRE DO ITEM "+item.representacao);
+            if(item instanceof NaveGuerra && itemNaveGuerra ==0 && EhMinhaVez(item) ){
                 itemNaveGuerra = 1;
                 botaoNaveGuerra.setLayoutY(y);
                 botaoNaveGuerra.setGraphic(GerarGraphic("naveguerra"));
                 root.getChildren().add(botaoNaveGuerra);
                 y+=60;
-            } else if (item instanceof NaveColonizadora && itemNaveCol == 0){
+            } else if (item instanceof NaveColonizadora && itemNaveCol == 0 && EhMinhaVez(item)){
                 itemNaveCol = 1;
                 botaoConstruirNaveColonizacao.setLayoutY(y);
                 botaoNaveColonizadora.setGraphic(GerarGraphic("navecolonizadora"));
                 root.getChildren().add(botaoNaveColonizadora);
                 y+=60;
-            } else if(item instanceof Satelite && itemSat == 0) {
+            } else if(item instanceof Satelite && itemSat == 0 && EhMinhaVez(item)) {
                 itemSat = 1;
                 botaoSatelite.setLayoutY(y);
                 botaoSatelite.setGraphic(GerarGraphic("satelite"));
@@ -252,13 +265,16 @@ public class BarraSelecao {
         planetaClicado = id;
         System.out.println("CLICOU"+id);
         if(mover && naveColonizadoraSelecionada){
-            controle.Mover(planetaClicado, planetaRecebeAcao, "naveColonizadora");
-            botaoMover.setDisable(false);
-            mover = false;
+            if(controle.Mover(planetaClicado, planetaRecebeAcao, "naveColonizadora")){
+                mover = false;
+                Esconder();
+            }
         } else if(mover && naveGuerraSelecionada){
-            controle.Mover(planetaClicado, planetaRecebeAcao, "naveGuerra");
-            botaoMover.setDisable(false);
-            mover = false;
+            if(controle.Mover(planetaClicado, planetaRecebeAcao, "naveGuerra")){
+                mover = false;
+                Esconder();
+            }
+
         } else if (!mover){
             DesenharBarras(itens);
         }

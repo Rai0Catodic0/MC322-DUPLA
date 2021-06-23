@@ -124,22 +124,26 @@ public class Controle {
 
     }
 
-    public void Mover(int planetaClicado, int planetaRecebeAcao, String objeto){
+    public boolean Mover(int planetaClicado, int planetaRecebeAcao, String objeto){
         Object[] resultado = tab.Mover(planetaClicado, planetaRecebeAcao, objeto);
         if(resultado[0].equals(-1)){
             getVezJogador().ExcluirItem(resultado);
             barraLateral.Esconder(getVezJogador());
             barraLateral.Desenhar(getVezJogador());
            TrocarVez();
+           return true;
         }
         else if(resultado[0].equals(-2)){
             getVezProximoJogador().ExcluirItem(resultado);
             barraLateral.Esconder(getVezJogador());
             barraLateral.Desenhar(getVezJogador());
             TrocarVez();
+            return true;
         } else if(resultado[0].equals(0)){
             TrocarVez();
+            return true;
         }
+        return false;
     }
 
     private boolean JogoRodando(){
