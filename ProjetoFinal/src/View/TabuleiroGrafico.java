@@ -11,16 +11,23 @@ public class TabuleiroGrafico  {
     Group root;
     List<Tile> botoes = new ArrayList<>();
 
-    public TabuleiroGrafico(Group root, BarraSelecao controle){
+    public TabuleiroGrafico(Group root, BarraSelecao barraSelecao){
         this.root = root;
         for(int i =0; i<16;i++){
-            botoes.add(new Tile(controle));
+            botoes.add(new Tile(barraSelecao));
         }
     }
 
     public boolean Desenhar(){
         for (Tile botao : botoes) {
             this.root.getChildren().add(botao);
+        }
+        return true;
+    }
+
+    public boolean Esconder(){
+        for (Tile botao : botoes) {
+            this.root.getChildren().remove(botao);
         }
         return true;
     }

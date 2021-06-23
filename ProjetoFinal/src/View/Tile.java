@@ -17,13 +17,13 @@ public class Tile extends Pane {
     String imgpath;
     int positions[];
     int id;
-    BarraSelecao controle;
+    BarraSelecao barraSelecao;
 
-    public Tile(BarraSelecao controle) {
+    public Tile(BarraSelecao barraSelecao) {
         super();
         this.resize(100,100);
         images = new ImageView[3];
-        this.controle = controle;
+        this.barraSelecao = barraSelecao;
     }
 
     //TODO classe separada pra luta
@@ -34,7 +34,7 @@ public class Tile extends Pane {
         botao.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                controle.ClicouPlaneta(id, items);
+                barraSelecao.ClicouPlaneta(id, items);
             }
         });
 
@@ -44,7 +44,7 @@ public class Tile extends Pane {
 
     // metodos pra modificar o tile
     public void Esconder(){
-        //System.out.println("Esse é o items no esconder "+items);
+        System.out.println("Esse é o items no esconder: "+items+" do planeta "+this.id);
 
         for(int i = 0; i<3;i++){
             this.getChildren().remove(images[i]);
@@ -54,7 +54,7 @@ public class Tile extends Pane {
     }
 
     public void Desenhar(){
-        //System.out.println("Esse é o items no desenhar "+items);
+        System.out.println("Esse é a lista de itens q vou desenhra: "+items+" no planeta "+this.id);
         int i = 0;
         int [] positionsX = {0,100,0};
         int [] positionsY = {0,100,100};
@@ -71,6 +71,7 @@ public class Tile extends Pane {
     }
 
     public void update(List<Item> itens){
+        System.out.println("Essa é a nova lista de planetas que será atualizada no plabeta "+this.id+", "+itens);
         Esconder();
         this.items = itens;
         Desenhar();

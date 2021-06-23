@@ -1,6 +1,8 @@
 package Tabuleiro;
 
 import Itens.Item;
+import Itens.NaveColonizadora;
+import Itens.NaveGuerra;
 import Recursos.Recursos;
 
 
@@ -40,6 +42,10 @@ public class Jogador {
 //        }
 //    }
 
+    public void RemoverRecurso(){
+
+    }
+
     public int[] status(){
         //metal,municao,combustivel,satelite,guerra,colonizacao
         int[] saida = new int[6];
@@ -74,5 +80,40 @@ public class Jogador {
             }
         }
         return  saida;
+    }
+
+    public int getQtdItens(){
+        return itens.size();
+    }
+
+    public int getPontuacao(){
+        return this.pontuacao;
+    }
+
+    public void ExcluirItem(Object[] object){
+       for(int i = 1; i<object.length;i++){
+           itens.remove(object[i]);
+           if(object[i] instanceof NaveColonizadora){
+               pontuacao-=1;
+           } else if(object[i] instanceof NaveGuerra){
+               pontuacao-=2;
+           } else {
+               pontuacao-=3;
+           }
+       }
+    }
+
+    public void AdicionarItem(Object[] object){
+        for(int i = 1; i<object.length;i++){
+            Item item = (Item) object[i];
+            itens.add(item);
+            if(object[i] instanceof NaveColonizadora){
+                pontuacao+=1;
+            } else if(object[i] instanceof NaveGuerra){
+                pontuacao+=2;
+            } else {
+                pontuacao+=3;
+            }
+        }
     }
 }

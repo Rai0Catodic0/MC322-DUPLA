@@ -158,8 +158,9 @@ public class Planeta  implements IPlaneta {
         return ehVizinho;
     }
 
-    public void Construir(String objeto) {
+    public Item Construir(String objeto) {
         Item construtor = null;
+        Item construido = null;
         if (objeto.equals("naveGuerra")) {
             for (Item item : itens) {
                 if (item instanceof Satelite) {
@@ -167,7 +168,8 @@ public class Planeta  implements IPlaneta {
                     break;
                 }
             }
-            this.Inserir(((Satelite) construtor).ConstruirNave('g'));
+            construido = ((Satelite) construtor).ConstruirNave('g');
+            this.Inserir(construido);
         } else if (objeto.equals("satelite")) {
             for (Item item : itens) {
                 if (item instanceof NaveColonizadora) {
@@ -175,7 +177,8 @@ public class Planeta  implements IPlaneta {
                     break;
                 }
             }
-            this.Inserir(((NaveColonizadora) construtor).Construir('g'));
+            construido = ((NaveColonizadora) construtor).Construir('g');
+            this.Inserir(construido);
         } else {
             for (Item item : itens) {
                 if (item instanceof Satelite) {
@@ -183,11 +186,11 @@ public class Planeta  implements IPlaneta {
                     break;
                 }
             }
-            this.Inserir(((Satelite) construtor).ConstruirNave('c'));
+            construido = ((Satelite) construtor).ConstruirNave('c');
+            this.Inserir(construido);
         }
 
-        System.out.println("Planeta e que vou inserir (Planeta): " + this.id + this.i + this.j);
-
+        return construido;
     }
 
     public <tipo> Item hasItem(Class<?> tipo){

@@ -14,7 +14,15 @@ public class Tabuleiro {
 
     private Planeta[][] planetas;
     private int metal, municao, combustivel;
-    public Jogador j; //FIXME resolver se o tabuleiro recebe o jogador ou retorna ele
+    public Jogador azul;
+    public Jogador verde;
+
+    public Jogador getJogadorAzul(){
+        return azul;
+    }
+    public Jogador getJogadorVerde(){
+        return verde;
+    }
     public Tabuleiro() {
 
         //Instanciar Planetas
@@ -33,7 +41,8 @@ public class Tabuleiro {
         //Instanciar Jogadores em suas posições
         Jogador jogador1 = new Jogador("a");//posicaoJogador1[0], posicaoJogador1[1]
         Jogador jogador2 = new Jogador("v");//posicaoJogador2[0], posicaoJogador2[1]
-        this.j = jogador1;
+        this.azul = jogador1;
+        this.verde = jogador2;
 
         //Instanciar Itens para jogadores
         Item nave1 = new NaveColonizadora(posicaoJogador1[0], posicaoJogador1[1], jogador1.repre,this);
@@ -187,6 +196,7 @@ public class Tabuleiro {
         return null;
     }
 
+
     public Object[] Mover(int idDestino, int idOrigem, String itemMovido){
         // 0 => eh valido, 1 => nao é valido , -1 => morreu de quem mexeu , -2 => morreu de quem recebeu ;
         int movimentoValido = 1;
@@ -275,11 +285,10 @@ public class Tabuleiro {
         return  new Object[] {movimentoValido};
     }
 
-    public boolean Construir(int id, String objeto){
+    public Item Construir(int id, String objeto){
         Planeta p = AcharPlaneta(id);
-        p.Construir(objeto);
-        System.out.println("Planeta que vou inserir tab: "+p.id+p.i+p.j);
-        return true;
+        Item construido = p.Construir(objeto);
+        return construido;
     }
 
     // getrs e setrs
