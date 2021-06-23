@@ -160,14 +160,17 @@ public class Tabuleiro {
 
     public void gerarRecurso(){
         Random gerador = new Random();
-        int sorteado = gerador.nextInt();
+        int sorteado = gerador.nextInt(16);
+        System.out.println("planeta"+sorteado);
         int copia;
         if(sorteado > 8){
-            copia = sorteado/2;
+            copia = sorteado-8;
+            System.out.println(copia);
             this.AcharPlaneta(copia).GerarRecursos();
         }
         else{
-            copia = sorteado*2;
+            copia = sorteado+8;
+            System.out.println(copia);
             this.AcharPlaneta(copia).GerarRecursos();
         }
         this.AcharPlaneta(sorteado).GerarRecursos();

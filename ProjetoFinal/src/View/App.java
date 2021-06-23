@@ -37,6 +37,7 @@ public class App extends Application {
         tab = new Tabuleiro();
         TabuleiroGrafico tabg = new TabuleiroGrafico(root, controle);
 
+
         //Linka Tile com planeta
 
         Planeta planetas[][] = tab.getPlanetas();
@@ -49,7 +50,7 @@ public class App extends Application {
                 }
             }
         }
-
+        tab.gerarRecurso();
 
         BarraLateral jogador1 = new BarraLateral(root);
 
