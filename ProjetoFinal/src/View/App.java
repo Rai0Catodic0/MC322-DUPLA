@@ -44,28 +44,14 @@ public class App extends Application {
         //Linka Tile com planeta
         Planeta planetas[][] = tab.getPlanetas();
         int k = 0;
-        int metal = 0;
-        int combustivel = 0;
-        int municao = 0;
         for(int i = 0; i<5; i++){
             for(int j = 0; j<5;j++){
                 if(planetas[i][j]!=null){
                     planetas[i][j].setTile(tabg.botoes.get(k));
-                    if(planetas[i][j].type.equals("metal")){
-                        metal++;
-                    }
-                    if(planetas[i][j].type.equals("municao")){
-                        municao++;
-                    }
-                    if(planetas[i][j].type.equals("combustivel")){
-                        combustivel++;
-                    }
                     k++;
                 }
             }
         }
-
-        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+metal+combustivel+municao);
 
         root.getChildren().add(backgroundView);
         controle.IniciarJogo();
