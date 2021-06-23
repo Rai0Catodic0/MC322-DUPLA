@@ -6,8 +6,10 @@ import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 //FIXME impedir um jogador de mover a nave do outro , e arrumar o bug na hora de mover
@@ -33,8 +35,7 @@ public class App extends Application {
 
         //Cria dois Tabuleiros e controle
         tab = new Tabuleiro();
-        BarraLateral barraLateral = new BarraLateral(root);
-        Controle controle = new Controle(tab, barraLateral, root);
+        Controle controle = new Controle(tab, root);
         barraSelecao  = new BarraSelecao(root, controle);
         TabuleiroGrafico tabg = new TabuleiroGrafico(root, barraSelecao);
 
@@ -49,22 +50,12 @@ public class App extends Application {
                 }
             }
         }
-        System.out.println("aqui 1");
         root.getChildren().add(backgroundView);
-        System.out.println("aqui 2");
+        controle.IniciarJogo();
         root.getChildren().add(sub);
-        System.out.println("aqui 3");
         tabg.Desenhar();
-        System.out.println("aqui 4");
-        int l = 0;
-        while(l<100000){
-            System.out.println("loop");
-        }
         stage.setScene(scene);
-        System.out.println("aqui 5");
         stage.show();
-        System.out.println("aqui 6");
-
     }
 
 
