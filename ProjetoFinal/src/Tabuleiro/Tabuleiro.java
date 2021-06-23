@@ -184,55 +184,92 @@ public class Tabuleiro {
         return null;
     }
 
-    public boolean Mover(int idDestino, int idOrigem, String itemMovido){
-
-        boolean movimentoValido = false;
+    public Object[] Mover(int idDestino, int idOrigem, String itemMovido){
+        // 0 => eh valido, 1 => nao é valido , -1 => morreu de quem mexeu , -2 => morreu de quem recebeu ;
+        int movimentoValido = 1;
         Planeta destino = AcharPlaneta(idDestino);
         Item item;
+        Item itemdestruido = null;
         Planeta origem = AcharPlaneta(idOrigem);
         if(origem.isVizinho(idDestino)){
             System.out.println("nao é nos ids");
             switch (itemMovido){
                 case "naveGuerra":
+                        item = origem.hasItem(NaveGuerra.class);
+                        int atacante  = item.lutar();
                     if(destino.hasItem(Satelite.class)!=null){
                         // guerra X sateilite
                         Satelite s = (Satelite) destino.hasItem(Satelite.class);
-                         item = origem.hasItem(NaveGuerra.class);
                         //FIXME preciso da instancia do item , vamo ter que modificar as coisas ?
-                        int[] atacante  = item.lutar();
-                        int[] defensor = s.lutar();
-                        movimentoValido = true;
+                        int defensor = s.lutar();
+                        if(atacante > defensor){
+                            movimentoValido = -2;
+                            itemdestruido = s;
+                            System.out.println("nave ganhou");
+                            destino.Remover("satelite");
+                        }
+                        else{
+                            movimentoValido = -1;
+                        }
                     }
                     else if(destino.hasItem(NaveGuerra.class)!=null){
-                        //luta nave guerra X nave colonizadora
-                        movimentoValido = true;
+                        //luta nave guerra X nave guerra
+                        NaveGuerra n = (NaveGuerra) destino.hasItem(NaveGuerra.class);
+                        int defensor = n.lutar();
+                        if(atacante > defensor){
+                            movimentoValido = -2;
+                            itemdestruido = n;
+                            destino.Remover("naveGuerra");
+                        }
+                        else{
+                            movimentoValido = -1;
+                        }
                     }else if(destino.hasItem(NaveColonizadora.class)!=null){
                         //luta nave guerra X satelite
-                        movimentoValido = true;
+                        NaveColonizadora n = (NaveColonizadora) destino.hasItem(NaveColonizadora.class);
+                        int defensor = n.lutar();
+                        if(atacante > defensor){
+                            movimentoValido = -2;
+                            itemdestruido = n;
+                            destino.Remover("naveColonizadora");
+                        }
+                        else{
+                            movimentoValido = -1;
+                        }
+                    }else{
+                        movimentoValido = 0;
                     }
 
                     break;
                 case "naveColonizadora":
                     if(destino.hasItem(NaveColonizadora.class)!=null){
-                        movimentoValido = false;
+                        movimentoValido = 1;
                     }
                     else{
-                        movimentoValido = true;
+                        movimentoValido = 0;
                     }
                     break;
-                default:
-                    System.out.println("218");
-                    movimentoValido = true;
             }
         }
         System.out.println("ESSE é o planeta origem "+origem);
         System.out.println("Essa é a lista do planeta origem, "+origem.getItens());
             System.out.println("movimento: "+movimentoValido);
-        if(movimentoValido == true){
+        if(movimentoValido == 0){
             item = origem.Remover(itemMovido);
             destino.Inserir(itemMovido, item);
+            return new Object[] {movimentoValido};
         }
-        return  movimentoValido;
+        else if(movimentoValido == -1){
+            item = origem.Remover(itemMovido);
+            destino.Inserir(itemMovido, item);
+            return new Object[] {movimentoValido, itemdestruido};
+        }
+        else  if(movimentoValido == -2){
+            item = origem.Remover(itemMovido);
+            destino.Inserir(item);
+            return new Object[] {movimentoValido, item};
+        }
+        return  new Object[] {movimentoValido};
     }
 
     public boolean Construir(int id, String objeto){

@@ -8,9 +8,15 @@ public class NaveGuerra extends Nave implements INave{
         super(i, j, repre, tab);
     }
     @Override
-    public int[] lutar(){
+    public int lutar(){
         Random gerador = new Random();
-        int[] result = gerador.ints(0,6,2).toArray();
-        return result;
+        int[] result = gerador.ints(2,0,6).toArray();
+        int max = 0;
+        for( int i = 0; i<result.length; i ++){
+            if( max < result[i]){
+                max = result[i];
+            }
+        }
+        return max;
     }
 }
