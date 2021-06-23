@@ -14,7 +14,15 @@ public class Tabuleiro {
 
     private Planeta[][] planetas;
     private int metal, municao, combustivel;
-    public Jogador j; //FIXME resolver se o tabuleiro recebe o jogador ou retorna ele
+    public Jogador azul;
+    public Jogador verde;
+
+    public Jogador getJogadorAzul(){
+        return azul;
+    }
+    public Jogador getJogadorVerde(){
+        return verde;
+    }
     public Tabuleiro() {
 
         //Instanciar Planetas
@@ -33,7 +41,8 @@ public class Tabuleiro {
         //Instanciar Jogadores em suas posições
         Jogador jogador1 = new Jogador("a");//posicaoJogador1[0], posicaoJogador1[1]
         Jogador jogador2 = new Jogador("v");//posicaoJogador2[0], posicaoJogador2[1]
-        this.j = jogador1;
+        this.azul = jogador1;
+        this.verde = jogador2;
 
         //Instanciar Itens para jogadores
         Item nave1 = new NaveColonizadora(posicaoJogador1[0], posicaoJogador1[1], jogador1.repre,this);

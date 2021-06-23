@@ -11,10 +11,10 @@ public class TabuleiroGrafico  {
     Group root;
     List<Tile> botoes = new ArrayList<>();
 
-    public TabuleiroGrafico(Group root, BarraSelecao controle){
+    public TabuleiroGrafico(Group root, BarraSelecao barraSelecao){
         this.root = root;
         for(int i =0; i<16;i++){
-            botoes.add(new Tile(controle));
+            botoes.add(new Tile(barraSelecao));
         }
     }
 

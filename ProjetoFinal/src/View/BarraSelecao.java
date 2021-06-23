@@ -26,7 +26,7 @@ public class BarraSelecao {
     private Button botaoNaveColonizadora;
     private Button botaoNaveGuerra;
     private Button botaoSatelite;
-    private App app;
+    private Controle controle;
 
     private boolean mover = false;
     private boolean construirNaveGuerra = false;
@@ -38,9 +38,9 @@ public class BarraSelecao {
 
     private Group root;
 
-    public BarraSelecao(Group root, App app){
+    public BarraSelecao(Group root, Controle controle){
         this.root = root;
-        this.app = app;
+        this.controle = controle;
         CriarCena();
     }
 
@@ -73,7 +73,7 @@ public class BarraSelecao {
             @Override
             public void handle(ActionEvent actionEvent) {
                 construirSatelite = true;
-                app.tab.Construir(planetaClicado, "satelite");
+                controle.Construir(planetaClicado, "satelite");
             }
         });
 
@@ -88,7 +88,7 @@ public class BarraSelecao {
             @Override
             public void handle(ActionEvent actionEvent) {
                 construirNaveGuerra = true;
-                app.tab.Construir(planetaClicado, "naveGuerra");
+                controle.Construir(planetaClicado, "naveGuerra");
             }
         });
 
@@ -103,7 +103,7 @@ public class BarraSelecao {
             @Override
             public void handle(ActionEvent actionEvent) {
                 construirNaveColonizadora = true;
-                app.tab.Construir(planetaClicado, "naveColonizadora");
+                controle.Construir(planetaClicado, "naveColonizadora");
             }
         });
 
@@ -244,11 +244,11 @@ public class BarraSelecao {
         planetaClicado = id;
         System.out.println("CLICOU"+id);
         if(mover && naveColonizadoraSelecionada){
-            app.tab.Mover(planetaClicado, planetaRecebeAcao, "naveColonizadora");
+            controle.Mover(planetaClicado, planetaRecebeAcao, "naveColonizadora");
             botaoMover.setDisable(false);
             mover = false;
         } else if(mover && naveGuerraSelecionada){
-            app.tab.Mover(planetaClicado, planetaRecebeAcao, "naveGuerra");
+            controle.Mover(planetaClicado, planetaRecebeAcao, "naveGuerra");
             botaoMover.setDisable(false);
             mover = false;
         } else if (!mover){

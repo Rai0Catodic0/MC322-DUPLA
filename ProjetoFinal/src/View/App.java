@@ -1,6 +1,8 @@
 package View;
 
 import Tabuleiro.Tabuleiro;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -13,33 +15,30 @@ import javafx.stage.Stage;
 
 
 import Tabuleiro.Planeta;
+import javafx.util.Duration;
 
 public class App extends Application {
-    public BarraSelecao controle;
+    public BarraSelecao barraSelecao;
     public Tabuleiro tab;
 
 
     @Override
     public void start(Stage stage) throws Exception{
-        //Stage stage = new Stage();
         Group root = new Group();
         Group sub = new Group();
         Scene scene = new Scene(root,2399,1199);
         stage.setTitle("Conquistadores do Espaço");
-        //Image background = new Image("images/exemplo_interface.png");
         Image background = new Image("images/background.png");
         ImageView backgroundView = new ImageView(background);
-        //backgroundView.setX(0);
-        //backgroundView.setY(0);
 
-        controle  = new BarraSelecao(root, this);
-
-        //Cria dois Tabuleiros
+        //Cria dois Tabuleiros e controle
         tab = new Tabuleiro();
-        TabuleiroGrafico tabg = new TabuleiroGrafico(root, controle);
+        BarraLateral barraLateral = new BarraLateral(root);
+        Controle controle = new Controle(tab, barraLateral, root);
+        barraSelecao  = new BarraSelecao(root, controle);
+        TabuleiroGrafico tabg = new TabuleiroGrafico(root, barraSelecao);
 
         //Linka Tile com planeta
-
         Planeta planetas[][] = tab.getPlanetas();
         int k = 0;
         for(int i = 0; i<5; i++){
@@ -50,18 +49,22 @@ public class App extends Application {
                 }
             }
         }
-
-
-        BarraLateral jogador1 = new BarraLateral(root);
-
+        System.out.println("aqui 1");
         root.getChildren().add(backgroundView);
+        System.out.println("aqui 2");
         root.getChildren().add(sub);
-
-        jogador1.Desenhar(tab.j);
+        System.out.println("aqui 3");
         tabg.Desenhar();
-
+        System.out.println("aqui 4");
+        int l = 0;
+        while(l<100000){
+            System.out.println("loop");
+        }
         stage.setScene(scene);
+        System.out.println("aqui 5");
         stage.show();
+        System.out.println("aqui 6");
+
     }
 
 

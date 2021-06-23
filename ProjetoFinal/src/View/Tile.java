@@ -17,13 +17,13 @@ public class Tile extends Pane {
     String imgpath;
     int positions[];
     int id;
-    BarraSelecao controle;
+    BarraSelecao barraSelecao;
 
-    public Tile(BarraSelecao controle) {
+    public Tile(BarraSelecao barraSelecao) {
         super();
         this.resize(100,100);
         images = new ImageView[3];
-        this.controle = controle;
+        this.barraSelecao = barraSelecao;
     }
 
     //TODO classe separada pra luta
@@ -34,7 +34,7 @@ public class Tile extends Pane {
         botao.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                controle.ClicouPlaneta(id, items);
+                barraSelecao.ClicouPlaneta(id, items);
             }
         });
 

@@ -75,4 +75,12 @@ public class Jogador {
         }
         return  saida;
     }
+
+    public int getQtdItens(){
+        return itens.size();
+    }
+
+    public int getPontuacao(){
+        return this.pontuacao;
+    }
 }
