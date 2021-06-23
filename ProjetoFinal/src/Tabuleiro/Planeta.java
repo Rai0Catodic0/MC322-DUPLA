@@ -20,7 +20,7 @@ public class Planeta  implements IPlaneta {
     int[] idVizinhos;
     Tile tile;
     public List<Item> itens = new ArrayList<>();
-    String type;
+    public String type;
     String imgpath;
 
     public String getImgpath() {

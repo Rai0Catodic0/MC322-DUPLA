@@ -44,7 +44,7 @@ public class Tile extends Pane {
 
     // metodos pra modificar o tile
     public void Esconder(){
-        System.out.println("Esse é o items no esconder: "+items+" do planeta "+this.id);
+        //System.out.println("Esse é o items no esconder: "+items+" do planeta "+this.id);
 
         for(int i = 0; i<3;i++){
             this.getChildren().remove(images[i]);
@@ -54,7 +54,7 @@ public class Tile extends Pane {
     }
 
     public void Desenhar(){
-        System.out.println("Esse é a lista de itens q vou desenhra: "+items+" no planeta "+this.id);
+        //System.out.println("Esse é a lista de itens q vou desenhra: "+items+" no planeta "+this.id);
         int i = 0;
         int [] positionsX = {0,100,0};
         int [] positionsY = {0,100,100};
@@ -71,7 +71,7 @@ public class Tile extends Pane {
     }
 
     public void update(List<Item> itens){
-        System.out.println("Essa é a nova lista de planetas que será atualizada no plabeta "+this.id+", "+itens);
+        //System.out.println("Essa é a nova lista de planetas que será atualizada no plabeta "+this.id+", "+itens);
         Esconder();
         this.items = itens;
         Desenhar();

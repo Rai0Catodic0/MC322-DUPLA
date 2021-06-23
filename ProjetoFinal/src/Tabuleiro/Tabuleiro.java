@@ -65,21 +65,27 @@ public class Tabuleiro {
 
     private String SortearPlaneta(){
         Random sortear = new Random();
-        int sorteado = sortear.nextInt(3);
-        System.out.println(sorteado);
-        if(sorteado==0 && this.metal < 7){
-            this.metal++;
-            return "metal";
+        List<String> recursos = new ArrayList<>();
+        if(this.metal<7){
+            recursos.add("metal");
         }
-        else if(sorteado==1 && this.combustivel < 5){
-            this.combustivel++;
-            return "combustivel";
+        if(this.combustivel<5){
+            recursos.add("combustivel");
         }
-        else if(this.municao <4){
+        if(this.municao<4){
+            recursos.add("municao");
+        }
+        int bound = recursos.size();
+        int sorteado = sortear.nextInt(bound);
+        String recursoSorteado = recursos.get(sorteado);
+        if(recursoSorteado.equals("municao")){
             this.municao++;
-            return "municao";
+        } else if(recursoSorteado.equals("metal")){
+            this.metal++;
+        } else {
+            this.combustivel++;
         }
-        return "metal";
+        return recursoSorteado;
     }
 
     private Planeta[][] InstanciarPlanetas(){
